@@ -11,7 +11,9 @@
 		}
 	}
 </script>
+import "@/static/tailwind.css"
+<style>
+</style>
 
 <style>
-	/*每个页面公共css */
 </style>
