@@ -1,6 +1,16 @@
 <template>
 	<view class="content">
-		这里是首页
+		<view class="home-banner" >
+			<image class="full-image"  mode="aspectFill" src="/static/images/home/home-banner.png" alt=""/>
+		</view>
+		<view class="acvive">
+			<view class="one">
+				<image class="full-image"  mode="aspectFill" src="/static/images/home/home-shop.png" alt=""/>
+			</view>
+			<view class="two">
+				<image class="full-image"  mode="aspectFill" src="/static/images/home/home-active.png" alt=""/>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -12,30 +22,26 @@ onMounted(() => {
 })
 </script>
 
-<style>
-.content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
-}
-
-.text-area {
-	display: flex;
-	justify-content: center;
-}
-
-.title {
-	font-size: 36rpx;
-	color: #8f8f94;
-}
+<style scoped>
+	.home-banner {
+		width: 100%;
+		height: 580px;
+	}
+	.acvive {
+		width: 100%;
+		background-color: #FFFBF2;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 16px 0;
+		
+	}
+	.one {
+		width: 119px;
+		height: 116px;
+	}
+	.two {
+		width: 210px;
+		height: 116px;
+	}
 </style>

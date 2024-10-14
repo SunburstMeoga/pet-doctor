@@ -11,9 +11,8 @@
 		}
 	}
 </script>
-import "@/static/tailwind.css"
-<style>
-</style>
 
 <style>
+	/* import "@/static/tailwind.css" */
+	@import "/static/common.css";
 </style>

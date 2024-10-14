@@ -3,14 +3,15 @@
 		{
 			"path": "pages/home/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path" : "pages/petInfor/index",
+			"path" : "pages/report/index",
 			"style" : 
 			{
-				"navigationBarTitleText" : "宠物身份证"
+				"navigationBarTitleText" : "报告"
 			}
 		},
 		{
@@ -19,32 +20,47 @@
 			{
 				"navigationBarTitleText" : "购物车"
 			}
+		},
+		{
+			"path" : "pages/personal/index",
+			"style" : 
+			{
+				"navigationBarTitleText" : "个人"
+			}
 		}
 	],
+	
 	"tabBar": {
-	    "color": "#7A7E83",
-	    "selectedColor": "#3cc51f",
+	    "color": "#8C8C8C",
+	    "selectedColor": "#222",
 	    "borderStyle": "black",
 	    "backgroundColor": "#ffffff",
 	    "list": [
 	      {
 	        "pagePath": "pages/home/index",
-	        // "iconPath": "static/images/home.png",
-	        // "selectedIconPath": "static/images/home-selected.png",
+	        "iconPath": "static/images/icon/home.png",
+	        "selectedIconPath": "static/images/icon/home-active.png",
 	        "text": "首页"
 	      },
-	      {
-	        "pagePath": "pages/petInfor/index",
-	        // "iconPath": "static/images/home.png",
-	        // "selectedIconPath": "static/images/home-selected.png",
-	        "text": "宠物身份证"
-	      },
+		  {
+			  "pagePath": "pages/report/index",
+			  "text": "报告",
+			  "iconPath": "static/images/icon/report.png",
+			  "selectedIconPath": "static/images/icon/report-active.png"
+		  },
 		  {
 		    "pagePath": "pages/cart/index",
-		    // "iconPath": "static/images/home.png",
-		    // "selectedIconPath": "static/images/home-selected.png",
-		    "text": "购物车"
-		  }
+		    "text": "购物车",
+			"iconPath": "static/images/icon/cart.png",
+			"selectedIconPath": "static/images/icon/cart.png"
+		  },
+	      {
+	        "pagePath": "pages/personal/index",
+	        "iconPath": "static/images/icon/personal.png",
+			"selectedIconPath": "static/images/icon/personal-active.png",
+	        "text": "个人"
+	      }
+		  
 	      // ... 其他 tabBar 项 ...
 	    ]
 	  },
