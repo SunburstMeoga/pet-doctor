@@ -12,8 +12,7 @@ const _sfc_main = {
       return {
         a: common_assets._imports_0,
         b: common_assets._imports_1,
-        c: common_assets._imports_2,
-        d: common_assets._imports_3
+        c: common_assets._imports_2
       };
     };
   }

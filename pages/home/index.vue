@@ -3,10 +3,23 @@
 		<view class="logo">
 			<image mode="aspectFit" src="/static/images/logo.png" alt=""/>
 		</view>
-		<view class="home-banner" >
-			<image mode="aspectFill" src="/static/images/home/home-banner.png" alt=""/>
+		<view class="home-banner" style="background-image: url('../../static/images/home/home-banner.png');">
+			<div class="home-operating flex justify-end items-center">
+				<div class="home-button home-mbti">
+					<div>爱宠MBTI</div>
+					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
+						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
+					</div>
+				</div>
+				<div class="home-button home-eval">
+					<div>开始测评</div>
+					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
+						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
+					</div>
+				</div>
+			</div>
 		</view>
-		<view class="acvive">
+		<view class="acvive items-center">
 			<view class="one">
 				<image  mode="aspectFill" src="/static/images/home/home-shop.png" alt=""/>
 			</view>
@@ -26,7 +39,44 @@ onMounted(() => {
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+	.home-operating {
+		position: absolute;
+		bottom: 38rpx;
+		left: 0;
+		width:100%;
+		flex-direction: column;
+	}
+	.home-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 308rpx;
+		height: 94rpx;
+		color: #222;
+		font-size: 32rpx;
+		border-radius: 24rpx;
+		&-title {
+			
+		}
+			
+		&-icon {
+			margin-left: 16rpx;
+			width: 8rpx;
+			height: 16rpx;
+			// border: 1px solid red;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	}
+	.home-mbti {
+		background-color: #fff;
+	}
+	.home-eval {
+		background-color: #fce068;
+		margin-top: 24rpx;
+	}
 	.content {
 		position: relative;
 		background-color: #FFFBF2;
@@ -41,8 +91,13 @@ onMounted(() => {
 		left:32rpx;
 	}
 	.home-banner {
-		width: 100%;
-		height: 1060rpx;
+		// width: 100%;
+		height: 1158rpx;
+		/* background-image: url("../../static/images/home/home-banner.png"); */
+		position: relative;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
 	}
 	.acvive {
 		width: 100%;
