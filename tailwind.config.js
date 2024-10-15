@@ -36,7 +36,7 @@ module.exports = {
             spacing(config) {  
                 let result = { 0: '0' }  
                 // 允许的数值大一些也无所谓，最后打包tailwindcss会摇树优化，未使用的样式并不会打包  
-                for (let i = 1; i <= 300; i++  ) {  
+                for (let i = 1; i <= 700; i++  ) {  
                     result[i] = `${i}rpx`  
                 }  
                 return result  
@@ -44,7 +44,7 @@ module.exports = {
             // 增加颜色板，现在主流UI组件库大都是采用css变量实现定制主题，所以这里引用了全局的css变量，这个css变量的定义位置可以在 App.vue 中 page{} 选择器下  
             // 其实tailwindcss只是一个css工具，不必局限于它内部提供的东西，灵活运用css变量这些特性完全可以整合出自己的生产力工具  
             colors:{   
-                'primary': 'var(--x-color-primary)',  
+                'primary': '',  
                 'tips' : 'var(--x-color-tips)'  
             },  
         },  

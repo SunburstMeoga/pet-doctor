@@ -1,0 +1,134 @@
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.container.data-v-708312cf {
+  width: 100%;
+  color: #222;
+  flex-direction: column;
+}
+.container .swiper-box.data-v-708312cf {
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.container .content.data-v-708312cf {
+  padding-top: 80rpx;
+  width: 622rpx;
+  margin: 0 auto;
+}
+.container .content-theme.data-v-708312cf {
+  width: 100%;
+  margin-bottom: 160rpx;
+}
+.container .content-theme-number.data-v-708312cf {
+  border: 1rpx solid #222;
+  border-radius: 49%;
+  width: 268rpx;
+  height: 106rpx;
+}
+.container .content-theme-number-current.data-v-708312cf {
+  font-weight: bold;
+  font-size: 72rpx;
+}
+.container .content-theme-number-total.data-v-708312cf {
+  font-size: 40rpx;
+  color: #8c8c8c;
+}
+.container .content-theme-type.data-v-708312cf {
+  margin-left: 8rpx;
+  font-size: 40rpx;
+}
+.container .content-question.data-v-708312cf {
+  width: 622rpx;
+}
+.container .content-question-title.data-v-708312cf {
+  font-size: 48rpx;
+  margin-bottom: 96rpx;
+  width: 480rpx;
+}
+.container .content-question-options.data-v-708312cf {
+  width: 622rpx;
+}
+.container .content-question-options-item.data-v-708312cf {
+  width: 100%;
+  border-radius: 24rpx;
+  text-align: center;
+  padding: 24rpx 0;
+  margin-bottom: 64rpx;
+}
+.container .content-question-options-item-title.data-v-708312cf {
+  font-size: 36rpx;
+  margin-bottom: 8rpx;
+  font-weight: medium;
+}
+.container .content-question-options-item-content.data-v-708312cf {
+  font-size: 28rpx;
+}
+.container .go-back.data-v-708312cf {
+  position: fixed;
+  left: 0;
+  bottom: 88rpx;
+  width: 100%;
+}
+.container .go-back-button.data-v-708312cf {
+  width: 486rpx;
+  height: 92rpx;
+  background-color: #222;
+  color: #fce068;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-radius: 24rpx;
+}
+.container .go-back-check.data-v-708312cf {
+  width: 200rpx;
+  height: 92rpx;
+  background-color: #f0f0f0;
+  color: #222;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-radius: 24rpx;
+}
+.container .go-back-result.data-v-708312cf {
+  width: 462rpx;
+  height: 92rpx;
+  background-color: #222;
+  color: #fce068;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-radius: 24rpx;
+}
+.content-question-options-item-active.data-v-708312cf {
+  background-color: rgba(252, 224, 104, 0.1);
+  border: 1rpx solid #FCE068;
+  color: #222;
+}
+.content-question-options-item-unactive.data-v-708312cf {
+  background-color: #f5f5f5;
+  border: 1rpx solid #f5f5f5;
+  color: #8c8c8c;
+}

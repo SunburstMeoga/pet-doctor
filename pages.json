@@ -1,6 +1,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/home/mbti_questiton",
+			"style": {
+				"navigationBarTitleText": "测测爱宠的MBTI"
+			}
+		},
+		{
+			"path": "pages/home/pet_mbti",
+			"style": {
+				"navigationBarTitleText": "测测爱宠的MBTI"
+			}
+		},
+		{
 			"path": "pages/home/index",
 			"style": {
 				"navigationBarTitleText": "首页",
@@ -8,62 +20,58 @@
 			}
 		},
 		{
-			"path" : "pages/report/index",
-			"style" : 
-			{
-				"navigationBarTitleText" : "报告"
+			"path": "pages/report/index",
+			"style": {
+				"navigationBarTitleText": "报告"
 			}
 		},
 		{
-			"path" : "pages/cart/index",
-			"style" : 
-			{
-				"navigationBarTitleText" : "购物车"
+			"path": "pages/cart/index",
+			"style": {
+				"navigationBarTitleText": "购物车"
 			}
 		},
 		{
-			"path" : "pages/personal/index",
-			"style" : 
-			{
-				"navigationBarTitleText" : "个人"
+			"path": "pages/personal/index",
+			"style": {
+				"navigationBarTitleText": "个人"
 			}
 		}
 	],
-	
+
 	"tabBar": {
-	    "color": "#8C8C8C",
-	    "selectedColor": "#222",
-	    "borderStyle": "black",
-	    "backgroundColor": "#ffffff",
-	    "list": [
-	      {
-	        "pagePath": "pages/home/index",
-	        "iconPath": "static/images/icon/home.png",
-	        "selectedIconPath": "static/images/icon/home-active.png",
-	        "text": "首页"
-	      },
-		  {
-			  "pagePath": "pages/report/index",
-			  "text": "报告",
-			  "iconPath": "static/images/icon/report.png",
-			  "selectedIconPath": "static/images/icon/report-active.png"
-		  },
-		  {
-		    "pagePath": "pages/cart/index",
-		    "text": "购物车",
-			"iconPath": "static/images/icon/cart.png",
-			"selectedIconPath": "static/images/icon/cart.png"
-		  },
-	      {
-	        "pagePath": "pages/personal/index",
-	        "iconPath": "static/images/icon/personal.png",
-			"selectedIconPath": "static/images/icon/personal-active.png",
-	        "text": "个人"
-	      }
-		  
-	      // ... 其他 tabBar 项 ...
-	    ]
-	  },
+		"color": "#8C8C8C",
+		"selectedColor": "#222",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/home/index",
+				"iconPath": "static/images/icon/home.png",
+				"selectedIconPath": "static/images/icon/home-active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/report/index",
+				"text": "报告",
+				"iconPath": "static/images/icon/report.png",
+				"selectedIconPath": "static/images/icon/report-active.png"
+			},
+			{
+				"pagePath": "pages/cart/index",
+				"text": "购物车",
+				"iconPath": "static/images/icon/cart.png",
+				"selectedIconPath": "static/images/icon/cart.png"
+			},
+			{
+				"pagePath": "pages/personal/index",
+				"iconPath": "static/images/icon/personal.png",
+				"selectedIconPath": "static/images/icon/personal-active.png",
+				"text": "个人"
+			}
+
+			// ... 其他 tabBar 项 ...
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
