@@ -15,4 +15,5 @@
 <style>
 	/* import "@/static/tailwind.css" */
 	@import "/static/common.css";
+	@import "/static/tailwind.css"
 </style>

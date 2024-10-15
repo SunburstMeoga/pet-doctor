@@ -1,1 +1,1 @@
-<view class="content data-v-4978fed5"><view class="home-banner data-v-4978fed5"><image class="full-image data-v-4978fed5" mode="aspectFill" src="{{a}}" alt=""/></view><view class="acvive data-v-4978fed5"><view class="one data-v-4978fed5"><image class="full-image data-v-4978fed5" mode="aspectFill" src="{{b}}" alt=""/></view><view class="two data-v-4978fed5"><image class="full-image data-v-4978fed5" mode="aspectFill" src="{{c}}" alt=""/></view></view></view>
+<view class="content data-v-4978fed5"><view class="text-red-500 data-v-4978fed5"></view></view>

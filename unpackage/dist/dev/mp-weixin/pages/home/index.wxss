@@ -1,4 +1,14 @@
 
+.content.data-v-4978fed5 {
+		position: relative;
+}
+.logo.data-v-4978fed5 {
+		position: absolute;
+		left: 10px;
+		top: 20px;
+		z-index: 20;
+		width: 148px;
+}
 .home-banner.data-v-4978fed5 {
 		width: 100%;
 		height: 580px;

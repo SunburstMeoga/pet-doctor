@@ -2,3 +2,9 @@ image {
 	width: 100%; /* 图片宽度为100% */
 	height: 100%; /* 图片高度为100% */
 }
+.flex {
+	display: flex;
+}
+.d {
+	justify-content: center;
+}

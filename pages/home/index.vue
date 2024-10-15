@@ -1,5 +1,10 @@
 <template>
 	<view class="content">
+		<view class="text-red-500">
+		</view>
+		<!-- <view class="logo text-red-500">
+			<image class="full-image" style="width: 148px;" mode="aspectFill" src="/static/images/logo.png" alt=""/>
+		</view>
 		<view class="home-banner" >
 			<image class="full-image"  mode="aspectFill" src="/static/images/home/home-banner.png" alt=""/>
 		</view>
@@ -10,7 +15,7 @@
 			<view class="two">
 				<image class="full-image"  mode="aspectFill" src="/static/images/home/home-active.png" alt=""/>
 			</view>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -23,6 +28,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+	.content {
+		position: relative;
+	}
+	.logo {
+		position: absolute;
+		left: 10px;
+		top: 20px;
+		z-index: 20;
+		width: 148px;
+	}
 	.home-banner {
 		width: 100%;
 		height: 580px;

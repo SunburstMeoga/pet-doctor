@@ -4,4 +4,23 @@ image {
 	width: 100%; /* 图片宽度为100% */
 	height: 100%; /* 图片高度为100% */
 }
+.flex {
+	display: flex;
+}
+.d {
+	justify-content: center;
+}
+.absolute {
+  position: absolute
+}
+.relative {
+  position: relative
+}
+.flex {
+  display: flex
+}
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity))
+}
 page{--status-bar-height:25px;--top-window-height:0px;--window-top:0px;--window-bottom:0px;--window-left:0px;--window-right:0px;--window-magin:0px}[data-c-h="true"]{display: none !important;}
