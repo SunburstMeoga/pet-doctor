@@ -21,3 +21,8 @@ image {
 .items-center	{align-items: center;}
 .items-baseline	{align-items: baseline;}
 .items-stretch	{align-items: stretch;}
+.image-bg {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}

@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/report/index",
     "pages/home/index",
     "pages/home/mbti_questiton",
     "pages/home/pet_mbti",
-    "pages/report/index",
     "pages/cart/index",
     "pages/personal/index"
   ],

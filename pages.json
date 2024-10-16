@@ -1,12 +1,19 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/report/index",
+			"style": {
+				"navigationBarTitleText": "报告",
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/home/index",
 			"style": {
 				"navigationBarTitleText": "首页",
 				"navigationStyle": "custom"
 			}
-		},{
+		}, {
 			"path": "pages/home/mbti_questiton",
 			"style": {
 				"navigationBarTitleText": "测测爱宠的MBTI"
@@ -16,13 +23,6 @@
 			"path": "pages/home/pet_mbti",
 			"style": {
 				"navigationBarTitleText": "测测爱宠的MBTI"
-			}
-		},
-		
-		{
-			"path": "pages/report/index",
-			"style": {
-				"navigationBarTitleText": "报告"
 			}
 		},
 		{
