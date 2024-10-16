@@ -30,6 +30,10 @@
   position: relative;
   width: 100%;
   flex-direction: column;
+  border-radius: 50%/10%;
+  border-top-right-radius: 0%;
+  border-top-left-radius: 0%;
+  overflow: hidden;
 }
 .content .swiper-box.data-v-14542b8b {
   width: 750rpx;
@@ -39,9 +43,104 @@
 .content .swiper-item.data-v-14542b8b {
   width: 622rpx;
   height: 220rpx;
-  border: 1px solid red;
   text-align: center;
   line-height: 220rpx;
+}
+.card-info.data-v-14542b8b {
+  padding: 32rpx;
+  color: #222;
+}
+.card-info .diamond.data-v-14542b8b {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #de5516;
+  transform: rotate(45deg);
+}
+.card-info-name.data-v-14542b8b {
+  color: black;
+  margin-bottom: 40rpx;
+  font-size: 16rpx;
+  height: 18rpx;
+  font-weight: bolder;
+}
+.card-info-property.data-v-14542b8b {
+  margin-bottom: 26rpx;
+  height: 40rpx;
+}
+.card-info-property-variety.data-v-14542b8b {
+  font-size: 28rpx;
+  margin: 0 12rpx;
+}
+.card-info-property-gender.data-v-14542b8b {
+  font-size: 32rpx;
+  color: #FF6D6D;
+}
+.card-info-date.data-v-14542b8b {
+  height: 40rpx;
+}
+.card-info-date-number.data-v-14542b8b {
+  margin-left: 12rpx;
+}
+.report-list.data-v-14542b8b {
+  width: 670rpx;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 34rpx;
+}
+.report-list-item.data-v-14542b8b {
+  width: 670rpx;
+  min-height: 172rpx;
+  background-color: #F7F7F7;
+  border-radius: 16rpx;
+  padding: 28rpx 0;
+}
+.report-list-item-left.data-v-14542b8b {
+  width: 100rpx;
+  height: 78rpx;
+  margin: 0 34rpx;
+}
+.report-list-item-line.data-v-14542b8b {
+  height: 172rpx;
+  width: 1rpx;
+  margin-right: 16rpx;
+  background-color: #c8c8c8;
+}
+.report-list-item-right.data-v-14542b8b {
+  flex-direction: column;
+  flex: 1;
+}
+.report-list-item-right-property.data-v-14542b8b {
+  flex: 1;
+}
+.report-list-item-right-property-title.data-v-14542b8b {
+  color: #8c8c8c;
+  font-size: 24rpx;
+  margin-right: 40rpx;
+}
+.report-list-item-right-property-content.data-v-14542b8b {
+  width: 340rpx;
+  height: 20rpx;
+}
+.report-list-item-right-property-content-left.data-v-14542b8b {
+  color: #faad14;
+  font-size: 24rpx;
+}
+.report-list-item-right-property-content-middle.data-v-14542b8b {
+  flex: 1;
+  height: 20rpx;
+  border-radius: 4rpx;
+  background-color: #e5e5e5;
+  margin: 0 8rpx;
+}
+.report-list-item-right-property-content-middle-step.data-v-14542b8b {
+  width: 200rpx;
+  height: 20rpx;
+  border-radius: 4rpx;
+  background-color: #faad14;
+}
+.report-list-item-right-property-content-right.data-v-14542b8b {
+  color: #8c8c8c;
+  font-size: 24rpx;
 }
 .logo.data-v-14542b8b {
   width: 296rpx;

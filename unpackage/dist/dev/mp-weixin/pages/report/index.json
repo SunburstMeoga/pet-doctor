@@ -1,5 +1,8 @@
 {
   "navigationBarTitleText": "报告",
   "navigationStyle": "custom",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-swipe-action-item": "../../uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item",
+    "uni-swipe-action": "../../uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action"
+  }
 }
