@@ -164,6 +164,7 @@
 				line-height: 96rpx;
 				color: #474747;
 				font-size: 28rpx;
+			
 			}
 		}
 	}
