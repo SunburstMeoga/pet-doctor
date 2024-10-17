@@ -1,8 +1,5 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.4.13"
-  },
-  "dependencies": {
-    "vant": "^3.4.3"
   }
 }

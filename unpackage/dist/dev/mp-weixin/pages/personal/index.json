@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "个人",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

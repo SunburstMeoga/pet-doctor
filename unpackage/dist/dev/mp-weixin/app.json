@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/personal/index",
     "pages/report/index",
     "pages/home/index",
     "pages/home/mbti_questiton",
     "pages/home/pet_mbti",
-    "pages/cart/index",
-    "pages/personal/index"
+    "pages/cart/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
