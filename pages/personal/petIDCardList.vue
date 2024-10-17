@@ -10,7 +10,7 @@
 						爱宠身份证
 					</div>
 				</div>
-				<div class="content-title-right flex justify-end items-center">
+				<div class="content-title-right flex justify-end items-center" v-show="cardList.length !== 0">
 					<div class="content-title-right-operating flex justify-start items-center">
 						<div class="content-title-right-operating-icon icon iconfont icon-setting"></div>
 						<div class="content-title-right-operating-word">管理</div>
@@ -21,9 +21,16 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-list">
-				<div class="content-list-item" v-for="(item,index) in 4" :key="index">
+			<div class="content-list" v-show="cardList.length !== 0">
+				<div class="content-list-item" v-for="(item,index) in cardList" :key="index">
 					<pet-card></pet-card>
+				</div>
+			</div>
+			<div v-if="cardList.length === 0" class="content-empty flex justify-center items-center">
+				<div class="content-empty-word">暂无内容</div>
+				<div class="content-empty-button flex justify-center items-center">
+					<div class="content-empty-button-icon icon iconfont icon-add"></div>
+					<div class="content-empty-button-word">新增</div>
 				</div>
 			</div>
 		</div>
@@ -31,7 +38,9 @@
 </template>
 
 <script setup>
+	import {ref} from 'vue'
 	import petCard from '../../components/petCard.vue';
+	let cardList = ref([])
 </script>
 
 <style lang="scss" scoped>
@@ -85,6 +94,25 @@
 					margin-bottom: 32rpx;
 					border-radius: 16rpx;
 					overflow: hidden;
+				}
+			}
+			&-empty {
+				flex-direction: column;
+				margin-top: 100rpx;
+				&-word {
+					color: #222;
+					font-size: 32rpx;
+					margin-bottom: 39rpx;
+				}
+				&-button {
+					width: 218rpx;
+					height: 92rpx;
+					color: #FCE068;
+					background-color: #222;
+					border-radius: 24rpx;
+					&-word {
+						margin-left: 10rpx;
+					}
 				}
 			}
 		}

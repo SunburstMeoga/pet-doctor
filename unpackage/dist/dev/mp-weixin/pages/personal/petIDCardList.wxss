@@ -72,3 +72,22 @@
   border-radius: 16rpx;
   overflow: hidden;
 }
+.container .content-empty.data-v-9a7bd0cc {
+  flex-direction: column;
+  margin-top: 100rpx;
+}
+.container .content-empty-word.data-v-9a7bd0cc {
+  color: #222;
+  font-size: 32rpx;
+  margin-bottom: 39rpx;
+}
+.container .content-empty-button.data-v-9a7bd0cc {
+  width: 218rpx;
+  height: 92rpx;
+  color: #FCE068;
+  background-color: #222;
+  border-radius: 24rpx;
+}
+.container .content-empty-button-word.data-v-9a7bd0cc {
+  margin-left: 10rpx;
+}
