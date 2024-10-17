@@ -43,13 +43,16 @@ image {
 }
 @font-face {
   font-family: "iconfont"; /* Project id 4715078 */
-  src: url('//at.alicdn.com/t/c/font_4715078_mom7n2o4un.woff2?t=1729159795176') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4715078_mom7n2o4un.woff?t=1729159795176') format('woff'),
-       url('//at.alicdn.com/t/c/font_4715078_mom7n2o4un.ttf?t=1729159795176') format('truetype'),
-       url('//at.alicdn.com/t/c/font_4715078_mom7n2o4un.svg?t=1729159795176#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.woff2?t=1729176811001') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.woff?t=1729176811001') format('woff'),
+       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.ttf?t=1729176811001') format('truetype'),
+       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.svg?t=1729176811001#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
+}
+.icon-close:before {
+  content: "\e62b";
 }
 .icon-a-duobianxing1:before {
   content: "\e603";

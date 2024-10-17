@@ -74,10 +74,10 @@
 }
 .container .content-empty.data-v-9a7bd0cc {
   flex-direction: column;
-  margin-top: 100rpx;
+  margin-top: 200rpx;
 }
 .container .content-empty-word.data-v-9a7bd0cc {
-  color: #222;
+  color: #8c8c8c;
   font-size: 32rpx;
   margin-bottom: 39rpx;
 }

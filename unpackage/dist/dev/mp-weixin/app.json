@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/personal/identityInfo",
     "pages/personal/petIDCardList",
     "pages/personal/index",
     "pages/report/index",

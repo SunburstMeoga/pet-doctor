@@ -98,9 +98,9 @@
 			}
 			&-empty {
 				flex-direction: column;
-				margin-top: 100rpx;
+				margin-top: 200rpx;
 				&-word {
-					color: #222;
+					color: #8c8c8c;
 					font-size: 32rpx;
 					margin-bottom: 39rpx;
 				}
