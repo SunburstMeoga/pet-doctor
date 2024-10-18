@@ -116,12 +116,15 @@
 			}
 		}
 		.swiper-box {
-			width: 670rpx;
+			width:100%;
 			margin-top: 96rpx;
 			height: 800rpx;
+			// border: 1px solid red;
 		}
 		.info-one, .info-two {
 			width: 670rpx;
+			// border: 1px solid blue;
+			margin: 0 auto;
 			flex-direction: column;
 			&-name {
 				width: 100%;

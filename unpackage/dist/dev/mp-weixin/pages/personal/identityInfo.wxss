@@ -51,12 +51,13 @@
   font-size: 20rpx;
 }
 .container .swiper-box.data-v-18317c12 {
-  width: 670rpx;
+  width: 100%;
   margin-top: 96rpx;
   height: 800rpx;
 }
 .container .info-one.data-v-18317c12, .container .info-two.data-v-18317c12 {
   width: 670rpx;
+  margin: 0 auto;
   flex-direction: column;
 }
 .container .info-one-name.data-v-18317c12, .container .info-two-name.data-v-18317c12 {
