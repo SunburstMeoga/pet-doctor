@@ -38,12 +38,43 @@
 				<div class="item-sug">建议</div>
 				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
 			</div>
+			<div class="result-item module">
+				<div class="item-title flex justify-start items-center">
+					<div class="title-left">外倾性：</div>
+					<div class="title-right">E</div>
+				</div>
+				<div class="item-details">
+					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
+				</div>
+				<div class="item-sug">建议</div>
+				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
+			</div>
+			<div class="result-item module">
+				<div class="item-title flex justify-start items-center">
+					<div class="title-left">外倾性：</div>
+					<div class="title-right">E</div>
+				</div>
+				<div class="item-details">
+					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
+				</div>
+				<div class="item-sug">建议</div>
+				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
+			</div>
+			<div class="module program ">
+				<div class="program-title">根据 <span style="font-weight: bold;">花花</span>的测评结果推荐以下商品</div>
+				<div class="program-list flex justify-between items-center">
+					<div class="program-item">
+						<product-card></product-card>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
 	import petCard from '../../components/petCard.vue';
+	import productCard from '../../components/productCard.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -160,6 +191,23 @@
 				}
 				.sug-content {
 					color: #595959;
+				}
+			}
+			.program {
+				padding-top: 68rpx;
+				.program-title {
+					color: #222;
+					font-size: 32rpx;
+					margin-bottom: 28rpx;
+				}
+				.program-list {
+					flex-wrap: wrap;
+				}
+				.program-item {
+					width: 303rpx;
+					border-radius: 24rpx;
+					overflow: hidden;
+					background-color: #F5F5F5;
 				}
 			}
 		}

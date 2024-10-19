@@ -1,9 +1,10 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 if (!Math) {
-  petCard();
+  (petCard + productCard)();
 }
 const petCard = () => "../../components/petCard.js";
+const productCard = () => "../../components/productCard.js";
 const _sfc_main = {
   __name: "report-result",
   setup(__props) {
