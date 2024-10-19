@@ -43,13 +43,20 @@ image {
 }
 @font-face {
   font-family: "iconfont"; /* Project id 4715078 */
-  src: url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.woff2?t=1729176811001') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.woff?t=1729176811001') format('woff'),
-       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.ttf?t=1729176811001') format('truetype'),
-       url('//at.alicdn.com/t/c/font_4715078_zads44ajkd.svg?t=1729176811001#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/c/font_4715078_njm4du9ohqr.woff2?t=1729349372230') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4715078_njm4du9ohqr.woff?t=1729349372230') format('woff'),
+       url('//at.alicdn.com/t/c/font_4715078_njm4du9ohqr.ttf?t=1729349372230') format('truetype'),
+       url('//at.alicdn.com/t/c/font_4715078_njm4du9ohqr.svg?t=1729349372230#iconfont') format('svg');
 }
 .iconfont {
   font-family: "iconfont" !important;
+/*  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+.icon-bianji:before {
+  content: "\e607";
 }
 .icon-close:before {
   content: "\e62b";

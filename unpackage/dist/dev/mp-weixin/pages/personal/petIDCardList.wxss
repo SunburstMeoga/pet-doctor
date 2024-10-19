@@ -91,3 +91,12 @@
 .container .content-empty-button-word.data-v-9a7bd0cc {
   margin-left: 10rpx;
 }
+.container .content-list.data-v-9a7bd0cc {
+  width: 686rpx;
+  margin: 0 auto;
+}
+.container .content-list-item.data-v-9a7bd0cc {
+  width: 686rpx;
+  border-radius: 24rpx;
+  overflow: hidden;
+}

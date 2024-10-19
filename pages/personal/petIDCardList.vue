@@ -11,20 +11,26 @@
 					</div>
 				</div>
 				<div class="content-title-right flex justify-end items-center" v-show="cardList.length !== 0">
-					<div class="content-title-right-operating flex justify-start items-center">
+					<div style="font-size: 20rpx;">左滑可删除身份证</div>
+					<!-- <div class="content-title-right-operating flex justify-start items-center">
 						<div class="content-title-right-operating-icon icon iconfont icon-setting"></div>
 						<div class="content-title-right-operating-word">管理</div>
 					</div>
 					<div class="content-title-right-operating flex justify-start items-center" style="margin-left: 46rpx;">
 						<div class="content-title-right-operating-icon icon iconfont icon-add"></div>
 						<div class="content-title-right-operating-word">新增</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="content-list" v-show="cardList.length !== 0">
-				<div class="content-list-item" v-for="(item,index) in cardList" :key="index">
-					<pet-card></pet-card>
-				</div>
+				<uni-swipe-action class="flex justify-start items-center">
+					<div v-for="(item, index) in 3" :key="index" class="content-list-item">
+						<uni-swipe-action-item :right-options="options1" @click="bindClick()" @change="change">
+							<pet-card></pet-card>
+						</uni-swipe-action-item>
+					</div>
+				</uni-swipe-action>
+				
 			</div>
 			<div v-if="cardList.length === 0" class="content-empty flex justify-center items-center">
 				<div class="content-empty-word">暂无内容</div>
@@ -40,7 +46,19 @@
 <script setup>
 	import {ref} from 'vue'
 	import petCard from '../../components/petCard.vue';
-	let cardList = ref([])
+	let cardList = ref([''])
+	let options1 = ref([{
+		text: '删除',
+		style: {
+			backgroundColor: '#F15912',
+			color: '#fff',
+			width: '62rpx',
+			borderRadius: '16rpx',
+			fontSize: '24rpx',
+			writingMode: 'tb-rl',
+			minHeight: '228rpx'
+		}
+	}])
 </script>
 
 <style lang="scss" scoped>
@@ -56,6 +74,7 @@
 			background-color: #fff;
 			border-top-right-radius: 32rpx;
 			border-top-left-radius: 32rpx;
+			
 			&-title {
 				width: 686rpx;
 				height: 136rpx;
@@ -114,6 +133,16 @@
 						margin-left: 10rpx;
 					}
 				}
+			}
+		}
+		.content-list {
+			width: 686rpx;
+			margin: 0 auto;
+			&-item {
+				width: 686rpx;
+				border-radius: 24rpx;
+				overflow: hidden;
+				// border: 1px solid red;
 			}
 		}
 	}

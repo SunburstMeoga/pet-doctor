@@ -30,6 +30,20 @@
 .card-info.data-v-241ef60e {
   padding: 32rpx;
   color: #222;
+  position: relative;
+}
+.card-info .edit.data-v-241ef60e {
+  position: absolute;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background-color: #222;
+  right: 28rpx;
+  bottom: 28rpx;
+}
+.card-info .edit .icon.data-v-241ef60e {
+  font-size: 32rpx;
+  color: #FCE068;
 }
 .card-info .diamond.data-v-241ef60e {
   width: 20rpx;
@@ -39,7 +53,7 @@
 }
 .card-info-name.data-v-241ef60e {
   color: black;
-  margin-bottom: 40rpx;
+  margin-bottom: 30rpx;
   font-size: 16rpx;
   height: 18rpx;
   font-weight: bolder;

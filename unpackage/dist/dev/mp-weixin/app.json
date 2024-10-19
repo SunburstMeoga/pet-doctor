@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/personal/identityInfo",
+    "pages/report/report-result",
     "pages/personal/petIDCardList",
+    "pages/personal/identityInfo",
     "pages/personal/index",
     "pages/report/index",
     "pages/home/index",

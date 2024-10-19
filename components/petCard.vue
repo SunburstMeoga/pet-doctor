@@ -2,6 +2,9 @@
 	<div class="swiper-item image-bg"
 		style="background-image: url('../../static/images/report/card-male.png');">
 		<div class="card-info">
+			<div class="edit flex justify-center items-center" v-if="showEdit">
+				<div class="icon iconfont icon-bianji"></div>
+			</div>
 			<div class="card-info-name flex justify-start items-center">花花</div>
 			<div class="card-info-property flex justify-start items-center">
 				<div class="diamond"></div>
@@ -16,7 +19,14 @@
 	</div>
 </template>
 
-<script>
+<script setup>
+	import {ref,defineProps} from 'vue'
+	const props = defineProps({
+		showEdit: {
+			type: Boolean,
+			deafult: false
+		}
+	})
 </script>
 
 <style lang="scss" scoped>
@@ -30,7 +40,20 @@
 		padding: 32rpx;
 		// border: 1px solid blue;
 		color: #222;
-	
+		position: relative;
+		.edit {
+			position: absolute;
+			width: 56rpx;
+			height: 56rpx;
+			border-radius: 50%;
+			background-color: #222;
+			right: 28rpx;
+			bottom: 28rpx;
+			.icon {
+				font-size: 32rpx;
+				color: #FCE068;
+			}
+		}
 		.diamond {
 			width: 20rpx;
 			height: 20rpx;
@@ -40,7 +63,7 @@
 	
 		&-name {
 			color: black;
-			margin-bottom: 40rpx;
+			margin-bottom: 30rpx;
 			font-size: 16rpx;
 			// border: 1px solid orchid;
 			height: 18rpx;
