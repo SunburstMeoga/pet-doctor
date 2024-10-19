@@ -1292,7 +1292,7 @@ function populateParameters(fromRes, toRes) {
   let _SDKVersion = SDKVersion;
   const hostLanguage = language.replace(/_/g, "-");
   const parameters = {
-    appId: "__UNI__wx8701caef8fb86e01",
+    appId: "__UNI__AF708DF",
     appName: "pet-doctor",
     appVersion: "1.0.0",
     appVersionCode: "100",
@@ -1436,7 +1436,7 @@ const getAppBaseInfo = {
       hostName: _hostName,
       hostSDKVersion: SDKVersion,
       hostTheme: theme,
-      appId: "__UNI__wx8701caef8fb86e01",
+      appId: "__UNI__AF708DF",
       appName: "pet-doctor",
       appVersion: "1.0.0",
       appVersionCode: "100",
@@ -7649,6 +7649,7 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
 exports._export_sfc = _export_sfc;
+exports.computed = computed;
 exports.createSSRApp = createSSRApp;
 exports.e = e;
 exports.f = f;
