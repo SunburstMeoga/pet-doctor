@@ -32,12 +32,12 @@
 			</div>
 		</div>
 		<div  v-if="currentQuestion !== 0 && currentQuestion !== questionItems.length - 1" class="go-back flex justify-center items-center">
-			<div class="go-back-button">
+			<div class="go-back-button" @click="toPreQuestion()">
 				返回上一题
 			</div>
 		</div>
 		<div v-if="currentQuestion === questionItems.length - 1" class="go-back last-question  flex justify-around items-center">
-			<div class="go-back-check">上一题</div>
+			<div class="go-back-check" @click="toPreQuestion()">上一题</div>
 			<div class="go-back-result">
 				查看结果
 			</div>
@@ -46,6 +46,7 @@
 </template>
 
 <script setup>
+	import {assessmentDetails} from '../../services/api.js'
 	import {
 		ref,
 		getCurrentInstance,
@@ -80,6 +81,18 @@
 		currentQuestion.value = --currentQuestion.value
 		console.log(currentQuestion.value)
 	}
+	//获取问题列表
+	let getAssessmentDetails = async (assessmentType) => {
+		try {
+			const result = await assessmentDetails(assessmentType);
+			console.log(result)
+		} catch (err) {
+			console.log(err)
+		}
+	}
+	onMounted(() => {
+		getAssessmentDetails(1)
+	})
 </script>
 
 <style lang="scss" scoped>

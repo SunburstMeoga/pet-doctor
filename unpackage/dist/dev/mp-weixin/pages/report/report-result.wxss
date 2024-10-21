@@ -128,6 +128,13 @@
 .container .content .program.data-v-fdd21b61 {
   padding-top: 68rpx;
 }
+.container .content .program .program-bg.data-v-fdd21b61 {
+  margin-top: -38rpx;
+  width: 200rpx;
+  height: 76rpx;
+  color: #222;
+  font-weight: bolder;
+}
 .container .content .program .program-title.data-v-fdd21b61 {
   color: #222;
   font-size: 32rpx;
@@ -141,4 +148,22 @@
   border-radius: 24rpx;
   overflow: hidden;
   background-color: #F5F5F5;
+  margin-bottom: 24rpx;
+}
+.container .service-qrcode.data-v-fdd21b61 {
+  background-color: #fff;
+  border-radius: 24rpx;
+  border: 1rpx solid #222;
+  padding: 24rpx;
+  width: 210rpx;
+  height: 210rpx;
+  margin-top: 60rpx;
+  margin: 0 auto;
+}
+.container .service-word.data-v-fdd21b61 {
+  margin: 0 auto;
+  margin-top: 34rpx;
+  margin-bottom: 34rpx;
+  text-align: center;
+  color: #222;
 }

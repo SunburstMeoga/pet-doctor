@@ -1,5 +1,29 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/home/star_answer",
+			"style" : 
+			{
+				"navigationBarTitleText" : "问卷",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom"
+			}
+		},
 		{
 			"path": "pages/report/report-result",
 			"style": {
@@ -7,6 +31,7 @@
 				// "navigationStyle": "custom"
 			}
 		},
+		
 		{
 			"path": "pages/personal/petIDCardList",
 			"style": {
@@ -21,7 +46,7 @@
 				// "navigationStyle": "custom"
 			}
 		},
-		
+
 		{
 			"path": "pages/personal/index",
 			"style": {
@@ -36,13 +61,7 @@
 				"navigationStyle": "custom"
 			}
 		},
-		{
-			"path": "pages/home/index",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"navigationStyle": "custom"
-			}
-		}, {
+		 {
 			"path": "pages/home/mbti_questiton",
 			"style": {
 				"navigationBarTitleText": "测测爱宠的MBTI"
@@ -60,7 +79,6 @@
 				"navigationBarTitleText": "购物车"
 			}
 		}
-
 	],
 
 	"tabBar": {

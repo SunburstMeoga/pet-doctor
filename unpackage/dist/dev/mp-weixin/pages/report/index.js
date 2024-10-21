@@ -36,7 +36,7 @@ const _sfc_main = {
     return (_ctx, _cache) => {
       return {
         a: common_assets._imports_0,
-        b: common_assets._imports_1,
+        b: common_assets._imports_1$1,
         c: common_vendor.f(3, (item, index, i0) => {
           return {
             a: index
@@ -57,7 +57,7 @@ const _sfc_main = {
             e: index
           };
         }),
-        g: common_assets._imports_2,
+        g: common_assets._imports_2$1,
         h: common_vendor.p({
           ["right-options"]: common_vendor.unref(options1)
         })

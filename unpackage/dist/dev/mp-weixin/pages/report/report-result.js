@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const common_assets = require("../../common/assets.js");
 if (!Math) {
   (petCard + productCard)();
 }
@@ -14,7 +15,14 @@ const _sfc_main = {
           return {
             a: _index
           };
-        })
+        }),
+        b: common_vendor.f(5, (item, index, i0) => {
+          return {
+            a: "fdd21b61-1-" + i0,
+            b: index
+          };
+        }),
+        c: common_assets._imports_0$1
       };
     };
   }

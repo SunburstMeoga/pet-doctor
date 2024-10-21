@@ -50,10 +50,10 @@
 }
 .home-mbti.data-v-4978fed5 {
   background-color: #fff;
+  margin-bottom: 24rpx;
 }
 .home-eval.data-v-4978fed5 {
   background-color: #fce068;
-  margin-top: 24rpx;
 }
 .content.data-v-4978fed5 {
   position: relative;

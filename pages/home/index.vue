@@ -6,13 +6,20 @@
 		<view class="home-banner" style="background-image: url('../../static/images/home/home-banner.png');">
 			<div class="home-operating flex justify-end items-center">
 				<div class="home-button home-mbti">
-					<div>爱宠MBTI</div>
+					<div>喵喵MBTI测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
 				</div>
+				<div class="home-button home-mbti">
+					<div>汪汪MBTI测评</div>
+					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
+						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
+					</div>
+				</div>
+				
 				<div class="home-button home-eval">
-					<div>开始测评</div>
+					<div>定制健康测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
@@ -72,10 +79,11 @@ onMounted(() => {
 	}
 	.home-mbti {
 		background-color: #fff;
+		margin-bottom: 24rpx;
 	}
 	.home-eval {
 		background-color: #fce068;
-		margin-top: 24rpx;
+		// margin-top: 24rpx;
 	}
 	.content {
 		position: relative;

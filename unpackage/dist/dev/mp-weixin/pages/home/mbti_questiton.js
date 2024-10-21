@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const services_api = require("../../services/api.js");
 const _sfc_main = {
   __name: "mbti_questiton",
   setup(__props) {
@@ -27,6 +28,21 @@ const _sfc_main = {
       currentQuestion.value = e.detail.current;
       console.log(currentQuestion.value);
     };
+    let toPreQuestion = () => {
+      currentQuestion.value = --currentQuestion.value;
+      console.log(currentQuestion.value);
+    };
+    let getAssessmentDetails = async (assessmentType) => {
+      try {
+        const result = await services_api.assessmentDetails(assessmentType);
+        console.log(result);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    common_vendor.onMounted(() => {
+      getAssessmentDetails(1);
+    });
     return (_ctx, _cache) => {
       return common_vendor.e({
         a: common_vendor.f(common_vendor.unref(questionItems), (item, index, i0) => {
@@ -52,9 +68,13 @@ const _sfc_main = {
         e: !common_vendor.unref(selectedOption) && common_vendor.unref(currentQuestion) === 0
       }, !common_vendor.unref(selectedOption) && common_vendor.unref(currentQuestion) === 0 ? {} : {}, {
         f: common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length - 1
-      }, common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length - 1 ? {} : {}, {
-        g: common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1
-      }, common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1 ? {} : {});
+      }, common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length - 1 ? {
+        g: common_vendor.o(($event) => common_vendor.unref(toPreQuestion)())
+      } : {}, {
+        h: common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1
+      }, common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1 ? {
+        i: common_vendor.o(($event) => common_vendor.unref(toPreQuestion)())
+      } : {});
     };
   }
 };

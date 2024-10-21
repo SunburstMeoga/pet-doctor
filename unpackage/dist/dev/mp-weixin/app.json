@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/login/index",
+    "pages/home/star_answer",
+    "pages/home/index",
     "pages/report/report-result",
     "pages/personal/petIDCardList",
     "pages/personal/identityInfo",
     "pages/personal/index",
     "pages/report/index",
-    "pages/home/index",
     "pages/home/mbti_questiton",
     "pages/home/pet_mbti",
     "pages/cart/index"
