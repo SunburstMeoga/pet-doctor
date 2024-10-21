@@ -20,43 +20,46 @@ word-break:break-all;">encryptedData: {{encryptedData}}</div> -->
 	onMounted(() => {
 		// toLogin()
 	})
-	let getUserProfileWrapper = () => {  
-	            return new Promise((resolve, reject) => {  
-	                uni.getUserProfile({  
-	                    desc: '用于完善会员资料',  
-	                    success: (res) => resolve(res.userInfo),  
-	                    fail: (err) => reject(err)  
-	                });  
-	            });  
-	        }  
-			let loginWrapper = () => {
-				uni.login({
-					provider: 'weixin',
-					success: (loginRes) => {
-						console.log('登录成功', loginRes);
-						testCode.value = loginRes.code
-						// 这里的loginRes.code就是我们需要的临时登录凭证  
-						// 发送code到你的服务器进行处理  
-						// this.sendCodeToServer(loginRes.code);  
-						console.log(loginRes.code)
-						code = loginRes.code
-					},
-					fail: (error) => {
-						console.error('登录失败', error);
-					}
-				});
-			}
 	let toLogin = async () => {
-		const result1= await getUserProfileWrapper()
-		const  result2= await getUserProfileWrapper()
-		console.log(result1, result2)
-		return
-		try {
-			const result3 = await login({code,iv,encryptedData})
-			console.log(result3)
-		} catch (err) {
-			console.log(err)
-		}
+		let code,encryptedData,iv
+		
+		// 仅在用户点击按钮或其他交互操作时调用此方法  
+		 uni.getUserProfile({  
+		  desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中  
+		  success: (res) => {  
+		    console.log('获取用户信息成功', res);  
+		    // res.encryptedData 和 res.iv 就是我们需要的加密数据和初始化向量  
+		    // 接下来，你可以将这些数据发送到你的服务器进行解密和处理  
+			encryptedData = res.encryptedData
+			iv = res.iv
+			console.log(encryptedData, iv)
+			uni.login({
+				provider: 'weixin',
+				success: async (loginRes) => {
+					console.log('登录成功', loginRes);
+					testCode.value = loginRes.code
+					// 这里的loginRes.code就是我们需要的临时登录凭证  
+					// 发送code到你的服务器进行处理  
+					// this.sendCodeToServer(loginRes.code);  
+					console.log(loginRes.code)
+					code = loginRes.code
+					try {
+						const result = await login({code,iv,encryptedData})
+						console.log(result)
+					} catch (err) {
+						console.log(err)
+					}
+				},
+				fail: (error) => {
+					console.error('登录失败', error);
+				}
+			});
+		  },  
+		  fail: (err) => {  
+		    console.error('获取用户信息失败', err);  
+		  }  
+		});
+		
 		
 		
 	}

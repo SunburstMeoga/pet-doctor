@@ -1,28 +1,47 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
-require("../../services/request.js");
+const services_api = require("../../services/api.js");
 const _sfc_main = {
   __name: "index",
   setup(__props) {
-    common_vendor.ref("");
+    let testCode = common_vendor.ref("");
     common_vendor.ref("");
     common_vendor.ref("");
     common_vendor.onMounted(() => {
     });
-    let getUserProfileWrapper = () => {
-      return new Promise((resolve, reject) => {
-        common_vendor.index.getUserProfile({
-          desc: "用于完善会员资料",
-          success: (res) => resolve(res.userInfo),
-          fail: (err) => reject(err)
-        });
-      });
-    };
     let toLogin = async () => {
-      const result1 = await getUserProfileWrapper();
-      const result2 = await getUserProfileWrapper();
-      console.log(result1, result2);
-      return;
+      let code, encryptedData, iv;
+      common_vendor.index.getUserProfile({
+        desc: "用于完善会员资料",
+        // 声明获取用户个人信息后的用途，后续会展示在弹窗中  
+        success: (res) => {
+          console.log("获取用户信息成功", res);
+          encryptedData = res.encryptedData;
+          iv = res.iv;
+          console.log(encryptedData, iv);
+          common_vendor.index.login({
+            provider: "weixin",
+            success: async (loginRes) => {
+              console.log("登录成功", loginRes);
+              testCode.value = loginRes.code;
+              console.log(loginRes.code);
+              code = loginRes.code;
+              try {
+                const result = await services_api.login({ code, iv, encryptedData });
+                console.log(result);
+              } catch (err) {
+                console.log(err);
+              }
+            },
+            fail: (error) => {
+              console.error("登录失败", error);
+            }
+          });
+        },
+        fail: (err) => {
+          console.error("获取用户信息失败", err);
+        }
+      });
     };
     return (_ctx, _cache) => {
       return {
