@@ -10,14 +10,17 @@
 							
 								<div class="content-theme-number-total"> / {{questionItems.length <= 9 ? '0' + questionItems.length : questionItems.length }}</div>
 							</div>
-							<div class="content-theme-type">【基本信息】</div>
+							<!-- <div class="content-theme-type">【基本信息】</div> -->
 						</div>
 						<div class="content-question">
-							<div class="content-question-title">当铲屎官和别人在一起 聊天时,狗狗会？</div>
+							<div class="content-question-title">{{item.title}}</div>
 							<div class="content-question-options">
-								<div @click="handleOptions(item)" class="content-question-options-item" :class="item.id === selectedOption ? 'content-question-options-item-active' : 'content-question-options-item-unactive'" v-for="(item,index) in optionsItems" :key="item.id">
-									<div class="content-question-options-item-title">{{item.title}}</div>
-									<div class="content-question-options-item-content">{{item.content}}</div>
+								<div @click="handleOptions(_item,item,index)" 
+								class="content-question-options-item" 
+								:class="_item.id === item.selectid ? 'content-question-options-item-active' : 'content-question-options-item-unactive'" 
+								v-for="(_item,_index) in item.answers" :key="_index">
+									<!-- <div class="content-question-options-item-title">{{item.title}}</div> -->
+									<div class="content-question-options-item-content">{{_item.text}}</div>
 								</div>
 							</div>
 						</div>
@@ -52,27 +55,14 @@
 		getCurrentInstance,
 		onMounted
 	} from 'vue'
-	let optionsItems = ref([{
-		id: 1,
-		title: '参与谈话',
-		content: '是的，我也觉得铲屎官今天穿搭有点浮夸'
-	}, {
-		id: 2,
-		title: '避而不谈',
-		content: '对不起，我是汪，请不要cue我'
-	}])
-	let questionItems = ref([{},{},{},{},{},{},{}])
+	let optionsItems = ref([])
+	let questionItems = ref([])
 	let selectedOption = ref(null)
 	let currentQuestion = ref(0)
+	let answerids = ref([])
+	
 	// let swiperDotIndex = ref(0)
-	let handleOptions = ({id}) => {
-		selectedOption.value = id
-		currentQuestion.value = ++currentQuestion.value
-		setTimeout(() => {
-			selectedOption.value = null
-		}, 100)
-		console.log(id, selectedOption.value)
-	}
+	
 	let change = (e) => {
 		currentQuestion.value = e.detail.current;
 		console.log(currentQuestion.value)
@@ -81,11 +71,34 @@
 		currentQuestion.value = --currentQuestion.value
 		console.log(currentQuestion.value)
 	}
+	let handleOptions = (_item, item, index) => {
+		questionItems.value.map(select => {
+			select.selectid = _item.id
+		})
+		// _item.id = item.id
+		console.log(_item.id, item.id)
+		console.log(questionItems.value)
+		// if(item.id === currentQuestion.value + 1) {
+		// 	_item.isSelect = !_item.isSelect
+		// }
+		// answerids.value = filteredArray
+		console.log(currentQuestion.value, questionItems.value.length)
+		if(currentQuestion.value < questionItems.value.length) {
+			currentQuestion.value = ++currentQuestion.value
+		}
+	}
 	//获取问题列表
 	let getAssessmentDetails = async (assessmentType) => {
 		try {
 			const result = await assessmentDetails(assessmentType);
-			console.log(result)
+			questionItems.value = result.data.data.questions
+			questionItems.value.map(item => {
+				item.selectid = null
+				item.answers.map(_item => {
+					_item.isSelect = false
+				})
+			})
+			console.log(questionItems.value)
 		} catch (err) {
 			console.log(err)
 		}

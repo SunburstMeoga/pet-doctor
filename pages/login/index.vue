@@ -11,58 +11,102 @@ word-break:break-all;">encryptedData: {{encryptedData}}</div> -->
 
 <script setup>
 	import {
-		ref, onMounted
+		ref,
+		onMounted
 	} from 'vue'
-	import {login} from '@/services/api.js'
+	import {
+		login,
+		petCards
+	} from '@/services/api.js'
 	let testCode = ref('')
 	let encryptedData = ref('')
 	let iv = ref('')
 	onMounted(() => {
-		// toLogin()
+		// if(uni.getStorageSync('token') && uni.getStorageSync('token') !== undefined && uni.getStorageSync('token') !== 'undefined') {
+		// 	console.log(uni.getStorageSync('token'))
+		// 	uni.switchTab({
+		// 		url: '/pages/home/index'
+		// 	})
+		// }
+
 	})
+	let getPetCards = async () => {
+		const reuslt = await petCards()
+		console.log()
+	}
 	let toLogin = async () => {
-		let code,encryptedData,iv
-		
-		// 仅在用户点击按钮或其他交互操作时调用此方法  
-		 uni.getUserProfile({  
-		  desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中  
-		  success: (res) => {  
-		    console.log('获取用户信息成功', res);  
-		    // res.encryptedData 和 res.iv 就是我们需要的加密数据和初始化向量  
-		    // 接下来，你可以将这些数据发送到你的服务器进行解密和处理  
-			encryptedData = res.encryptedData
-			iv = res.iv
-			console.log(encryptedData, iv)
-			uni.login({
-				provider: 'weixin',
-				success: async (loginRes) => {
-					console.log('登录成功', loginRes);
-					testCode.value = loginRes.code
-					// 这里的loginRes.code就是我们需要的临时登录凭证  
-					// 发送code到你的服务器进行处理  
-					// this.sendCodeToServer(loginRes.code);  
-					console.log(loginRes.code)
-					code = loginRes.code
-					try {
-						console.log(encryptedData,iv,code)
-						const result = await login({code:code,iv:iv,encrypted_data:encryptedData})
-						console.log(result)
-					} catch (err) {
-						console.log(err)
-					}
-				},
-				fail: (error) => {
-					console.error('登录失败', error);
-				}
-			});
-		  },  
-		  fail: (err) => {  
-		    console.error('获取用户信息失败', err);  
-		  }  
+		uni.showLoading({
+			title: '正在登录...',
+			mask: true // 是否显示透明蒙层，防止触摸穿透  
 		});
-		
-		
-		
+		let code, encryptedData, iv
+		// 仅在用户点击按钮或其他交互操作时调用此方法  
+		uni.getUserProfile({
+			desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中  
+			success: (res) => {
+				console.log(res)
+				if (res.platform === 'devtools') {
+					uni.setEnableDebug({
+						enableDebug: true
+					});
+				}
+				encryptedData = res.encryptedData
+				iv = res.iv
+				console.log(encryptedData, iv)
+				uni.login({
+					provider: 'weixin',
+					success: async (loginRes) => {
+						console.log('登录成功', loginRes);
+						testCode.value = loginRes.code
+						console.log(loginRes.code)
+						code = loginRes.code
+						try {
+							console.log(encryptedData, iv, code)
+							const result = await login({
+								code: code,
+								iv: iv,
+								encrypted_data: encryptedData
+							})
+							console.log(result)
+							uni.setStorageSync('token',
+								`Bearer ${result.data.data.api_token}`)
+							console.log(result.data.data.api_token)
+							console.log(uni.getStorageSync('token'))
+							const petCardsList = await petCards()
+							console.log(petCardsList.data,petCardsList)
+							uni.hideLoading();
+							if(petCardsList.data.length === 0) {
+								uni.navigateTo({
+									url: '/pages/home/star_answer'
+								})
+							} else {
+								uni.navigateTo({
+									url: "/pages/personal/identityInfo"
+								})
+								
+							}
+							
+							
+	
+						} catch (err) {
+							console.log(err)
+							uni.hideLoading();
+						}
+					},
+					fail: (error) => {
+						console.error('登录失败', error);
+						uni.hideLoading();
+					}
+				});
+			},
+			fail: (err) => {
+				console.error('获取用户信息失败', err);
+				uni.hideLoading();
+			}
+		});
+	
+	
+	
 	}
 </script>
 

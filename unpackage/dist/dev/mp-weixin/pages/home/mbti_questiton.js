@@ -4,26 +4,11 @@ const services_api = require("../../services/api.js");
 const _sfc_main = {
   __name: "mbti_questiton",
   setup(__props) {
-    let optionsItems = common_vendor.ref([{
-      id: 1,
-      title: "参与谈话",
-      content: "是的，我也觉得铲屎官今天穿搭有点浮夸"
-    }, {
-      id: 2,
-      title: "避而不谈",
-      content: "对不起，我是汪，请不要cue我"
-    }]);
-    let questionItems = common_vendor.ref([{}, {}, {}, {}, {}, {}, {}]);
+    common_vendor.ref([]);
+    let questionItems = common_vendor.ref([]);
     let selectedOption = common_vendor.ref(null);
     let currentQuestion = common_vendor.ref(0);
-    let handleOptions = ({ id }) => {
-      selectedOption.value = id;
-      currentQuestion.value = ++currentQuestion.value;
-      setTimeout(() => {
-        selectedOption.value = null;
-      }, 100);
-      console.log(id, selectedOption.value);
-    };
+    common_vendor.ref([]);
     let change = (e) => {
       currentQuestion.value = e.detail.current;
       console.log(currentQuestion.value);
@@ -32,10 +17,28 @@ const _sfc_main = {
       currentQuestion.value = --currentQuestion.value;
       console.log(currentQuestion.value);
     };
+    let handleOptions = (_item, item, index) => {
+      questionItems.value.map((select) => {
+        select.selectid = _item.id;
+      });
+      console.log(_item.id, item.id);
+      console.log(questionItems.value);
+      console.log(currentQuestion.value, questionItems.value.length);
+      if (currentQuestion.value < questionItems.value.length) {
+        currentQuestion.value = ++currentQuestion.value;
+      }
+    };
     let getAssessmentDetails = async (assessmentType) => {
       try {
         const result = await services_api.assessmentDetails(assessmentType);
-        console.log(result);
+        questionItems.value = result.data.data.questions;
+        questionItems.value.map((item) => {
+          item.selectid = null;
+          item.answers.map((_item) => {
+            _item.isSelect = false;
+          });
+        });
+        console.log(questionItems.value);
       } catch (err) {
         console.log(err);
       }
@@ -48,17 +51,17 @@ const _sfc_main = {
         a: common_vendor.f(common_vendor.unref(questionItems), (item, index, i0) => {
           return {
             a: common_vendor.t(index + 1),
-            b: common_vendor.f(common_vendor.unref(optionsItems), (item2, index2, i1) => {
+            b: common_vendor.t(item.title),
+            c: common_vendor.f(item.answers, (_item, _index, i1) => {
               return {
-                a: common_vendor.t(item2.title),
-                b: common_vendor.t(item2.content),
-                c: common_vendor.o(($event) => common_vendor.unref(handleOptions)(item2), item2.id),
-                d: common_vendor.n(item2.id === common_vendor.unref(selectedOption) ? "content-question-options-item-active" : "content-question-options-item-unactive"),
-                e: item2.id
+                a: common_vendor.t(_item.text),
+                b: common_vendor.o(($event) => common_vendor.unref(handleOptions)(_item, item, index), _index),
+                c: common_vendor.n(_item.id === item.selectid ? "content-question-options-item-active" : "content-question-options-item-unactive"),
+                d: _index
               };
             }),
-            c: index,
-            d: common_vendor.o(() => {
+            d: index,
+            e: common_vendor.o(() => {
             }, index)
           };
         }),

@@ -5,20 +5,20 @@
 		</view>
 		<view class="home-banner" style="background-image: url('../../static/images/home/home-banner.png');">
 			<div class="home-operating flex justify-end items-center">
-				<div class="home-button home-mbti">
+				<div class="home-button home-mbti" @click="toAssessment">
 					<div>喵喵MBTI测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
 				</div>
-				<div class="home-button home-mbti">
+				<div class="home-button home-mbti" @click="toAssessment">
 					<div>汪汪MBTI测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
 				</div>
 				
-				<div class="home-button home-eval">
+				<div class="home-button home-eval" @click="toAssessment">
 					<div>定制健康测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
@@ -41,6 +41,11 @@
 import { ref, getCurrentInstance, onMounted } from 'vue'
 import MyTabbarVue from '../../components/my-tabbar.vue';
 let title = ref('hello')
+let toAssessment = () => {
+	uni.navigateTo({
+		url: '/pages/home/mbti_questiton'
+	})
+}
 onMounted(() => {
 	console.log(title.value)
 })

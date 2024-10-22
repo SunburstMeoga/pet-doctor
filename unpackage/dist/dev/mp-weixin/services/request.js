@@ -2,11 +2,12 @@
 const common_vendor = require("../common/vendor.js");
 const request = common_vendor.axios.create({
   baseURL: "http://120.76.219.115/api",
-  timeout: 6e3,
+  timeout: 6e4,
   adapter: common_vendor.UniAdapter
   // 指定适配器1
 });
 request.interceptors.request.use(async (config) => {
+  console.log(common_vendor.index.getStorageSync("token"));
   config.headers["Authorization"] = common_vendor.index.getStorageSync("token");
   return config;
 });
