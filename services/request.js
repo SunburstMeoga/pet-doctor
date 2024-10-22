@@ -15,7 +15,7 @@ import {
  
  
 const request = axios.create({
-	baseURL:'https://120.76.219.115/api',
+	baseURL:'http://120.76.219.115/api',
 	timeout: 6000,
 	adapter: UniAdapter, // 指定适配器1
 });

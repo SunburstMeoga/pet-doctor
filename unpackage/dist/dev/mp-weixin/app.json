@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/index",
+    "pages/home/group_buying",
     "pages/home/star_answer",
     "pages/home/index",
     "pages/report/report-result",

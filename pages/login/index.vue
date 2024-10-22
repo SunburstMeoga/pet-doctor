@@ -44,7 +44,8 @@ word-break:break-all;">encryptedData: {{encryptedData}}</div> -->
 					console.log(loginRes.code)
 					code = loginRes.code
 					try {
-						const result = await login({code,iv,encryptedData})
+						console.log(encryptedData,iv,code)
+						const result = await login({code:code,iv:iv,encrypted_data:encryptedData})
 						console.log(result)
 					} catch (err) {
 						console.log(err)

@@ -1,7 +1,7 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 const request = common_vendor.axios.create({
-  baseURL: "https://120.76.219.115/api",
+  baseURL: "http://120.76.219.115/api",
   timeout: 6e3,
   adapter: common_vendor.UniAdapter
   // 指定适配器1

@@ -27,7 +27,8 @@ const _sfc_main = {
               console.log(loginRes.code);
               code = loginRes.code;
               try {
-                const result = await services_api.login({ code, iv, encryptedData });
+                console.log(encryptedData, iv, code);
+                const result = await services_api.login({ code, iv, encrypted_data: encryptedData });
                 console.log(result);
               } catch (err) {
                 console.log(err);

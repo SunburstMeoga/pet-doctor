@@ -6,11 +6,11 @@ const assessmentDetails = async (id) => {
     method: "get"
   });
 };
-const login = async (data) => {
+const login = async (params) => {
   return services_request.request({
     url: "/login",
     method: "post",
-    data
+    data: params
   });
 };
 exports.assessmentDetails = assessmentDetails;

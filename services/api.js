@@ -7,11 +7,11 @@ export const assessmentDetails = async (id) => {
 	})
 }
 
-export const login = async (data) => {
+export const login = async (params) => {
 	return axios({
 		url: '/login',
 		method: 'post',
-		data
+		data: params
 	})
 }
 
