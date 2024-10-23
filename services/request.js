@@ -21,9 +21,11 @@ const request = axios.create({
 });
 	request.interceptors.request.use(async (config) => {
 	console.log(uni.getStorageSync('token'))
-	config.headers["Authorization"] = uni.getStorageSync('token');
+	// config.headers["Authorization"] = uni.getStorageSync('token');
+	config.headers["Authorization"] = 'Bearer FQv8BHTPAgLhqgEBXgrZhV8RYmw8ZwcauzFoOJIMbtTm6c7LWKihSaWnsujguhNf'
 		return config;
 	});
+	
  
 request.interceptors.response.use((response) => {
 	// 统一处理响应,返回Promise以便链式调用

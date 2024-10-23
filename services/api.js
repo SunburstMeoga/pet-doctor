@@ -38,7 +38,21 @@ export const petBreeds = async (typeId) => {
 		
 	})
 }
-
+//完成问题并创建报告
+export const createReport = async (data) => {
+	return axios({
+		url: '/report',
+		method: 'post',
+		data
+	})
+}
+//获取报告详情
+export const reportDetails = async (id) => {
+	return axios({
+		url: '/report/' + id,
+		method: 'get'
+	})
+}
 export const refreshToken = async () => {
 	
 }

@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "MBTI报告",
   "usingComponents": {
-    "pet-card": "../../components/petCard",
-    "product-card": "../../components/productCard"
+    "pet-card": "../../components/petCard"
   }
 }

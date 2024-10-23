@@ -13,6 +13,7 @@ const _sfc_main = {
     let assessmentId = common_vendor.ref("1");
     let filteredData = common_vendor.ref([]);
     let selectedIds = common_vendor.ref([]);
+    let isFinishAnswer = common_vendor.ref(false);
     let change = (e) => {
       currentQuestion.value = e.detail.current;
       console.log(currentQuestion.value);
@@ -21,25 +22,36 @@ const _sfc_main = {
       currentQuestion.value = --currentQuestion.value;
       console.log(currentQuestion.value);
     };
-    let handleOptions = (_item, item, index) => {
+    let handleOptions = async (_item, item, index) => {
       questionItems.value[index].selectid = _item.id;
       updateSelectedIds();
       if (currentQuestion.value < questionItems.value.length) {
         currentQuestion.value = ++currentQuestion.value;
       }
+      if (selectedIds.value[selectedIds.value.length - 1] !== void 0) {
+        console.log("答题完成，可以生成报告");
+        common_vendor.index.showLoading({
+          title: "正在生成报告..."
+        });
+        let result = await services_api.createReport({ assessment_id: assessmentId.value, answer_ids: selectedIds.value, pet_card_id: cardId.value });
+        if (result.data.data.id) {
+          common_vendor.index.navigateTo({
+            url: `/pages/report/report-result?reportId=${result.data.data.id}`
+          });
+        }
+        console.log("报告结果", result);
+      }
     };
     let updateSelectedIds = () => {
       filteredData.value = questionItems.value.map((item) => item.selectid);
       selectedIds.value = [...new Set(filteredData.value)];
+      console.log(selectedIds.value.length);
       console.log("新的数组：", selectedIds.value);
     };
     let getAssessmentDetails = async (assessmentType) => {
       try {
         const result = await services_api.assessmentDetails(assessmentType);
         questionItems.value = result.data.data.questions;
-        questionItems.value.map((item) => {
-          item.selectid = null;
-        });
         console.log(questionItems.value);
       } catch (err) {
         console.log(err);
@@ -77,14 +89,12 @@ const _sfc_main = {
         d: common_vendor.unref(currentQuestion),
         e: !common_vendor.unref(selectedOption) && common_vendor.unref(currentQuestion) === 0
       }, !common_vendor.unref(selectedOption) && common_vendor.unref(currentQuestion) === 0 ? {} : {}, {
-        f: common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length - 1
-      }, common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length - 1 ? {
+        f: common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length
+      }, common_vendor.unref(currentQuestion) !== 0 && common_vendor.unref(currentQuestion) !== common_vendor.unref(questionItems).length ? {
         g: common_vendor.o(($event) => common_vendor.unref(toPreQuestion)())
       } : {}, {
-        h: common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1
-      }, common_vendor.unref(currentQuestion) === common_vendor.unref(questionItems).length - 1 ? {
-        i: common_vendor.o(($event) => common_vendor.unref(toPreQuestion)())
-      } : {});
+        h: common_vendor.unref(isFinishAnswer)
+      }, common_vendor.unref(isFinishAnswer) ? {} : {});
     };
   }
 };

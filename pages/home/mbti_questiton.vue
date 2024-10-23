@@ -34,13 +34,13 @@
 				返回
 			</div>
 		</div>
-		<div  v-if="currentQuestion !== 0 && currentQuestion !== questionItems.length - 1" class="go-back flex justify-center items-center">
+		<div  v-if="currentQuestion !== 0 && currentQuestion !== questionItems.length" class="go-back flex justify-center items-center">
 			<div class="go-back-button" @click="toPreQuestion()">
 				返回上一题
 			</div>
 		</div>
-		<div v-if="currentQuestion === questionItems.length - 1" class="go-back last-question  flex justify-around items-center">
-			<div class="go-back-check" @click="toPreQuestion()">上一题</div>
+		<div v-if="isFinishAnswer" class="go-back last-question  flex justify-around items-center">
+			<!-- <div class="go-back-check" @click="toPreQuestion()">上一题</div> -->
 			<div class="go-back-result">
 				查看结果
 			</div>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-	import {assessmentDetails} from '../../services/api.js'
+	import {assessmentDetails,createReport} from '../../services/api.js'
 	import { onLoad } from '@dcloudio/uni-app'
 	import {
 		ref,
@@ -65,6 +65,8 @@
 	let assessmentId = ref('1')
 	let filteredData = ref([])
 	let selectedIds = ref([])
+	
+	let isFinishAnswer = ref(false)
 	// let swiperDotIndex = ref(0)
 	
 	let change = (e) => {
@@ -75,17 +77,31 @@
 		currentQuestion.value = --currentQuestion.value
 		console.log(currentQuestion.value)
 	}
-	let handleOptions = (_item, item, index) => {
+	let handleOptions = async (_item, item, index) => {
 		questionItems.value[index].selectid = _item.id
 		// let uniqueArr = [...new Set(filteredData.value)]
 		updateSelectedIds()
 		if(currentQuestion.value < questionItems.value.length) {
 			currentQuestion.value = ++currentQuestion.value
 		}
+		if(selectedIds.value[selectedIds.value.length - 1] !== undefined) {
+			console.log('答题完成，可以生成报告');
+			uni.showLoading({
+				title:'正在生成报告...'
+			})
+			let result = await createReport({assessment_id: assessmentId.value,answer_ids:selectedIds.value,pet_card_id: cardId.value})
+			if(result.data.data.id) {
+				uni.navigateTo({
+					url: `/pages/report/report-result?reportId=${result.data.data.id}`
+				})
+			}
+			console.log('报告结果', result)
+		}
 	}
 	let updateSelectedIds = () => {
 		filteredData.value = questionItems.value.map(item => item.selectid);
 		selectedIds.value = [...new Set(filteredData.value)]
+		console.log(selectedIds.value.length)
 		  console.log("新的数组：", selectedIds.value);
 	}
 	//获取问题列表
@@ -93,9 +109,9 @@
 		try {
 			const result = await assessmentDetails(assessmentType);
 			questionItems.value = result.data.data.questions
-			questionItems.value.map(item => {
-				item.selectid = null
-			})
+			// questionItems.value.map(item => {
+			// 	item.selectid = null
+			// })
 			console.log(questionItems.value)
 		} catch (err) {
 			console.log(err)

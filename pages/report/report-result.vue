@@ -10,35 +10,37 @@
 			<div class="eval-details module">
 				<div class="details-title">测评详情</div>
 				<div class="details-content"  style="background-image: url('../../static/images/report/mbti-result.png');">
-					<div class="content-mbti">MBTI</div>
+					<div class="content-mbti">{{reportTitle}}</div>
 					<div class="report-list-item-right flex justify-start items-start">
-						<div class="report-list-item-right-property flex justify-start items-center" v-for="(_item,_index) in 4" :key="_index">
-							<div class="report-list-item-right-property-title">外倾性</div>
+						<div class="report-list-item-right-property flex justify-start items-center" v-for="(item,index) in dimensionsItems" :key="index">
+							<div class="report-list-item-right-property-title">{{item.title}}</div>
 							<div
 								class="report-list-item-right-property-content flex justify-between items-center">
-								<div class="report-list-item-right-property-content-left">S</div>
-								<div class="report-list-item-right-property-content-middle">
-									<div class="report-list-item-right-property-content-middle-step"></div>
+								<div class="report-list-item-right-property-content-left" :class="item.score < 0 ? `color-text-${index}` : `color-gray`">{{item.value}}</div>
+								<div class="report-list-item-right-property-content-middle flex items-center" :class="item.score < 0 ? 'justify-start' : 'justify-end'">
+									<div class="report-list-item-right-property-content-middle-step" :class="`color-${index}`" :style="{'width':item.score+'%;'}"></div>
 								</div>
-								<div class="report-list-item-right-property-content-right">I</div>
+								<div class="report-list-item-right-property-content-right" :class="item.score > 0 ? `color-text-${index}` : `color-gray`">{{item.reverse_value}}</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				
 			</div>
-			<div class="result-item module">
+			<div class="result-item module" v-for="(item,index) in dimensionsItems" :key="index">
 				<div class="item-title flex justify-start items-center">
-					<div class="title-left">外倾性：</div>
-					<div class="title-right">E</div>
+					<div class="title-left">{{item.title}}</div>
+					<div class="title-right" :class="`color-text-${index}`">{{item.value}}</div>
 				</div>
 				<div class="item-details">
-					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
+					{{item.result_text}}
 				</div>
 				<div class="item-sug">建议</div>
-				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
+				<div class="sug-content">
+					{{item.suggest_text}}
+				</div>
 			</div>
-			<div class="result-item module">
+			<!-- <div class="result-item module">
 				<div class="item-title flex justify-start items-center">
 					<div class="title-left">外倾性：</div>
 					<div class="title-right">E</div>
@@ -68,7 +70,7 @@
 						<product-card></product-card>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="service-qrcode">
 			<image src="../../static/logo.png" mode=""></image>
@@ -82,6 +84,27 @@
 <script setup>
 	import petCard from '../../components/petCard.vue';
 	import productCard from '../../components/productCard.vue';
+	import { onLoad } from '@dcloudio/uni-app'
+	import {ref,onMounted} from 'vue'
+	import {reportDetails} from '@/services/api.js'
+	let reportId = ref('')
+	let dimensionsItems = ref([])
+	let reportTitle = ref('')
+	let getReportDeatils = async (reportId) => {
+		let result = await reportDetails(reportId)
+		console.log("报告详情",result)
+		dimensionsItems.value = result.data.data.dimensions
+		reportTitle.value = result.data.data.assessment.title
+		
+	}
+	onMounted(() => {
+		getReportDeatils(reportId.value)
+	})
+	onLoad((options) => {
+		console.log(options); // { id: '123', name: '张三' }
+		reportId.value = options.reportId
+		console.log(reportId.value)
+	})
 </script>
 
 <style lang="scss" scoped>
@@ -139,7 +162,7 @@
 						margin-bottom: 28rpx;
 						// border: 1px solid red;
 						&-title {
-							color: #8c8c8c;
+							// color: #8c8c8c;
 							font-size: 24rpx;
 							margin-right: 40rpx;
 						}
@@ -149,7 +172,7 @@
 							height: 20rpx;
 							// border: 1px solid blue;
 							&-left {
-								color: #faad14;
+								// color: #faad14;
 								font-size: 24rpx;
 							}
 								
@@ -164,12 +187,12 @@
 									width: 200rpx;
 									height: 20rpx;
 									border-radius: 4rpx;
-									background-color: #faad14;
+									
 								}
 							}
 								
 							&-right {
-								color: #8c8c8c;
+								// color: #8c8c8c;
 								
 								font-size: 24rpx;
 							}
@@ -183,7 +206,7 @@
 					color:#222;
 					font-size: 36rpx;
 					.title-right {
-						color: #FAAD14;
+						// color: #FAAD14;
 					}
 				}
 				.item-details {
@@ -246,5 +269,36 @@
 			text-align: center;
 			color: #222;
 		}
+	}
+	.color-0 {
+		background-color: #faad14;
+		color: #faad14;
+	}
+	.color-1{
+		background-color: #3B8AFA;
+		color: #3B8AFA;
+	}
+	.color-2 {
+		background-color: #F15912;
+		color: #F15912;
+	}
+	.color-3 {
+		background-color: #AA60FA;
+		color: #AA60FA;
+	}
+	.color-text-0 {
+		color: #faad14;
+	}
+	.color-text-1{
+		color: #3B8AFA;
+	}
+	.color-text-2 {
+		color: #F15912;
+	}
+	.color-text-3 {
+		color: #AA60FA;
+	}
+	.color-gray {
+		color: #8c8c8c;
 	}
 </style>

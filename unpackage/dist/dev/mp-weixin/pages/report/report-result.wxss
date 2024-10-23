@@ -76,7 +76,6 @@
   margin-bottom: 28rpx;
 }
 .container .content .eval-details .report-list-item-right-property-title.data-v-fdd21b61 {
-  color: #8c8c8c;
   font-size: 24rpx;
   margin-right: 40rpx;
 }
@@ -84,7 +83,6 @@
   height: 20rpx;
 }
 .container .content .eval-details .report-list-item-right-property .report-list-item-right-property-content-left.data-v-fdd21b61 {
-  color: #faad14;
   font-size: 24rpx;
 }
 .container .content .eval-details .report-list-item-right-property .report-list-item-right-property-content-middle.data-v-fdd21b61 {
@@ -98,19 +96,14 @@
   width: 200rpx;
   height: 20rpx;
   border-radius: 4rpx;
-  background-color: #faad14;
 }
 .container .content .eval-details .report-list-item-right-property .report-list-item-right-property-content-right.data-v-fdd21b61 {
-  color: #8c8c8c;
   font-size: 24rpx;
 }
 .container .content .result-item .item-title.data-v-fdd21b61 {
   margin-bottom: 24rpx;
   color: #222;
   font-size: 36rpx;
-}
-.container .content .result-item .item-title .title-right.data-v-fdd21b61 {
-  color: #FAAD14;
 }
 .container .content .result-item .item-details.data-v-fdd21b61 {
   margin-bottom: 40rpx;
@@ -166,4 +159,35 @@
   margin-bottom: 34rpx;
   text-align: center;
   color: #222;
+}
+.color-0.data-v-fdd21b61 {
+  background-color: #faad14;
+  color: #faad14;
+}
+.color-1.data-v-fdd21b61 {
+  background-color: #3B8AFA;
+  color: #3B8AFA;
+}
+.color-2.data-v-fdd21b61 {
+  background-color: #F15912;
+  color: #F15912;
+}
+.color-3.data-v-fdd21b61 {
+  background-color: #AA60FA;
+  color: #AA60FA;
+}
+.color-text-0.data-v-fdd21b61 {
+  color: #faad14;
+}
+.color-text-1.data-v-fdd21b61 {
+  color: #3B8AFA;
+}
+.color-text-2.data-v-fdd21b61 {
+  color: #F15912;
+}
+.color-text-3.data-v-fdd21b61 {
+  color: #AA60FA;
+}
+.color-gray.data-v-fdd21b61 {
+  color: #8c8c8c;
 }

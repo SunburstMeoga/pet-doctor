@@ -32,8 +32,23 @@ const petBreeds = async (typeId) => {
     method: "get"
   });
 };
+const createReport = async (data) => {
+  return services_request.request({
+    url: "/report",
+    method: "post",
+    data
+  });
+};
+const reportDetails = async (id) => {
+  return services_request.request({
+    url: "/report/" + id,
+    method: "get"
+  });
+};
 exports.assessmentDetails = assessmentDetails;
+exports.createReport = createReport;
 exports.login = login;
 exports.petBreeds = petBreeds;
 exports.petCards = petCards;
+exports.reportDetails = reportDetails;
 exports.storePetCard = storePetCard;
