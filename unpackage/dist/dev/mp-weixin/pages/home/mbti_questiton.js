@@ -10,7 +10,7 @@ const _sfc_main = {
     let currentQuestion = common_vendor.ref(0);
     common_vendor.ref([]);
     let cardId = common_vendor.ref("");
-    let assessmentId = common_vendor.ref("1");
+    let assessmentId = common_vendor.ref("");
     let filteredData = common_vendor.ref([]);
     let selectedIds = common_vendor.ref([]);
     let isFinishAnswer = common_vendor.ref(false);
@@ -52,7 +52,7 @@ const _sfc_main = {
       try {
         const result = await services_api.assessmentDetails(assessmentType);
         questionItems.value = result.data.data.questions;
-        console.log(questionItems.value);
+        console.log("问题列表", questionItems.value);
       } catch (err) {
         console.log(err);
       }
@@ -61,9 +61,11 @@ const _sfc_main = {
       getAssessmentDetails(assessmentId.value);
     });
     common_vendor.onLoad((options) => {
-      console.log(options);
-      cardId.value = options.cardId;
-      console.log(cardId.value);
+      if (options.cardId || options.assessmentId) {
+        cardId.value = options.cardId;
+        assessmentId.value = options.assessmentId;
+        console.log(cardId.value);
+      }
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

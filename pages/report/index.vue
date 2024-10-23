@@ -15,23 +15,9 @@
 				</div>
 			</div>
 			<div class="report">
-				<swiper class="swiper-box" @change="change" :current="currentReport">
-					<swiper-item class="flex justify-center items-center" v-for="(item, index) in 3" :key="index">
-						<div class="swiper-item image-bg"
-							style="background-image: url('../../static/images/report/card-male.png');">
-							<div class="card-info">
-								<div class="card-info-name flex justify-start items-center">花花</div>
-								<div class="card-info-property flex justify-start items-center">
-									<div class="diamond"></div>
-									<div class="card-info-property-variety">布偶 | 妹妹</div>
-									<div class="card-info-property-gender icon iconfont icon-cixing"></div>
-								</div>
-								<div class="card-info-date flex justify-start items-center">
-									<div class="diamond"></div>
-									<div class="card-info-date-number">2023/09/12</div>
-								</div>
-							</div>
-						</div>
+				<swiper class="swiper-box"   @change="swipeChange" :current="currentReport">
+					<swiper-item class="flex justify-center items-center"  v-for="(item, index) in cardList" :key="index">
+						<pet-card style="width: 622rpx;" :name="item.name" :breed="item.breed.name" :sex="item.sex" :time="item.birth_at"></pet-card>
 					</swiper-item>
 				</swiper>
 
@@ -73,11 +59,13 @@
 		getCurrentInstance,
 		onMounted
 	} from 'vue'
+	import petCard from '../../components/petCard.vue';
+	import {
+		// orders,
+		petCards,reports
+	} from '@/services/api.js'
 	let currentReport = ref(0)
-	let change = (e) => {
-		// currentQuestion.value = e.detail.current;
-		console.log(e.detail.current)
-	}
+	let cardList = ref([''])
 	let options1 = ref([{
 		text: '删除',
 		style: {
@@ -97,9 +85,23 @@
 		//  icon: 'none'
 		// });
 	}
-	let swipeChange = (e) => {
+	let swipeChange = async (e) => {
 		console.log(e)
+		console.log(currentReport.value)
+		let resReport = await reports({pet_card_id: cardList.value[currentReport.value].id})
+		console.log('切换轮播图之后的宠物id', cardList.value[currentReport.value].id)
+		console.log('切换轮播图之后的报告', resReport)
 	}
+	
+	onMounted(async () => {
+		let petCardsList = await petCards()
+		console.log('宠物id',petCardsList.data.data[0].id)
+		let resReport = await reports({pet_card_id: petCardsList.data.data[0].id})
+		console.log(petCardsList.data.data.length,petCardsList)
+		cardList.value = petCardsList.data.data
+		console.log(cardList.value)
+		console.log('报告',resReport)
+	})
 </script>
 
 <style lang="scss" scoped>

@@ -21,8 +21,8 @@ const request = axios.create({
 });
 	request.interceptors.request.use(async (config) => {
 	console.log(uni.getStorageSync('token'))
-	// config.headers["Authorization"] = uni.getStorageSync('token');
-	config.headers["Authorization"] = 'Bearer FQv8BHTPAgLhqgEBXgrZhV8RYmw8ZwcauzFoOJIMbtTm6c7LWKihSaWnsujguhNf'
+	config.headers["Authorization"] = uni.getStorageSync('token');
+	// config.headers["Authorization"] = 'Bearer FQv8BHTPAgLhqgEBXgrZhV8RYmw8ZwcauzFoOJIMbtTm6c7LWKihSaWnsujguhNf'
 		return config;
 	});
 	

@@ -1,6 +1,4 @@
 {
   "navigationBarTitleText": "活动",
-  "usingComponents": {
-    "order-card": "../../components/orderCard"
-  }
+  "usingComponents": {}
 }

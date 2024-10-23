@@ -1,6 +1,7 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
+const services_api = require("../../services/api.js");
 if (!Array) {
   const _easycom_uni_swipe_action_item2 = common_vendor.resolveComponent("uni-swipe-action-item");
   const _easycom_uni_swipe_action2 = common_vendor.resolveComponent("uni-swipe-action");
@@ -9,15 +10,14 @@ if (!Array) {
 const _easycom_uni_swipe_action_item = () => "../../uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.js";
 const _easycom_uni_swipe_action = () => "../../uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.js";
 if (!Math) {
-  (_easycom_uni_swipe_action_item + _easycom_uni_swipe_action)();
+  (petCard + _easycom_uni_swipe_action_item + _easycom_uni_swipe_action)();
 }
+const petCard = () => "../../components/petCard.js";
 const _sfc_main = {
   __name: "index",
   setup(__props) {
     let currentReport = common_vendor.ref(0);
-    let change = (e) => {
-      console.log(e.detail.current);
-    };
+    let cardList = common_vendor.ref([""]);
     let options1 = common_vendor.ref([{
       text: "删除",
       style: {
@@ -33,16 +33,39 @@ const _sfc_main = {
     let bindClick = (e) => {
       console.log(e);
     };
+    let swipeChange = async (e) => {
+      console.log(e);
+      console.log(currentReport.value);
+      let resReport = await services_api.reports({ pet_card_id: cardList.value[currentReport.value].id });
+      console.log("切换轮播图之后的宠物id", cardList.value[currentReport.value].id);
+      console.log("切换轮播图之后的报告", resReport);
+    };
+    common_vendor.onMounted(async () => {
+      let petCardsList = await services_api.petCards();
+      console.log("宠物id", petCardsList.data.data[0].id);
+      let resReport = await services_api.reports({ pet_card_id: petCardsList.data.data[0].id });
+      console.log(petCardsList.data.data.length, petCardsList);
+      cardList.value = petCardsList.data.data;
+      console.log(cardList.value);
+      console.log("报告", resReport);
+    });
     return (_ctx, _cache) => {
       return {
         a: common_assets._imports_0,
-        b: common_assets._imports_1$1,
-        c: common_vendor.f(3, (item, index, i0) => {
+        b: common_assets._imports_1,
+        c: common_vendor.f(common_vendor.unref(cardList), (item, index, i0) => {
           return {
-            a: index
+            a: "14542b8b-0-" + i0,
+            b: common_vendor.p({
+              name: item.name,
+              breed: item.breed.name,
+              sex: item.sex,
+              time: item.birth_at
+            }),
+            c: index
           };
         }),
-        d: common_vendor.o((...args) => common_vendor.unref(change) && common_vendor.unref(change)(...args)),
+        d: common_vendor.o((...args) => common_vendor.unref(swipeChange) && common_vendor.unref(swipeChange)(...args)),
         e: common_vendor.unref(currentReport),
         f: common_vendor.f(3, (item, index, i0) => {
           return {
@@ -52,12 +75,12 @@ const _sfc_main = {
               };
             }),
             b: common_vendor.o(($event) => common_vendor.unref(bindClick)(), index),
-            c: common_vendor.o(common_vendor.unref(change), index),
-            d: "14542b8b-1-" + i0 + ",14542b8b-0",
+            c: common_vendor.o(_ctx.change, index),
+            d: "14542b8b-2-" + i0 + ",14542b8b-1",
             e: index
           };
         }),
-        g: common_assets._imports_2$1,
+        g: common_assets._imports_2,
         h: common_vendor.p({
           ["right-options"]: common_vendor.unref(options1)
         })

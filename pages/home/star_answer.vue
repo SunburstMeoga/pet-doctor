@@ -18,6 +18,7 @@
 	import {ref,onMounted} from 'vue'
 	import { onLoad } from '@dcloudio/uni-app'
 	let isAgree = ref(false)
+	let assessmentId = ref('')
 	let cardId = ref('')
 	let handleAgree = () => {
 		isAgree.value = !isAgree.value
@@ -34,7 +35,12 @@
 		}
 		if(cardId.value) {
 			uni.navigateTo({
-				url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
+				url: `/pages/home/mbti_questiton?cardId=${cardId.value}&assessmentId=${assessmentId.value}`
+			})
+		} else {
+			console.log('跳转时的assessmentId.value', assessmentId.value)
+			uni.navigateTo({
+				url:`/pages/personal/petIDCardList?assessmentId=${assessmentId.value}`
 			})
 		}
 	}
@@ -43,8 +49,12 @@
 	})
 	onLoad((options) => {
 		console.log(options); // { id: '123', name: '张三' }
-		cardId.value = options.cardId
-		console.log(cardId.value)
+		if(options.cardId || options.assessmentId) {
+			cardId.value = options.cardId
+			assessmentId.value = options.assessmentId
+			console.log(cardId.value)
+		}
+		
 		
 	})
 </script>

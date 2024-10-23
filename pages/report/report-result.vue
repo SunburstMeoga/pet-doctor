@@ -1,12 +1,12 @@
 <template>
 	<div class="container">
 		<div class="content flex justify-start items-center">
-			<div class="pet-info">
+		<!-- 	<div class="pet-info">
 				<pet-card></pet-card>
 			</div>
 			<div class="report-result module">
 				
-			</div>
+			</div> -->
 			<div class="eval-details module">
 				<div class="details-title">测评详情</div>
 				<div class="details-content"  style="background-image: url('../../static/images/report/mbti-result.png');">
@@ -61,7 +61,7 @@
 				</div>
 				<div class="item-sug">建议</div>
 				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
-			</div>
+			</div> 
 			<div class="module program ">
 				<div class="program-bg flex justify-center items-center image-bg" style="background-image: url('../../static/images/report/nutritional-bg.png');"></div>
 				<div class="program-title">根据 <span style="font-weight: bold;">花花</span> 的测评结果推荐以下商品</div>
@@ -70,7 +70,7 @@
 						<product-card></product-card>
 					</div>
 				</div>
-			</div> -->
+			</div>-->
 		</div>
 		<div class="service-qrcode">
 			<image src="../../static/logo.png" mode=""></image>

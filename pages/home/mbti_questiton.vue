@@ -62,7 +62,7 @@
 	let currentQuestion = ref(0)
 	let answerids = ref([])
 	let cardId = ref('')
-	let assessmentId = ref('1')
+	let assessmentId = ref('')
 	let filteredData = ref([])
 	let selectedIds = ref([])
 	
@@ -112,7 +112,7 @@
 			// questionItems.value.map(item => {
 			// 	item.selectid = null
 			// })
-			console.log(questionItems.value)
+			console.log('问题列表', questionItems.value)
 		} catch (err) {
 			console.log(err)
 		}
@@ -121,14 +121,11 @@
 		getAssessmentDetails(assessmentId.value)
 	})
 	onLoad((options) => {
-		console.log(options); // { id: '123', name: '张三' }
-		cardId.value = options.cardId
-		console.log(cardId.value)
-		// if(cardId.value) {
-		// 	uni.navigateTo({
-		// 		url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
-		// 	})
-		// }
+		if(options.cardId || options.assessmentId) {
+			cardId.value = options.cardId
+			assessmentId.value = options.assessmentId
+			console.log(cardId.value)
+		}
 	})
 </script>
 

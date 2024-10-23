@@ -2,16 +2,30 @@
 const common_vendor = require("../common/vendor.js");
 const _sfc_main = {
   __name: "orderCard",
+  props: {
+    orderNumber: {
+      type: String,
+      default: ""
+    },
+    price: {
+      type: Number,
+      default: 0
+    },
+    count: {
+      type: Number,
+      default: 0
+    },
+    status: {
+      type: Number,
+      default: 0
+    }
+  },
   setup(__props) {
-    let tagsItems = [{ title: "上新" }, { title: "猫猫" }, { title: "毛绒" }];
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.f(common_vendor.unref(tagsItems), (item, index, i0) => {
-          return {
-            a: common_vendor.t(item.title),
-            b: index
-          };
-        })
+        a: common_vendor.t(__props.status === 3 ? "交易成功" : "交易失败"),
+        b: common_vendor.t(__props.price.toFixed(2)),
+        c: common_vendor.t(__props.count)
       };
     };
   }

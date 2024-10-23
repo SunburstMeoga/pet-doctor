@@ -8,7 +8,7 @@ const request = common_vendor.axios.create({
 });
 request.interceptors.request.use(async (config) => {
   console.log(common_vendor.index.getStorageSync("token"));
-  config.headers["Authorization"] = "Bearer FQv8BHTPAgLhqgEBXgrZhV8RYmw8ZwcauzFoOJIMbtTm6c7LWKihSaWnsujguhNf";
+  config.headers["Authorization"] = common_vendor.index.getStorageSync("token");
   return config;
 });
 request.interceptors.response.use((response) => {

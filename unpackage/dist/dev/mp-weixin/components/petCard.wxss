@@ -68,6 +68,11 @@
 }
 .card-info-property-gender.data-v-241ef60e {
   font-size: 32rpx;
+}
+.card-info-property-xiongxing.data-v-241ef60e {
+  color: #3B8AFA;
+}
+.card-info-property-cixing.data-v-241ef60e {
   color: #FF6D6D;
 }
 .card-info-date.data-v-241ef60e {

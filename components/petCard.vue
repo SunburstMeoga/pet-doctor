@@ -5,15 +5,15 @@
 			<div class="edit flex justify-center items-center" v-if="showEdit">
 				<div class="icon iconfont icon-bianji"></div>
 			</div>
-			<div class="card-info-name flex justify-start items-center">花花</div>
+			<div class="card-info-name flex justify-start items-center">{{name}}</div>
 			<div class="card-info-property flex justify-start items-center">
 				<div class="diamond"></div>
-				<div class="card-info-property-variety">布偶 | 妹妹</div>
-				<div class="card-info-property-gender icon iconfont icon-cixing"></div>
+				<div class="card-info-property-variety">{{breed}} | {{sex === 1 ? '弟弟' : '妹妹'}}</div>
+				<div class="card-info-property-gender icon iconfont" :class="sex === 1 ? 'icon-xiongxing card-info-property-xiongxing' : 'icon-cixing card-info-property-cixing'"></div>
 			</div>
 			<div class="card-info-date flex justify-start items-center">
 				<div class="diamond"></div>
-				<div class="card-info-date-number">2023/09/12</div>
+				<div class="card-info-date-number">{{time}}</div>
 			</div>
 		</div>
 	</div>
@@ -25,6 +25,22 @@
 		showEdit: {
 			type: Boolean,
 			deafult: false
+		},
+		name: {
+			type: String,
+			default: '博士',
+		},
+		breed: {
+			type: String,
+			default: ''
+		},
+		sex: {
+			type: Number,
+			default: 1
+		},
+		time: {
+			type: String,
+			default: ''
 		}
 	})
 </script>
@@ -81,6 +97,12 @@
 	
 			&-gender {
 				font-size: 32rpx;
+				
+			}
+			&-xiongxing {
+				color: #3B8AFA
+			}
+			&-cixing {
 				color: #FF6D6D;
 			}
 		}

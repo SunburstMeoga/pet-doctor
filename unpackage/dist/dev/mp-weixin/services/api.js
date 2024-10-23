@@ -45,10 +45,57 @@ const reportDetails = async (id) => {
     method: "get"
   });
 };
+const allProduct = async () => {
+  return services_request.request({
+    url: "/products",
+    method: "get"
+  });
+};
+const createOrder = async (data) => {
+  return services_request.request({
+    url: "/order",
+    method: "post",
+    data
+  });
+};
+const pay = async (data) => {
+  return services_request.request({
+    url: "/pay",
+    method: "post",
+    data
+  });
+};
+const orders = async (data) => {
+  return services_request.request({
+    url: "/orders",
+    method: "get",
+    data
+  });
+};
+const reports = async (data) => {
+  return services_request.request({
+    url: "/reports",
+    method: "get",
+    data
+  });
+};
+const userPhone = async (data) => {
+  return services_request.request({
+    url: "/user/phone",
+    method: "post",
+    data
+  });
+};
+exports.allProduct = allProduct;
 exports.assessmentDetails = assessmentDetails;
+exports.createOrder = createOrder;
 exports.createReport = createReport;
 exports.login = login;
+exports.orders = orders;
+exports.pay = pay;
 exports.petBreeds = petBreeds;
 exports.petCards = petCards;
 exports.reportDetails = reportDetails;
+exports.reports = reports;
 exports.storePetCard = storePetCard;
+exports.userPhone = userPhone;

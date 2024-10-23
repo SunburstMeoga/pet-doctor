@@ -53,6 +53,62 @@ export const reportDetails = async (id) => {
 		method: 'get'
 	})
 }
+//获取商品列表
+export const allProduct = async () => {
+	return axios({
+		url: '/products',
+		method: 'get'
+	})
+}
+//创建订单
+export const createOrder = async (data) => {
+	return axios({
+		url: '/order',
+		method: 'post',
+		data
+	})
+}
+//购买接口
+export const pay = async(data) => {
+	return axios({
+		url: '/pay',
+		method: 'post',
+		data
+	})
+}
+//订单列表
+export const orders = async(data) => {
+	return axios({
+		url: '/orders',
+		method: 'get',
+		data
+	})
+}
+//报告列表
+export const reports = async(data) => {
+	return axios({
+		url: '/reports',
+		method: 'get',
+		data
+	})
+}
+export const userPhone = async (data) =>{
+	return axios({
+		url: '/user/phone',
+		method: 'post',
+		data
+	})
+}
+
+
+
+
+
+
+
+
+
+
 export const refreshToken = async () => {
 	
 }

@@ -87,6 +87,7 @@
 		computed,
 		onMounted
 	} from 'vue';
+	import { onLoad } from '@dcloudio/uni-app'
 	import {storePetCard,petBreeds} from '@/services/api.js'
 	
 	let petTypeItems = ref([{
@@ -122,6 +123,16 @@
 	let brithDay = ref('')
 	let breedId = ref(null)
 	let sex = ref(1)
+	let assessmentId = ref('')
+	onLoad((options) => {
+		console.log(options); // { id: '123', name: '张三' }
+		if(options.assessmentId) {
+			assessmentId.value = options.assessmentId
+			console.log(assessmentId.value)
+		}
+		
+		
+	})
 	let toPreStep = () => {
 		currentStep.value = --currentStep.value
 		console.log(currentStep.value)
@@ -164,7 +175,7 @@
 			console.log(result)
 			uni.hideLoading()
 			uni.navigateTo({
-				url: `/pages/home/star_answer?cardId=${result.data.data.id}`
+				url: `/pages/home/star_answer?cardId=${result.data.data.id}&assessmentId=${assessmentId.value}`
 			})
 		} catch(err) {
 			uni.hideLoading()

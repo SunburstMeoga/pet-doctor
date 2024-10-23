@@ -22,11 +22,11 @@
 					</div> -->
 				</div>
 			</div>
-			<div class="content-list" v-show="cardList.length !== 0">
+			<div class="content-list" v-if="cardList.length !== 0">
 				<uni-swipe-action class="flex justify-start items-center">
-					<div v-for="(item, index) in 3" :key="index" class="content-list-item">
+					<div v-for="(item, index) in cardList" :key="index" class="content-list-item" @click="handleCard(item)">
 						<uni-swipe-action-item :right-options="options1" @click="bindClick()" @change="change">
-							<pet-card></pet-card>
+							<pet-card :name="item.name" :breed="item.breed.name" :sex="item.sex" :time="item.birth_at"></pet-card>
 						</uni-swipe-action-item>
 					</div>
 				</uni-swipe-action>
@@ -44,8 +44,13 @@
 </template>
 
 <script setup>
-	import {ref} from 'vue'
+	import {ref,onMounted} from 'vue'
 	import petCard from '../../components/petCard.vue';
+	import { onLoad } from '@dcloudio/uni-app'
+	import {
+		login,
+		petCards
+	} from '@/services/api.js'
 	let cardList = ref([''])
 	let options1 = ref([{
 		text: '删除',
@@ -59,6 +64,27 @@
 			minHeight: '228rpx'
 		}
 	}])
+	let assessmentId = ref('')
+	onLoad((options) => {
+		console.log(options); // { id: '123', name: '张三' }
+		if(options.assessmentId) {
+			assessmentId.value = options.assessmentId
+			console.log(assessmentId.value)
+		}
+		
+		
+	})
+	let handleCard = (item) => {
+		uni.navigateTo({
+			url: `/pages/home/mbti_questiton?cardId=${item.id}&assessmentId=${assessmentId.value}`
+		})
+	}
+	onMounted(async () => {
+		let petCardsList = await petCards()
+		console.log(petCardsList.data.data.length,petCardsList)
+		cardList.value = petCardsList.data.data
+		console.log(cardList.value)
+	})
 </script>
 
 <style lang="scss" scoped>
@@ -78,6 +104,7 @@
 			&-title {
 				width: 686rpx;
 				height: 136rpx;
+				margin: 40rpx 0;
 				&-left {
 					&-return {
 						width: 48rpx;
@@ -108,6 +135,8 @@
 			}
 			&-list {
 				width: 686rpx;
+				max-height: 1228rpx;
+				overflow-y: scroll;
 				&-item {
 					width: 686rpx;
 					margin-bottom: 32rpx;

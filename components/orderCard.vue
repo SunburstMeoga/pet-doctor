@@ -1,106 +1,96 @@
 <template>
-	<div class="content">
-		<div class="content-time">
-			截至2023/08/22 23:00
-		</div>
-		<div class="content-info flex justify-center items-center">
-			<div class="content-details flex justify-start items-start">
-				<div class="details-left"></div>
-				<div class="details-right">
-					<div class="right-title">猫猫喜欢的玩具</div>
-					<div class="right-details">商品详情的描述内容</div>
-					<div class="right-tags flex justify-start items-center">
-						<div class="tags-item" v-for="(item, index) in tagsItems" :key="index">{{item.title}}</div>
-					</div>
-					
-					<div class="buy  flex justify-between items-center">
-						<div class="right-price">￥2323</div>
-						<div class="buy-button">立即购买</div>
-					</div>
+	<div class="content flex justify-center items-center">
+		<div class="content-info ">
+			<div class="info-title flex justify-between items-center">
+				<div class="title-left flex justify-start items-center">
+					<div class="order-word">订单编号</div>
+					<div class="order-content">787870079768689008</div>
+				</div>
+				<div class="title-right">{{status === 3 ? '交易成功' : '交易失败'}}</div>
+			</div>
+			<div class="info-details flex justify-between items-center">
+				<div class="details-left">
+					<image src="https://img1.baidu.com/it/u=3957729854,846758244&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" mode=""></image>
+				</div>
+				<div class="details-right flex justify-between items-end">
+					<div class="right-price">￥{{price.toFixed(2)}}</div>
+					<div class="right-count">共 {{count}} 件</div>
 				</div>
 			</div>
+			<div class="info-type">自提</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
-	import {ref} from 'vue'
-	let tagsItems = [{title: '上新'} , {title: '猫猫'}, {title: '毛绒'}]
+	import {ref,defineProps} from 'vue'
+	const props = defineProps({
+		orderNumber: {
+			type: String,
+			default: ''
+		},
+		price: {
+			type: Number,
+			default: 0
+		},
+		count: {
+			type: Number,
+			default: 0
+		},
+		status: {
+			type: Number,
+			default: 0
+		}
+	})
 </script>
 
 <style lang="scss" scoped>
 	.content {
 		width: 100%;
 		background-color: #fff;
-		.content-time {
-			background-color: rgb(254, 217, 195);
-			 color: #F54940;
-			 font-size: 24rpx;
-			 padding: 16rpx 24rpx;
-		}
+		padding: 28rpx 0;
 		.content-info {
-			width: 100%;
-			padding: 28rpx 0;
-			background-color: #fff;
-			border-radius: 24rpx;
-			.content-details {
-				width: 642rpx;
-				height: 228rpx;
-				border-radius: 24rpx;
-				position: relative;
+			width: 630rpx;
+			.info-title {
+				width: 100%;
+				font-size: 28rpx;
+				.title-left {
+					.order-word {
+						color: #595959;
+					}
+					.order-content {
+						color: #8c8c8c;
+					}
+				}
+				.title-right {
+					color: #595959;
+				}
+			}
+			.info-details {
+				width: 100%;
+				margin: 24rpx 0;
 				.details-left {
-					width: 220rpx;
-					height: 220rpx;
-					border-radius: 24rpx;
-					border: 1rpx solid red;
+					width: 100rpx;
+					height: 100rpx;
+					// border: 1px solid red;
+					border-radius: 10rpx;
+					overflow: hidden;
 				}
 				.details-right {
-					margin-left: 24rpx;
-					.right-title{
-						color: #222;
-						font-size: 32rpx;
-						margin-bottom: 2rpx;
-					}
-					.right-details {
-						color: #595959;
-						font-size: 24rpx;
-						margin-bottom: 2rpx;
-					}
-					.right-tags {
-						margin-bottom: 2rpx;
-						.tags-item {
-							margin-right: 8rpx;
-							padding: 0 8rpx;
-							color: #fff;
-							background-color: #F54940;
-							border-radius: 8rpx;
-							font-size: 20rpx;
-						}
-					}
+					height: 100rpx;
+					flex-direction: column;
 					.right-price {
 						color: #222;
 						font-size: 32rpx;
-						// border: 1px solid red;
-						font-weight: 900;
 					}
-					.buy {
-						position: absolute;
-						right: 0;
-						bottom: 0;
-						width: 398rpx;
-						.buy-button {
-							width: 150rpx;
-							height: 57rpx;
-							text-align: center;
-							line-height: 57rpx;
-							color: #fff;
-							background-color: #F7A040;
-							border-radius: 8rpx;
-							font-size: 24rpx;
-						}
+					.right-count {
+						color: #595959;
+						font-size: 24rpx;
 					}
 				}
-				
+			}
+			.info-type{
+				color: #595959;
 			}
 		}
 	}

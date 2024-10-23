@@ -2,10 +2,6 @@
 const common_vendor = require("../../common/vendor.js");
 const common_assets = require("../../common/assets.js");
 const services_api = require("../../services/api.js");
-if (!Math) {
-  petCard();
-}
-const petCard = () => "../../components/petCard.js";
 const _sfc_main = {
   __name: "report-result",
   setup(__props) {

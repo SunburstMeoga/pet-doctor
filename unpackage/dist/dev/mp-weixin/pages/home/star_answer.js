@@ -4,6 +4,7 @@ const _sfc_main = {
   __name: "star_answer",
   setup(__props) {
     let isAgree = common_vendor.ref(false);
+    let assessmentId = common_vendor.ref("");
     let cardId = common_vendor.ref("");
     let handleAgree = () => {
       isAgree.value = !isAgree.value;
@@ -20,7 +21,12 @@ const _sfc_main = {
       }
       if (cardId.value) {
         common_vendor.index.navigateTo({
-          url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
+          url: `/pages/home/mbti_questiton?cardId=${cardId.value}&assessmentId=${assessmentId.value}`
+        });
+      } else {
+        console.log("跳转时的assessmentId.value", assessmentId.value);
+        common_vendor.index.navigateTo({
+          url: `/pages/personal/petIDCardList?assessmentId=${assessmentId.value}`
         });
       }
     };
@@ -28,8 +34,11 @@ const _sfc_main = {
     });
     common_vendor.onLoad((options) => {
       console.log(options);
-      cardId.value = options.cardId;
-      console.log(cardId.value);
+      if (options.cardId || options.assessmentId) {
+        cardId.value = options.cardId;
+        assessmentId.value = options.assessmentId;
+        console.log(cardId.value);
+      }
     });
     return (_ctx, _cache) => {
       return {

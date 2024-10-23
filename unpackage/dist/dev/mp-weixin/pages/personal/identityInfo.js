@@ -37,6 +37,14 @@ const _sfc_main = {
     let brithDay = common_vendor.ref("");
     let breedId = common_vendor.ref(null);
     let sex = common_vendor.ref(1);
+    let assessmentId = common_vendor.ref("");
+    common_vendor.onLoad((options) => {
+      console.log(options);
+      if (options.assessmentId) {
+        assessmentId.value = options.assessmentId;
+        console.log(assessmentId.value);
+      }
+    });
     let toPreStep = () => {
       currentStep.value = --currentStep.value;
       console.log(currentStep.value);
@@ -78,7 +86,7 @@ const _sfc_main = {
         console.log(result);
         common_vendor.index.hideLoading();
         common_vendor.index.navigateTo({
-          url: `/pages/home/star_answer?cardId=${result.data.data.id}`
+          url: `/pages/home/star_answer?cardId=${result.data.data.id}&assessmentId=${assessmentId.value}`
         });
       } catch (err) {
         common_vendor.index.hideLoading();

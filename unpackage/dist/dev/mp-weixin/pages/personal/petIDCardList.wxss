@@ -39,6 +39,7 @@
 .container .content-title.data-v-9a7bd0cc {
   width: 686rpx;
   height: 136rpx;
+  margin: 40rpx 0;
 }
 .container .content-title-left-return.data-v-9a7bd0cc {
   width: 48rpx;
@@ -65,6 +66,8 @@
 }
 .container .content-list.data-v-9a7bd0cc {
   width: 686rpx;
+  max-height: 1228rpx;
+  overflow-y: scroll;
 }
 .container .content-list-item.data-v-9a7bd0cc {
   width: 686rpx;

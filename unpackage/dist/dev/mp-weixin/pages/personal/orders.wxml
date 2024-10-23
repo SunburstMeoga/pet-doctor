@@ -1,0 +1,1 @@
+<view class="container"><view class="content flex justify-start items-center"><view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="content-item"><order-card wx:if="{{item.b}}" u-i="{{item.a}}" bind:__l="__l" u-p="{{item.b}}"></order-card></view></view></view>

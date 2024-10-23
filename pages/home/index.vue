@@ -5,20 +5,20 @@
 		</view>
 		<view class="home-banner" style="background-image: url('../../static/images/home/home-banner.png');">
 			<div class="home-operating flex justify-end items-center">
-				<div class="home-button home-mbti" @click="toAssessment">
+				<div class="home-button home-mbti" @click="toAssessment('1')">
 					<div>喵喵MBTI测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
 				</div>
-				<div class="home-button home-mbti" @click="toAssessment">
+				<div class="home-button home-mbti" @click="toAssessment('2')">
 					<div>汪汪MBTI测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
 					</div>
 				</div>
 				
-				<div class="home-button home-eval" @click="toAssessment">
+				<div class="home-button home-eval" @click="toAssessment('3')">
 					<div>定制健康测评</div>
 					<div class="home-button-icon" style="background-image: url('../../static/images/icon/right.png');">
 						<!-- <image src="/static/images/icon/right.png" mode="aspectFill"></image> -->
@@ -30,7 +30,7 @@
 			<view class="one">
 				<image  mode="aspectFill" src="/static/images/home/home-shop.png" alt=""/>
 			</view>
-			<view class="two">
+			<view class="two" @click="handleHotActive">
 				<image  mode="aspectFill" src="/static/images/home/home-active.png" alt=""/>
 			</view>
 		</view>
@@ -40,14 +40,33 @@
 <script setup>
 import { ref, getCurrentInstance, onMounted } from 'vue'
 import MyTabbarVue from '../../components/my-tabbar.vue';
+	import {
+		login,
+		petCards
+	} from '@/services/api.js'
 let title = ref('hello')
-let toAssessment = () => {
+let cardsCount = ref(0)
+let toAssessment = (assessmentId) => {
+	if(cardsCount.value <= 0) {
+		uni.navigateTo({
+			url: `/pages/personal/identityInfo?assessmentId=${assessmentId}`
+		})
+	} else {
+		uni.navigateTo({
+			url: `/pages/home/star_answer?assessmentId=${assessmentId}`
+		})
+	}
+}
+let handleHotActive = () => {
 	uni.navigateTo({
-		url: '/pages/home/mbti_questiton'
+		url: '/pages/home/group_buying'
 	})
 }
-onMounted(() => {
+onMounted(async () => {
 	console.log(title.value)
+	let petCardsList = await petCards()
+	console.log(petCardsList.data.data.length,petCardsList)
+	cardsCount.value = petCardsList.data.data.length
 })
 </script>
 

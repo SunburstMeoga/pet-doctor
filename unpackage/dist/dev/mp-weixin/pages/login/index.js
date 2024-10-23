@@ -6,9 +6,29 @@ const _sfc_main = {
   setup(__props) {
     let testCode = common_vendor.ref("");
     common_vendor.ref("");
+    let getPhone = common_vendor.ref(false);
     common_vendor.ref("");
     common_vendor.onMounted(() => {
     });
+    let onGetPhoneNumber = async (e) => {
+      common_vendor.index.showLoading({
+        title: "正在登录...",
+        mask: true
+        // 是否显示透明蒙层，防止触摸穿透  
+      });
+      if (e.detail.errMsg == "getPhoneNumber:fail user deny") {
+        common_vendor.index.hideLoading();
+      } else {
+        console.log(e);
+        console.log(e.detail.encryptedData);
+        let getNumber = await services_api.userPhone({ code: e.detail.code });
+        console.log("手机号", getNumber);
+        common_vendor.index.hideLoading();
+        common_vendor.index.switchTab({
+          url: "/pages/home/index"
+        });
+      }
+    };
     let toLogin = async () => {
       common_vendor.index.showLoading({
         title: "正在登录...",
@@ -50,18 +70,8 @@ const _sfc_main = {
                 );
                 console.log(result.data.data.api_token);
                 console.log(common_vendor.index.getStorageSync("token"));
-                const petCardsList = await services_api.petCards();
-                console.log(petCardsList.data, petCardsList);
+                getPhone.value = true;
                 common_vendor.index.hideLoading();
-                if (petCardsList.data.length === 0) {
-                  common_vendor.index.navigateTo({
-                    url: "/pages/home/star_answer"
-                  });
-                } else {
-                  common_vendor.index.navigateTo({
-                    url: "/pages/personal/identityInfo"
-                  });
-                }
               } catch (err) {
                 console.log(err);
                 common_vendor.index.hideLoading();
@@ -81,7 +91,10 @@ const _sfc_main = {
     };
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(($event) => common_vendor.unref(toLogin)())
+        a: !common_vendor.unref(getPhone),
+        b: common_vendor.o(($event) => common_vendor.unref(toLogin)()),
+        c: common_vendor.unref(getPhone),
+        d: common_vendor.o((...args) => common_vendor.unref(onGetPhoneNumber) && common_vendor.unref(onGetPhoneNumber)(...args))
       };
     };
   }
