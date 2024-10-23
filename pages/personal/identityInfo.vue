@@ -11,7 +11,7 @@
 					<div class="info-one flex justify-start items-center">
 						<div class="info-one-name">Hi~ 请填写爱宠昵称(仅支持20个字)</div>
 						<div class="info-one-input flex justify-center items-center" style="margin-bottom: 64rpx;">
-							<input type="text" placeholder="爱宠昵称" />
+							<input type="text" placeholder="爱宠昵称" v-model="petName"/>
 						</div>
 						<div class="info-one-name">Ta的生日</div>
 						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
@@ -33,7 +33,7 @@
 					<div class="info-two">
 						<div class="info-one-name">Ta属于什么类型</div>
 						<div class="pet-type flex justify-between items-center">
-							<div @click="handlePetTypeItem(index)" class="pet-type-item flex justify-end items-end"
+							<div @click="handlePetTypeItem(index,item.id)" class="pet-type-item flex justify-end items-end"
 								v-for="(item,index) in petTypeItems" :key="index">
 								<div class="pet-type-item-left flex justify-center items-center"
 									:class="index === selectedPetType ? 'pet-type-item-select' : 'pet-type-item-unselect'">
@@ -55,7 +55,7 @@
 
 						<div class="info-one-gender">弟弟or妹妹</div>
 						<div class="gender-type flex justify-start items-center">
-							<div @click="handlePetGenderItem(index)"
+							<div @click="handlePetGenderItem(index,item.id)"
 								class="gender-type-item flex justify-center items-center"
 								:style="index === 0 ? 'margin-right: 40rpx;' : ''"
 								:class="index === selectGenderType ? 'gender-select' : 'gender-unselect'"
@@ -73,7 +73,7 @@
 			<div v-show="currentStep === 1" class="step-one step flex justify-center items-center">
 				<div class="step-one-button-group flex justify-between items-center">
 					<div class="pre" @click="toPreStep()">上一步</div>
-					<div class="save">保存修改</div>
+					<div class="save" @click="handleSave()">保存修改</div>
 				</div>
 			</div>
 		</div>
@@ -87,7 +87,8 @@
 		computed,
 		onMounted
 	} from 'vue';
-
+	import {storePetCard,petBreeds} from '@/services/api.js'
+	
 	let petTypeItems = ref([{
 		title: '我是猫猫',
 		id: 1,
@@ -103,7 +104,7 @@
 		icon: 'icon-xiongxing'
 	}, {
 		title: '妹妹',
-		id: 2,
+		id: 0,
 		icon: 'icon-cixing'
 	}])
 	let brithDayObj = ref({
@@ -111,29 +112,72 @@
 		month: '',
 		day: ''
 	})
+	let petName = ref(null)
 	let selectedPetType = ref(0)
 	let currentStep = ref(0)
 	let selectGenderType = ref(0)
 	let petTypeValue = ref(0)
 	let selectPetVariety = ref('请选择')
-	let petTypeRange = ref([{ name: '西高地' }, { name: '边牧' }, { name: '金毛' }, { name: '阿拉斯加' }])
+	let petTypeRange = ref([])
+	let brithDay = ref('')
+	let breedId = ref(null)
+	let sex = ref(1)
 	let toPreStep = () => {
 		currentStep.value = --currentStep.value
 		console.log(currentStep.value)
 	}
 	let toNextStep = () => {
+		if(!petName.value) {
+			uni.showToast({
+				title: '要先输入爱宠昵称哦~',
+				icon:'none'
+			})
+			return
+		}
 		currentStep.value = ++currentStep.value
 		console.log(currentStep.value)
 	}
-	let handlePetTypeItem = (index) => {
+	let handlePetTypeItem = (index,id) => {
 		selectedPetType.value = index
+		getPetBreeds(id)
 	}
-	let handlePetGenderItem = (index) => {
+	let handlePetGenderItem = (index,id) => {
 		selectGenderType.value = index
+		sex.value = id
+	}
+	let handleSave = async () => {
+		if(!breedId.value) {
+			uni.showToast({
+				title: '还没选择爱宠品种哦~',
+				icon:'none'
+			})
+			return
+		}
+		uni.showLoading({
+			title: '正在保存...',
+			mask:true
+		})
+		try {
+			console.log({name: petName.value, sex:sex.value, breed_id: breedId.value,birth_at: brithDay.value})
+			// return
+			let result = await storePetCard({name: petName.value, sex:sex.value, breed_id: breedId.value,birth_at: brithDay.value})
+			console.log(result)
+			uni.hideLoading()
+			uni.navigateTo({
+				url: `/pages/home/star_answer?cardId=${result.data.data.id}`
+			})
+		} catch(err) {
+			uni.hideLoading()
+			uni.showModal({
+				confirmText:'保存失败,请重试',
+				showCancel:false
+			})
+		}
 	}
 	let bindDateChange = (e) => {
 		console.log(e)
 		console.log(e.detail.value)
+		brithDay.value = e.detail.value
 		const [year, month, day] = e.detail.value.split('-')
 		brithDayObj.value = {
 			year,
@@ -165,6 +209,22 @@
 	let petVarietyChange = (e) => {
 		console.log('e:', e);
 		selectPetVariety.value = petTypeRange.value[e.detail.value].name
+		breedId.value = petTypeRange.value[e.detail.value].id
+	}
+	//获取宠物品种
+	let getPetBreeds = async (typeId) => {
+		uni.showLoading({
+			title: ''
+		})
+		try {
+			let result = await petBreeds(typeId)
+			petTypeRange.value = result.data.data
+			console.log(result)
+			uni.hideLoading()
+		} catch (err) {
+			console.log(err)
+			uni.hideLoading()
+		}
 	}
 	onMounted(() => {
 		const currentDate = new Date();
@@ -178,6 +238,8 @@
 			month: formattedMonth,
 			day: formattedDay
 		}
+		brithDay.value = `${year}-${month}-${day}`
+		getPetBreeds(1)
 	})
 </script>
 

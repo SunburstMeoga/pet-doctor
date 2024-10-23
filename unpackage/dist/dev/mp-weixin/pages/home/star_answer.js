@@ -4,6 +4,7 @@ const _sfc_main = {
   __name: "star_answer",
   setup(__props) {
     let isAgree = common_vendor.ref(false);
+    let cardId = common_vendor.ref("");
     let handleAgree = () => {
       isAgree.value = !isAgree.value;
       console.log(isAgree.value);
@@ -21,6 +22,13 @@ const _sfc_main = {
         url: "/pages/home/mbti_questiton"
       });
     };
+    common_vendor.onMounted(() => {
+    });
+    common_vendor.onLoad((options) => {
+      console.log(options);
+      cardId.value = options.cardId;
+      console.log(cardId.value);
+    });
     return (_ctx, _cache) => {
       return {
         a: common_vendor.o(($event) => common_vendor.unref(handleAgree)()),

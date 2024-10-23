@@ -13,12 +13,27 @@ const login = async (params) => {
     data: params
   });
 };
-const petCards = (async) => {
+const petCards = async () => {
   return services_request.request({
     url: "/pet/cards",
     method: "get"
   });
 };
+const storePetCard = async (data) => {
+  return services_request.request({
+    url: "/pet/card",
+    method: "post",
+    data
+  });
+};
+const petBreeds = async (typeId) => {
+  return services_request.request({
+    url: "/pet/breeds/" + typeId,
+    method: "get"
+  });
+};
 exports.assessmentDetails = assessmentDetails;
 exports.login = login;
+exports.petBreeds = petBreeds;
 exports.petCards = petCards;
+exports.storePetCard = storePetCard;

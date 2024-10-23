@@ -15,8 +15,10 @@
 </template>
 
 <script setup>
-	import {ref} from 'vue'
+	import {ref,onMounted} from 'vue'
+	import { onLoad } from '@dcloudio/uni-app'
 	let isAgree = ref(false)
+	let cardId = ref('')
 	let handleAgree = () => {
 		isAgree.value = !isAgree.value
 		console.log(isAgree.value)
@@ -34,6 +36,14 @@
 			url: '/pages/home/mbti_questiton'
 		})
 	}
+	onMounted(() => {
+		
+	})
+	onLoad((options) => {
+		console.log(options); // { id: '123', name: '张三' }
+		cardId.value = options.cardId
+		console.log(cardId.value)
+	})
 </script>
 
 <style lang="scss" scoped>
