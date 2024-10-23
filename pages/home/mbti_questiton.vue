@@ -50,6 +50,7 @@
 
 <script setup>
 	import {assessmentDetails} from '../../services/api.js'
+	import { onLoad } from '@dcloudio/uni-app'
 	import {
 		ref,
 		getCurrentInstance,
@@ -60,7 +61,10 @@
 	let selectedOption = ref(null)
 	let currentQuestion = ref(0)
 	let answerids = ref([])
-	
+	let cardId = ref('')
+	let assessmentId = ref('1')
+	let filteredData = ref([])
+	let selectedIds = ref([])
 	// let swiperDotIndex = ref(0)
 	
 	let change = (e) => {
@@ -72,20 +76,17 @@
 		console.log(currentQuestion.value)
 	}
 	let handleOptions = (_item, item, index) => {
-		questionItems.value.map(select => {
-			select.selectid = _item.id
-		})
-		// _item.id = item.id
-		console.log(_item.id, item.id)
-		console.log(questionItems.value)
-		// if(item.id === currentQuestion.value + 1) {
-		// 	_item.isSelect = !_item.isSelect
-		// }
-		// answerids.value = filteredArray
-		console.log(currentQuestion.value, questionItems.value.length)
+		questionItems.value[index].selectid = _item.id
+		// let uniqueArr = [...new Set(filteredData.value)]
+		updateSelectedIds()
 		if(currentQuestion.value < questionItems.value.length) {
 			currentQuestion.value = ++currentQuestion.value
 		}
+	}
+	let updateSelectedIds = () => {
+		filteredData.value = questionItems.value.map(item => item.selectid);
+		selectedIds.value = [...new Set(filteredData.value)]
+		  console.log("新的数组：", selectedIds.value);
 	}
 	//获取问题列表
 	let getAssessmentDetails = async (assessmentType) => {
@@ -94,9 +95,6 @@
 			questionItems.value = result.data.data.questions
 			questionItems.value.map(item => {
 				item.selectid = null
-				item.answers.map(_item => {
-					_item.isSelect = false
-				})
 			})
 			console.log(questionItems.value)
 		} catch (err) {
@@ -104,7 +102,17 @@
 		}
 	}
 	onMounted(() => {
-		getAssessmentDetails(1)
+		getAssessmentDetails(assessmentId.value)
+	})
+	onLoad((options) => {
+		console.log(options); // { id: '123', name: '张三' }
+		cardId.value = options.cardId
+		console.log(cardId.value)
+		// if(cardId.value) {
+		// 	uni.navigateTo({
+		// 		url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
+		// 	})
+		// }
 	})
 </script>
 

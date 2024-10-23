@@ -9,6 +9,10 @@ const _sfc_main = {
     let selectedOption = common_vendor.ref(null);
     let currentQuestion = common_vendor.ref(0);
     common_vendor.ref([]);
+    let cardId = common_vendor.ref("");
+    let assessmentId = common_vendor.ref("1");
+    let filteredData = common_vendor.ref([]);
+    let selectedIds = common_vendor.ref([]);
     let change = (e) => {
       currentQuestion.value = e.detail.current;
       console.log(currentQuestion.value);
@@ -18,15 +22,16 @@ const _sfc_main = {
       console.log(currentQuestion.value);
     };
     let handleOptions = (_item, item, index) => {
-      questionItems.value.map((select) => {
-        select.selectid = _item.id;
-      });
-      console.log(_item.id, item.id);
-      console.log(questionItems.value);
-      console.log(currentQuestion.value, questionItems.value.length);
+      questionItems.value[index].selectid = _item.id;
+      updateSelectedIds();
       if (currentQuestion.value < questionItems.value.length) {
         currentQuestion.value = ++currentQuestion.value;
       }
+    };
+    let updateSelectedIds = () => {
+      filteredData.value = questionItems.value.map((item) => item.selectid);
+      selectedIds.value = [...new Set(filteredData.value)];
+      console.log("新的数组：", selectedIds.value);
     };
     let getAssessmentDetails = async (assessmentType) => {
       try {
@@ -34,9 +39,6 @@ const _sfc_main = {
         questionItems.value = result.data.data.questions;
         questionItems.value.map((item) => {
           item.selectid = null;
-          item.answers.map((_item) => {
-            _item.isSelect = false;
-          });
         });
         console.log(questionItems.value);
       } catch (err) {
@@ -44,7 +46,12 @@ const _sfc_main = {
       }
     };
     common_vendor.onMounted(() => {
-      getAssessmentDetails(1);
+      getAssessmentDetails(assessmentId.value);
+    });
+    common_vendor.onLoad((options) => {
+      console.log(options);
+      cardId.value = options.cardId;
+      console.log(cardId.value);
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

@@ -32,9 +32,11 @@
 			})
 			return
 		}
-		uni.navigateTo({
-			url: '/pages/home/mbti_questiton'
-		})
+		if(cardId.value) {
+			uni.navigateTo({
+				url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
+			})
+		}
 	}
 	onMounted(() => {
 		
@@ -43,6 +45,7 @@
 		console.log(options); // { id: '123', name: '张三' }
 		cardId.value = options.cardId
 		console.log(cardId.value)
+		
 	})
 </script>
 

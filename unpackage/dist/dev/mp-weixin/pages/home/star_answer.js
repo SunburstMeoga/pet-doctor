@@ -18,9 +18,11 @@ const _sfc_main = {
         });
         return;
       }
-      common_vendor.index.navigateTo({
-        url: "/pages/home/mbti_questiton"
-      });
+      if (cardId.value) {
+        common_vendor.index.navigateTo({
+          url: `/pages/home/mbti_questiton?cardId=${cardId.value}`
+        });
+      }
     };
     common_vendor.onMounted(() => {
     });
