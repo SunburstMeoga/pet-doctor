@@ -26,6 +26,7 @@
 .swiper-item.data-v-241ef60e {
   width: 100%;
   height: 220rpx;
+  background-image: url("http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/8H9tr4YHwh3bucLjCg0u9AcuUrxobSVCBJW5Uey9.png");
 }
 .card-info.data-v-241ef60e {
   padding: 32rpx;
@@ -67,7 +68,8 @@
   margin: 0 12rpx;
 }
 .card-info-property-gender.data-v-241ef60e {
-  font-size: 32rpx;
+  width: 32rpx;
+  height: 32rpx;
 }
 .card-info-property-xiongxing.data-v-241ef60e {
   color: #3B8AFA;

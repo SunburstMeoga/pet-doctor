@@ -1,7 +1,8 @@
 "use strict";
 const common_vendor = require("../common/vendor.js");
 const request = common_vendor.axios.create({
-  baseURL: "http://120.76.219.115/api",
+  // baseURL:'http://120.76.219.115/api',
+  baseURL: "https://pet-api.lemonbk.cn/api",
   timeout: 6e4,
   adapter: common_vendor.UniAdapter
   // 指定适配器1

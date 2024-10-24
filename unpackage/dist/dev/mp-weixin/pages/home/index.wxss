@@ -25,7 +25,7 @@
 /* 文章场景相关 */
 .home-operating.data-v-4978fed5 {
   position: absolute;
-  bottom: 38rpx;
+  bottom: 50rpx;
   left: 0;
   width: 100%;
   flex-direction: column;
@@ -76,6 +76,13 @@
   background-position: center;
   background-size: contain;
 }
+.home-video.data-v-4978fed5 {
+  width: 100%;
+  height: 1120rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .acvive.data-v-4978fed5 {
   width: 100%;
   background-color: #FFFBF2;
@@ -87,8 +94,26 @@
 .one.data-v-4978fed5 {
   width: 238rpx;
   height: 232rpx;
+  position: relative;
+}
+.one .word.data-v-4978fed5 {
+  padding: 20rpx 0 0 20rpx;
+  color: #65431D;
+  font-size: 40rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .two.data-v-4978fed5 {
   width: 420rpx;
   height: 232rpx;
+  position: relative;
+}
+.two .word.data-v-4978fed5 {
+  padding: 20rpx 0 0 20rpx;
+  color: #65431D;
+  font-size: 40rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
 }

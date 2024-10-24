@@ -118,15 +118,10 @@
 .container .content .result-item .sug-content.data-v-fdd21b61 {
   color: #595959;
 }
-.container .content .program.data-v-fdd21b61 {
-  padding-top: 68rpx;
-}
 .container .content .program .program-bg.data-v-fdd21b61 {
-  margin-top: -38rpx;
   width: 200rpx;
   height: 76rpx;
-  color: #222;
-  font-weight: bolder;
+  z-index: 100;
 }
 .container .content .program .program-title.data-v-fdd21b61 {
   color: #222;

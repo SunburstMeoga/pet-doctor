@@ -32,7 +32,7 @@ const _sfc_main = {
         b: common_vendor.t(__props.name),
         c: common_vendor.t(__props.breed),
         d: common_vendor.t(__props.sex === 1 ? "弟弟" : "妹妹"),
-        e: common_vendor.n(__props.sex === 1 ? "icon-xiongxing card-info-property-xiongxing" : "icon-cixing card-info-property-cixing"),
+        e: __props.sex === 1 ? "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/xw5zyhJxcGairwn3f8dP0u84dSynNFNEMpotB1YP.png" : "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/km2tstUhBbT5PgGv5kMcxrTTWQZOo49Yhz2fqTgs.png",
         f: common_vendor.t(__props.time)
       });
     };

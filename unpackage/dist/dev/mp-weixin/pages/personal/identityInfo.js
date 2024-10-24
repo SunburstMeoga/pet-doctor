@@ -6,21 +6,21 @@ const _sfc_main = {
   setup(__props) {
     let petTypeItems = common_vendor.ref([{
       title: "我是猫猫",
-      id: 1,
-      icon: ""
+      id: 2,
+      icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/VR8h0LxNHRCVmWS3RokWTXzwE4UfsaFLIvO3n2dv.png"
     }, {
       title: "我是狗狗",
-      id: 2,
-      icon: ""
+      id: 1,
+      icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/bIxJcmxO2l8d0fDhA7x7HOsILJYcs1twjsR4e4Ja.png"
     }]);
     let petGenderItems = common_vendor.ref([{
       title: "弟弟",
       id: 1,
-      icon: "icon-xiongxing"
+      icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/xw5zyhJxcGairwn3f8dP0u84dSynNFNEMpotB1YP.png"
     }, {
       title: "妹妹",
       id: 0,
-      icon: "icon-cixing"
+      icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/km2tstUhBbT5PgGv5kMcxrTTWQZOo49Yhz2fqTgs.png"
     }]);
     let brithDayObj = common_vendor.ref({
       year: "",
@@ -62,6 +62,9 @@ const _sfc_main = {
     };
     let handlePetTypeItem = (index, id) => {
       selectedPetType.value = index;
+      selectPetVariety.value = "请选择";
+      assessmentId.value = id;
+      breedId.value = null;
       getPetBreeds(id);
     };
     let handlePetGenderItem = (index, id) => {
@@ -159,7 +162,7 @@ const _sfc_main = {
         day: formattedDay
       };
       brithDay.value = `${year}-${month}-${day}`;
-      getPetBreeds(1);
+      getPetBreeds(2);
     });
     return (_ctx, _cache) => {
       return {
@@ -176,11 +179,12 @@ const _sfc_main = {
         }),
         k: common_vendor.f(common_vendor.unref(petTypeItems), (item, index, i0) => {
           return {
-            a: common_vendor.n(index === common_vendor.unref(selectedPetType) ? "pet-type-item-select" : "pet-type-item-unselect"),
-            b: common_vendor.t(item.title),
-            c: common_vendor.n(index === common_vendor.unref(selectedPetType) ? "pet-type-item-right-select" : "pet-type-item-right-unselect"),
-            d: common_vendor.o(($event) => common_vendor.unref(handlePetTypeItem)(index, item.id), index),
-            e: index
+            a: item.icon,
+            b: common_vendor.n(index === common_vendor.unref(selectedPetType) ? "pet-type-item-select" : "pet-type-item-unselect"),
+            c: common_vendor.t(item.title),
+            d: common_vendor.n(index === common_vendor.unref(selectedPetType) ? "pet-type-item-right-select" : "pet-type-item-right-unselect"),
+            e: common_vendor.o(($event) => common_vendor.unref(handlePetTypeItem)(index, item.id), index),
+            f: index
           };
         }),
         l: common_vendor.t(common_vendor.unref(selectPetVariety)),
@@ -189,7 +193,7 @@ const _sfc_main = {
         o: common_vendor.unref(petTypeRange),
         p: common_vendor.f(common_vendor.unref(petGenderItems), (item, index, i0) => {
           return {
-            a: common_vendor.n(item.icon),
+            a: item.icon,
             b: common_vendor.t(item.title),
             c: common_vendor.o(($event) => common_vendor.unref(handlePetGenderItem)(index, item.id), index),
             d: common_vendor.s(index === 0 ? "margin-right: 40rpx;" : ""),

@@ -33,11 +33,11 @@
 					<view class="title-right" :class="`color-text-${index}`">{{item.value}}</view>
 				</view>
 				<view class="item-details">
-					{{item.result_text}}
+					{{item.text}}
 				</view>
 				<view class="item-sug">建议</view>
 				<view class="sug-content">
-					{{item.suggest_text}}
+					{{item.suggest}}
 				</view>
 			</view>
 			<!-- <view class="result-item module">
@@ -61,16 +61,16 @@
 				</view>
 				<view class="item-sug">建议</view>
 				<view class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</view>
-			</view> 
-			<view class="module program ">
-				<view class="program-bg flex justify-center items-center image-bg" style="background-image: url('../../static/images/report/nutritional-bg.png');"></view>
+			</view> -->
+			<view class="module program">
+				<view class="program-bg flex justify-center items-center image-bg" style="background-image: url('http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/WK1GvrB7jcsnJf8NbCH7jAUhWREp4CmnXl5ARW7P.png');"></view>
 				<view class="program-title">根据 <span style="font-weight: bold;">花花</span> 的测评结果推荐以下商品</view>
 				<view class="program-list flex justify-between items-center">
-					<view class="program-item" v-for="(item,index) in 5" :key="index">
-						<product-card></product-card>
+					<view class="program-item" v-for="(item,index) in productList" :key="index">
+						<product-card @handleBuyNow="buyNow(item)" :title="item.title" :intro="item.intro" :pictures="item.pictures[0]" :price="item.price * 0.01"></product-card>
 					</view>
 				</view>
-			</view>-->
+			</view>
 		</view>
 		<view class="service-qrcode">
 			<image src="../../static/logo.png" mode=""></image>
@@ -86,16 +86,52 @@
 	import productCard from '../../components/productCard.vue';
 	import { onLoad } from '@dcloudio/uni-app'
 	import {ref,onMounted} from 'vue'
-	import {reportDetails} from '@/services/api.js'
+	import { allProduct,createOrder,pay,reportDetails} from '@/services/api.js'
 	let reportId = ref('')
 	let dimensionsItems = ref([])
 	let reportTitle = ref('')
 	let getReportDeatils = async (reportId) => {
+		uni.showLoading({
+			title: '正在加载...'
+		})
 		let result = await reportDetails(reportId)
+		uni.hideLoading()
 		console.log("报告详情",result)
 		dimensionsItems.value = result.data.data.dimensions
 		reportTitle.value = result.data.data.assessment.title
+		productList.value = result.data.data.products
+		console.log(productList.value[0].pictures[0])
+	}
+	let productList = ref([])
+	let buyNow = async (item) => {
+		console.log("点解购买按钮", item)
+		uni.showLoading({
+			title:"创建订单..."
+		})
+		let res = await createOrder({item_id: item.id, quantity: 1})
+		let payResult = await pay({order_sn: res.data.data.order_sn})
+		 uni.requestPayment({
+		       "timeStamp": payResult.data.data.timeStamp,
+		       "nonceStr": payResult.data.data.nonceStr,
+		       "package": payResult.data.data.package,
+		       "signType": payResult.data.data.signType,
+		       "paySign": payResult.data.data.paySign,
+		       "success":function(res){
+		     console.log('success', res);
+			 uni.hideLoading()
+		    },
+		       "fail":function(res){
+		     console.log('fail', res);
+			 uni.hideLoading()
+		    },
+		       "complete":function(res){
+		     console.log('complete', res);
+			 uni.hideLoading()
+		    }
+		  });
 		
+		// console.log(payRes, '支付')
+		// console.log('创建订单', res)
 	}
 	onMounted(() => {
 		getReportDeatils(reportId.value)
@@ -224,16 +260,15 @@
 				}
 			}
 			.program {
-				padding-top: 68rpx;
+				// padding-top: 68rpx;
 				// position: relative;
 				.program-bg {
 					// position: absolute;
-					margin-top: -38rpx;
-					// left: 0;
+					// left:0;
+					// margin-top: -100rpx;
 					width: 200rpx;
 					height: 76rpx;
-					color: #222;
-					font-weight: bolder;
+					z-index: 100;
 				}
 				.program-title {
 					color: #222;

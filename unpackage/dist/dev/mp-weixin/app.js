@@ -2,9 +2,9 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 if (!Math) {
+  "./pages/home/index.js";
   "./pages/login/index.js";
   "./pages/report/index.js";
-  "./pages/home/index.js";
   "./pages/personal/orders.js";
   "./pages/home/group_buying.js";
   "./pages/home/star_answer.js";
@@ -17,6 +17,9 @@ if (!Math) {
   "./pages/cart/index.js";
 }
 const _sfc_main = {
+  globalData: {
+    imgBaseUrl: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com"
+  },
   onLaunch: function() {
     console.log("App Launch");
   },

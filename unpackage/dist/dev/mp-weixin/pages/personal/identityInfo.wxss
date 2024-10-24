@@ -23,6 +23,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.pet-sex.data-v-18317c12 {
+  width: 32rpx;
+  height: 32rpx;
+}
 .container.data-v-18317c12 {
   width: 100%;
   min-height: 100vh;
@@ -130,9 +134,10 @@
   height: 120rpx;
   border-radius: 50%;
 }
-.container .info-one .pet-type-item-left .icon.data-v-18317c12,
-.container .info-two .pet-type-item-left .icon.data-v-18317c12 {
-  font-size: 80rpx;
+.container .info-one .pet-type-item-left .pet-image.data-v-18317c12,
+.container .info-two .pet-type-item-left .pet-image.data-v-18317c12 {
+  width: 80rpx;
+  height: 80rpx;
   color: #222;
 }
 .container .info-one .pet-type-item-unselect.data-v-18317c12,

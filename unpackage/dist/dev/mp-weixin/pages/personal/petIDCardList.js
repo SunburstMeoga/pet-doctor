@@ -36,13 +36,47 @@ const _sfc_main = {
         console.log(assessmentId.value);
       }
     });
+    let toAddCard = () => {
+      common_vendor.index.navigateTo({
+        url: `/pages/personal/identityInfo?assessmentId=${assessmentId.value}`
+      });
+    };
     let handleCard = (item) => {
       common_vendor.index.navigateTo({
         url: `/pages/home/mbti_questiton?cardId=${item.id}&assessmentId=${assessmentId.value}`
       });
     };
+    let bindClick = async (e) => {
+      common_vendor.index.showLoading({
+        title: "正在删除..."
+      });
+      try {
+        console.log(e);
+        let res = await services_api.deletePet(e);
+        common_vendor.index.showToast({
+          title: "删除成功",
+          icon: "none",
+          duration: 6e3
+        });
+        let petCardsList = await services_api.petCards();
+        cardList.value = petCardsList.data.data;
+        common_vendor.index.hideLoading();
+      } catch (err) {
+        console.log(err);
+        common_vendor.index.hideLoading();
+        common_vendor.index.showToast({
+          title: "删除失败，请重试",
+          icon: "none",
+          duration: 6e3
+        });
+      }
+    };
     common_vendor.onMounted(async () => {
+      common_vendor.index.hideLoading({
+        title: "正在加载..."
+      });
       let petCardsList = await services_api.petCards();
+      common_vendor.index.hideLoading();
       console.log(petCardsList.data.data.length, petCardsList);
       cardList.value = petCardsList.data.data;
       console.log(cardList.value);
@@ -61,7 +95,7 @@ const _sfc_main = {
               sex: item.sex,
               time: item.birth_at
             }),
-            c: common_vendor.o(($event) => _ctx.bindClick(), index),
+            c: common_vendor.o(($event) => common_vendor.unref(bindClick)(item.id), index),
             d: common_vendor.o(_ctx.change, index),
             e: "9a7bd0cc-1-" + i0 + ",9a7bd0cc-0",
             f: index,
@@ -73,7 +107,9 @@ const _sfc_main = {
         })
       } : {}, {
         e: common_vendor.unref(cardList).length === 0
-      }, common_vendor.unref(cardList).length === 0 ? {} : {});
+      }, common_vendor.unref(cardList).length === 0 ? {} : {}, {
+        f: common_vendor.o(($event) => common_vendor.unref(toAddCard)())
+      });
     };
   }
 };

@@ -17,7 +17,7 @@ const _sfc_main = {
   __name: "index",
   setup(__props) {
     let currentReport = common_vendor.ref(0);
-    let cardList = common_vendor.ref([""]);
+    let cardList = common_vendor.ref([]);
     let options1 = common_vendor.ref([{
       text: "删除",
       style: {
@@ -30,6 +30,7 @@ const _sfc_main = {
         minHeight: "228rpx"
       }
     }]);
+    let reportList = common_vendor.ref([]);
     let bindClick = (e) => {
       console.log(e);
     };
@@ -40,19 +41,30 @@ const _sfc_main = {
       console.log("切换轮播图之后的宠物id", cardList.value[currentReport.value].id);
       console.log("切换轮播图之后的报告", resReport);
     };
+    let toAddCard = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/personal/identityInfo"
+      });
+    };
     common_vendor.onMounted(async () => {
+      common_vendor.index.showLoading({
+        title: "正在加载..."
+      });
       let petCardsList = await services_api.petCards();
-      console.log("宠物id", petCardsList.data.data[0].id);
       let resReport = await services_api.reports({ pet_card_id: petCardsList.data.data[0].id });
-      console.log(petCardsList.data.data.length, petCardsList);
+      common_vendor.index.hideLoading();
+      reportList.value = resReport.data.data;
       cardList.value = petCardsList.data.data;
+      console.log("宠物id", petCardsList.data.data[0].id);
+      console.log(petCardsList.data.data.length, petCardsList);
       console.log(cardList.value);
       console.log("报告", resReport);
     });
     return (_ctx, _cache) => {
-      return {
+      return common_vendor.e({
         a: common_assets._imports_0,
-        b: common_assets._imports_1,
+        b: common_vendor.unref(cardList).length !== 0
+      }, common_vendor.unref(cardList).length !== 0 ? {
         c: common_vendor.f(common_vendor.unref(cardList), (item, index, i0) => {
           return {
             a: "14542b8b-0-" + i0,
@@ -66,8 +78,15 @@ const _sfc_main = {
           };
         }),
         d: common_vendor.o((...args) => common_vendor.unref(swipeChange) && common_vendor.unref(swipeChange)(...args)),
-        e: common_vendor.unref(currentReport),
-        f: common_vendor.f(3, (item, index, i0) => {
+        e: common_vendor.unref(currentReport)
+      } : {}, {
+        f: common_vendor.unref(cardList).length === 0
+      }, common_vendor.unref(cardList).length === 0 ? {
+        g: common_vendor.o(($event) => common_vendor.unref(toAddCard)())
+      } : {}, {
+        h: common_vendor.unref(cardList).length !== 0 && common_vendor.unref(reportList).length !== 0
+      }, common_vendor.unref(cardList).length !== 0 && common_vendor.unref(reportList).length !== 0 ? {
+        i: common_vendor.f(common_vendor.unref(reportList), (item, index, i0) => {
           return {
             a: common_vendor.f(4, (_item, _index, i1) => {
               return {
@@ -80,11 +99,11 @@ const _sfc_main = {
             e: index
           };
         }),
-        g: common_assets._imports_2,
-        h: common_vendor.p({
+        j: common_assets._imports_1,
+        k: common_vendor.p({
           ["right-options"]: common_vendor.unref(options1)
         })
-      };
+      } : {});
     };
   }
 };

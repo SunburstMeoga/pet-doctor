@@ -6,7 +6,7 @@
 					<view class="content">
 						<view class="content-theme flex justify-start items-center">
 							<view class="content-theme-number flex justify-center items-center">
-								<view class="content-theme-number-current">0{{index + 1}} </view>
+								<view class="content-theme-number-current">{{index + 1}} </view>
 							
 								<view class="content-theme-number-total"> / {{questionItems.length <= 9 ? '0' + questionItems.length : questionItems.length }}</view>
 							</view>
@@ -89,20 +89,22 @@
 			uni.showLoading({
 				title:'正在生成报告...'
 			})
-			let result = await createReport({assessment_id: assessmentId.value,answer_ids:selectedIds.value,pet_card_id: cardId.value})
+			console.log({assessment_id: assessmentId.value,answer_ids:selectedIds.value.sort((a,b) => a - b),pet_card_id: cardId.value})
+			let result = await createReport({assessment_id: assessmentId.value,answer_ids:selectedIds.value.sort((a,b) => a - b),pet_card_id: cardId.value})
+			console.log('报告结果', result)
 			if(result.data.data.id) {
 				uni.navigateTo({
 					url: `/pages/report/report-result?reportId=${result.data.data.id}`
 				})
 			}
-			console.log('报告结果', result)
+			
 		}
 	}
 	let updateSelectedIds = () => {
 		filteredData.value = questionItems.value.map(item => item.selectid);
 		selectedIds.value = [...new Set(filteredData.value)]
-		console.log(selectedIds.value.length)
-		  console.log("新的数组：", selectedIds.value);
+		// console.log(selectedIds.value.length)
+		  console.log("新的数组：", selectedIds.value.sort((a,b) => a - b));
 	}
 	//获取问题列表
 	let getAssessmentDetails = async (assessmentType) => {
@@ -124,7 +126,7 @@
 		if(options.cardId || options.assessmentId) {
 			cardId.value = options.cardId
 			assessmentId.value = options.assessmentId
-			console.log(cardId.value)
+			// console.log('上个页面的cardid'cardId.value)
 		}
 	})
 </script>

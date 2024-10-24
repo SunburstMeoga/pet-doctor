@@ -15,7 +15,8 @@ import {
  
  
 const request = axios.create({
-	baseURL:'http://120.76.219.115/api',
+	// baseURL:'http://120.76.219.115/api',
+	baseURL: 'https://pet-api.lemonbk.cn/api',
 	timeout: 60000,
 	adapter: UniAdapter, // 指定适配器1
 });

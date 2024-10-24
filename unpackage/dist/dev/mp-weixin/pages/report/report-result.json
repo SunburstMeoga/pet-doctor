@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "MBTI报告",
-  "usingComponents": {}
+  "usingComponents": {
+    "product-card": "../../components/productCard"
+  }
 }

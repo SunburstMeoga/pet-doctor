@@ -99,6 +99,13 @@ export const userPhone = async (data) =>{
 		data
 	})
 }
+//删除宠物身份证
+export const deletePet = async (cardId) => {
+	return axios({
+		url: '/pet/card/' + cardId,
+		method: 'delete',
+	})
+}
 
 
 

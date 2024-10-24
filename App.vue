@@ -1,5 +1,8 @@
 <script>
 	export default {
+		globalData: {
+			imgBaseUrl: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com'
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},
@@ -10,7 +13,7 @@
 			//         // 获取手机系统的状态栏高度（不同手机的状态栏高度不同）  （ 不要使用uni-app官方文档的var(--status-bar-height) 官方这个是固定的20px  不对的 ）
 			//         // console.log('当前手机的状态栏高度',result.statusBarHeight)
 			//         let statusBarHeight = result.statusBarHeight + 'px'
-			
+
 			//         // 获取右侧胶囊的信息 单位px
 			//         const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
 			//         //bottom: 胶囊底部距离屏幕顶部的距离
@@ -27,7 +30,7 @@
 			//         let menuRight = result.screenWidth - menuButtonInfo.right + 'px'
 			//         let menuTop = menuButtonInfo.top + 'px'
 			//         let contentTop = result.statusBarHeight + 44 + 'px'
-			
+
 			//         let menuInfo = {
 			//           statusBarHeight: statusBarHeight,//状态栏高度----用来给自定义导航条页面的顶部导航条设计padding-top使用：目的留出系统的状态栏区域
 			//           menuWidth: menuWidth,//右侧的胶囊宽度--用来给自定义导航条页面的左侧胶囊设置使用

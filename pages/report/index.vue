@@ -4,18 +4,18 @@
 			<image mode="aspectFit" src="/static/images/logo.png" alt="" />
 		</view>
 		<view class="content flex justify-start items-center image-bg"
-			style="background-image: url('../../static/images/report/banner.png');">
+			style="background-image: url('http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/TomWHO3jqHYSMV4f0KosXrrxe1tKiVEIy7ODUQ8B.png');">
 			<view class="add-service flex justify-between items-center">
 				<view class="add-service-hi">
-					<image src="/static/images/report/hi.png" mode="aspectFill"></image>
+					<image src="http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/76MPExVIGBYFHQe9Ecg1oEQi7wN1JgYziL0gjfCU.png" mode="aspectFill"></image>
 				</view>
 				<view class="add-service-title">添加专属客服，获取正确的医疗指导</view>
 				<view class="add-service-right">
 					<view class="iconfont icon icon-a-duobianxing1"></view>
 				</view>
 			</view>
-			<view class="report">
-				<swiper class="swiper-box"   @change="swipeChange" :current="currentReport">
+			<view class="report" v-if="cardList.length !== 0">
+				<swiper class="swiper-box" @change="swipeChange" :current="currentReport">
 					<swiper-item class="flex justify-center items-center"  v-for="(item, index) in cardList" :key="index">
 						<pet-card style="width: 622rpx;" :name="item.name" :breed="item.breed.name" :sex="item.sex" :time="item.birth_at"></pet-card>
 					</swiper-item>
@@ -23,9 +23,13 @@
 
 			</view>
 		</view>
-		<view class="report-list">
-			<uni-swipe-action class="flex justify-start items-center">
-				<view v-for="(item, index) in 3" :key="index" style="margin-bottom: 32rpx;">
+		
+		<view class="report-list" >
+			<view @click="toAddCard()" class="empty flex justify-center items-center" v-if="cardList.length === 0">
+				新增宠物身份证
+			</view>
+			<uni-swipe-action class="flex justify-start items-center" v-if="cardList.length !== 0 && reportList.length !== 0">
+				<view v-for="(item, index) in reportList" :key="index" style="margin-bottom: 32rpx;">
 					<uni-swipe-action-item :right-options="options1" @click="bindClick()" @change="change">
 						<view class="report-list-item flex justify-start items-center">
 							<view class="report-list-item-left">
@@ -65,7 +69,7 @@
 		petCards,reports
 	} from '@/services/api.js'
 	let currentReport = ref(0)
-	let cardList = ref([''])
+	let cardList = ref([])
 	let options1 = ref([{
 		text: '删除',
 		style: {
@@ -78,6 +82,7 @@
 			minHeight: '228rpx'
 		}
 	}])
+	let reportList = ref([])
 	let bindClick = (e) => {
 		console.log(e)
 		// uni.showToast({
@@ -92,13 +97,23 @@
 		console.log('切换轮播图之后的宠物id', cardList.value[currentReport.value].id)
 		console.log('切换轮播图之后的报告', resReport)
 	}
-	
+	let toAddCard = () => {
+		uni.navigateTo({
+			url: '/pages/personal/identityInfo'
+		})
+	}
 	onMounted(async () => {
+		uni.showLoading({
+			title:"正在加载...",
+		})
 		let petCardsList = await petCards()
-		console.log('宠物id',petCardsList.data.data[0].id)
+		
 		let resReport = await reports({pet_card_id: petCardsList.data.data[0].id})
-		console.log(petCardsList.data.data.length,petCardsList)
+		uni.hideLoading()
+		reportList.value = resReport.data.data
 		cardList.value = petCardsList.data.data
+		console.log('宠物id',petCardsList.data.data[0].id)
+		console.log(petCardsList.data.data.length,petCardsList)
 		console.log(cardList.value)
 		console.log('报告',resReport)
 	})
@@ -109,7 +124,16 @@
 		// border:1px solid red;
 		min-height: 100vh;
 	}
-
+	.empty {
+		color: #FCE068;
+		font-size: 32rpx;
+		background-color: #222;
+		width: 324rpx;
+		height: 92rpx;
+		border-radius: 24rpx;
+		margin: 0 auto;
+		margin-top: 100rpx;
+	}
 	.content {
 		position: relative;
 		width: 100%;
@@ -259,7 +283,7 @@
 
 	.logo {
 		width: 296rpx;
-		height: 44rpx;
+		height: 22rpx;
 		position: absolute;
 		z-index: 9999;
 		top: 112rpx;

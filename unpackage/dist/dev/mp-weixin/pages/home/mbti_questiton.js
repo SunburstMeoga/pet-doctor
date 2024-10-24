@@ -33,20 +33,20 @@ const _sfc_main = {
         common_vendor.index.showLoading({
           title: "正在生成报告..."
         });
-        let result = await services_api.createReport({ assessment_id: assessmentId.value, answer_ids: selectedIds.value, pet_card_id: cardId.value });
+        console.log({ assessment_id: assessmentId.value, answer_ids: selectedIds.value.sort((a, b) => a - b), pet_card_id: cardId.value });
+        let result = await services_api.createReport({ assessment_id: assessmentId.value, answer_ids: selectedIds.value.sort((a, b) => a - b), pet_card_id: cardId.value });
+        console.log("报告结果", result);
         if (result.data.data.id) {
           common_vendor.index.navigateTo({
             url: `/pages/report/report-result?reportId=${result.data.data.id}`
           });
         }
-        console.log("报告结果", result);
       }
     };
     let updateSelectedIds = () => {
       filteredData.value = questionItems.value.map((item) => item.selectid);
       selectedIds.value = [...new Set(filteredData.value)];
-      console.log(selectedIds.value.length);
-      console.log("新的数组：", selectedIds.value);
+      console.log("新的数组：", selectedIds.value.sort((a, b) => a - b));
     };
     let getAssessmentDetails = async (assessmentType) => {
       try {
@@ -64,7 +64,6 @@ const _sfc_main = {
       if (options.cardId || options.assessmentId) {
         cardId.value = options.cardId;
         assessmentId.value = options.assessmentId;
-        console.log(cardId.value);
       }
     });
     return (_ctx, _cache) => {

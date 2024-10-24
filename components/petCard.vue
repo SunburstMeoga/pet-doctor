@@ -1,6 +1,5 @@
 <template>
-	<view class="swiper-item image-bg"
-		style="background-image: url('../../static/images/report/card-male.png');">
+	<view class="swiper-item image-bg">
 		<view class="card-info">
 			<view class="edit flex justify-center items-center" v-if="showEdit">
 				<view class="icon iconfont icon-bianji"></view>
@@ -9,7 +8,9 @@
 			<view class="card-info-property flex justify-start items-center">
 				<view class="diamond"></view>
 				<view class="card-info-property-variety">{{breed}} | {{sex === 1 ? '弟弟' : '妹妹'}}</view>
-				<view class="card-info-property-gender icon iconfont" :class="sex === 1 ? 'icon-xiongxing card-info-property-xiongxing' : 'icon-cixing card-info-property-cixing'"></view>
+				<view class="card-info-property-gender">
+					<image :src="sex === 1 ? 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/xw5zyhJxcGairwn3f8dP0u84dSynNFNEMpotB1YP.png' : 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/km2tstUhBbT5PgGv5kMcxrTTWQZOo49Yhz2fqTgs.png'" mode="aspectFit"></image>
+				</view>
 			</view>
 			<view class="card-info-date flex justify-start items-center">
 				<view class="diamond"></view>
@@ -49,7 +50,7 @@
 	.swiper-item {
 		width: 100%;
 		height: 220rpx;
-		
+		background-image: url('http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/8H9tr4YHwh3bucLjCg0u9AcuUrxobSVCBJW5Uey9.png');
 		
 	}
 	.card-info {
@@ -96,8 +97,8 @@
 			}
 	
 			&-gender {
-				font-size: 32rpx;
-				
+				width: 32rpx;
+				height: 32rpx;
 			}
 			&-xiongxing {
 				color: #3B8AFA

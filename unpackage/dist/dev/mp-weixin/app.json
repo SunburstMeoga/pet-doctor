@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/home/index",
     "pages/login/index",
     "pages/report/index",
-    "pages/home/index",
     "pages/personal/orders",
     "pages/home/group_buying",
     "pages/home/star_answer",

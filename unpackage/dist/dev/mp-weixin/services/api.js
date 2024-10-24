@@ -86,10 +86,17 @@ const userPhone = async (data) => {
     data
   });
 };
+const deletePet = async (cardId) => {
+  return services_request.request({
+    url: "/pet/card/" + cardId,
+    method: "delete"
+  });
+};
 exports.allProduct = allProduct;
 exports.assessmentDetails = assessmentDetails;
 exports.createOrder = createOrder;
 exports.createReport = createReport;
+exports.deletePet = deletePet;
 exports.login = login;
 exports.orders = orders;
 exports.pay = pay;

@@ -1,27 +1,64 @@
 <template>
 	<view class="content">
-		<view class="content-img">
-			<image src="../static/logo.png" mode=""></image>
+		<view class="content-img" >
+			<image :src="pictures"  mode="aspectFit"></image>
 		</view>
 		<view class="content-info">
-			<view class="info-title">猫猫喜欢的玩具</view>
-			<view class="info-type">狗狗 | 上新 | 满100减10</view>
+			<view class="info-title">{{title}}</view>
+			<view class="info-type">{{intro}}</view>
 			<view class="info-price flex justify-start items-start">
 				<view class="price-top">￥</view>
-				<view class="price-num">50</view>
+				<view class="price-num">{{price.toFixed(2)}}</view>
 			</view>
 		</view>
+		<view class="buy-button" @click="buyNow()">立即购买</view>
 	</view>
 </template>
 
-<script>
+<script setup>
+	import { defineProps,defineEmits } from 'vue';
+	const emit = defineEmits(['handleBuyNow']);
+	let buyNow = () => {
+		emit('handleBuyNow')
+	}
+	const props = defineProps({
+		pictures: {
+		 type: String,
+		 default: ''
+		
+		},
+		title: {
+			type: String,
+			default: ''
+		},
+		intro: {
+			type: String,
+			default: ''
+		},
+		price: {
+			type: Number,
+			default: 0
+		}
+	})
 </script>
 
 <style lang="scss" scoped>
+	.buy-button {
+		width: 150rpx;
+		height: 57rpx;
+		text-align: center;
+		line-height: 57rpx;
+		color: #fff;
+		background-color: #F7A040;
+		border-radius: 8rpx;
+		font-size: 24rpx;
+		margin: 0 auto;
+		margin-bottom: 20rpx;
+	}
 	.content {
 		width: 100%;
 		&-img {
-			width: 100%;
+			width: 303rpx;
 			height:220rpx;
 			border-radius: 24rpx;
 			overflow: hidden;

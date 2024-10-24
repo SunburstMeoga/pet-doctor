@@ -35,9 +35,8 @@ const _sfc_main = {
         b: common_vendor.o(($event) => common_vendor.unref(toAssessment)("1")),
         c: common_vendor.o(($event) => common_vendor.unref(toAssessment)("2")),
         d: common_vendor.o(($event) => common_vendor.unref(toAssessment)("3")),
-        e: common_assets._imports_1$1,
-        f: common_assets._imports_2$1,
-        g: common_vendor.o((...args) => common_vendor.unref(handleHotActive) && common_vendor.unref(handleHotActive)(...args))
+        e: `http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/9OgTxmojJkcnprZnfPdAlYeT8jn4dPhPcBmZfJPm.png`,
+        f: common_vendor.o((...args) => common_vendor.unref(handleHotActive) && common_vendor.unref(handleHotActive)(...args))
       };
     };
   }

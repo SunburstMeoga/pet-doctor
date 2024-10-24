@@ -9,17 +9,26 @@ const _sfc_main = {
   __name: "orders",
   setup(__props) {
     let ordersLis = common_vendor.ref([]);
-    let getOrders = async () => {
-      let res = await services_api.orders();
+    let orderStatus = common_vendor.ref("");
+    let getOrders = async (orderStatus2) => {
+      console.log("查询的订单状态", orderStatus2);
+      let res = await services_api.orders({ status: orderStatus2 });
       console.log("订单列表", res);
       ordersLis.value = res.data.data;
     };
     common_vendor.onMounted(() => {
-      getOrders();
+      getOrders(orderStatus.value);
+    });
+    common_vendor.onLoad((options) => {
+      if (options.status) {
+        orderStatus.value = options.status;
+      }
     });
     return (_ctx, _cache) => {
-      return {
-        a: common_vendor.f(common_vendor.unref(ordersLis), (item, index, i0) => {
+      return common_vendor.e({
+        a: common_vendor.unref(ordersLis).length !== 0
+      }, common_vendor.unref(ordersLis).length !== 0 ? {
+        b: common_vendor.f(common_vendor.unref(ordersLis), (item, index, i0) => {
           return {
             a: "1e4ee681-0-" + i0,
             b: common_vendor.p({
@@ -31,7 +40,9 @@ const _sfc_main = {
             c: index
           };
         })
-      };
+      } : {}, {
+        c: common_vendor.unref(ordersLis).length === 0
+      }, common_vendor.unref(ordersLis).length === 0 ? {} : {});
     };
   }
 };

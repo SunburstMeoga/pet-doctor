@@ -23,6 +23,15 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.empty.data-v-9a7bd0cc {
+  color: #FCE068;
+  font-size: 32rpx;
+  background-color: #222;
+  width: 324rpx;
+  height: 92rpx;
+  border-radius: 24rpx;
+  margin: 0 auto;
+}
 .container.data-v-9a7bd0cc {
   min-height: 100vh;
   background-color: #f0f0f0;
@@ -38,7 +47,6 @@
 }
 .container .content-title.data-v-9a7bd0cc {
   width: 686rpx;
-  height: 136rpx;
   margin: 40rpx 0;
 }
 .container .content-title-left-return.data-v-9a7bd0cc {

@@ -37,7 +37,9 @@
 								v-for="(item,index) in petTypeItems" :key="index">
 								<view class="pet-type-item-left flex justify-center items-center"
 									:class="index === selectedPetType ? 'pet-type-item-select' : 'pet-type-item-unselect'">
-									<view class="icon iconfont"></view>
+									<view class="pet-image">
+										<image :src="item.icon" mode="aspectFit"></image>
+									</view>
 								</view>
 								<view class="pet-type-item-right"
 									:class="index === selectedPetType ? 'pet-type-item-right-select' : 'pet-type-item-right-unselect'">
@@ -60,7 +62,9 @@
 								:style="index === 0 ? 'margin-right: 40rpx;' : ''"
 								:class="index === selectGenderType ? 'gender-select' : 'gender-unselect'"
 								v-for="(item,index) in petGenderItems" :key="index">
-								<view class="gender-type-item-icon icon iconfont" :class="item.icon"></view>
+								<view class="pet-sex">
+									<image :src="item.icon" mode="aspectFit"></image>
+								</view>
 								<view class="">{{item.title}}</view>
 							</view>
 						</view>
@@ -92,21 +96,21 @@
 	
 	let petTypeItems = ref([{
 		title: '我是猫猫',
-		id: 1,
-		icon: ''
+		id: 2,
+		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/VR8h0LxNHRCVmWS3RokWTXzwE4UfsaFLIvO3n2dv.png'
 	}, {
 		title: '我是狗狗',
-		id: 2,
-		icon: ''
+		id: 1,
+		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/bIxJcmxO2l8d0fDhA7x7HOsILJYcs1twjsR4e4Ja.png'
 	}])
 	let petGenderItems = ref([{
 		title: '弟弟',
 		id: 1,
-		icon: 'icon-xiongxing'
+		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/xw5zyhJxcGairwn3f8dP0u84dSynNFNEMpotB1YP.png'
 	}, {
 		title: '妹妹',
 		id: 0,
-		icon: 'icon-cixing'
+		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/km2tstUhBbT5PgGv5kMcxrTTWQZOo49Yhz2fqTgs.png'
 	}])
 	let brithDayObj = ref({
 		year: '',
@@ -150,6 +154,9 @@
 	}
 	let handlePetTypeItem = (index,id) => {
 		selectedPetType.value = index
+		selectPetVariety.value = '请选择'
+		assessmentId.value = id
+		breedId.value = null
 		getPetBreeds(id)
 	}
 	let handlePetGenderItem = (index,id) => {
@@ -250,11 +257,15 @@
 			day: formattedDay
 		}
 		brithDay.value = `${year}-${month}-${day}`
-		getPetBreeds(1)
+		getPetBreeds(2)
 	})
 </script>
 
 <style lang="scss" scoped>
+	.pet-sex {
+		width: 32rpx;
+		height: 32rpx;
+	}
 	.container {
 		width: 100%;
 		min-height: 100vh;
@@ -370,9 +381,11 @@
 						height: 120rpx;
 						border-radius: 50%;
 
-						.icon {
-							font-size: 80rpx;
+						.pet-image {
+							width: 80rpx;
+							height: 80rpx;
 							color: #222;
+							// border: 1px solid red;
 						}
 					}
 

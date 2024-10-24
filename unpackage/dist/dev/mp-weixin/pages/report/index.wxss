@@ -26,6 +26,16 @@
 .container.data-v-14542b8b {
   min-height: 100vh;
 }
+.empty.data-v-14542b8b {
+  color: #FCE068;
+  font-size: 32rpx;
+  background-color: #222;
+  width: 324rpx;
+  height: 92rpx;
+  border-radius: 24rpx;
+  margin: 0 auto;
+  margin-top: 100rpx;
+}
 .content.data-v-14542b8b {
   position: relative;
   width: 100%;
@@ -144,7 +154,7 @@
 }
 .logo.data-v-14542b8b {
   width: 296rpx;
-  height: 44rpx;
+  height: 22rpx;
   position: absolute;
   z-index: 9999;
   top: 112rpx;
