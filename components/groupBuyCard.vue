@@ -1,28 +1,28 @@
 <template>
-	<div class="content">
-		<div class="content-time">
+	<view class="content">
+		<view class="content-time">
 			截至2025/08/22 23:00
-		</div>
-		<div class="content-info flex justify-center items-center">
-			<div class="content-details flex justify-start items-start">
-				<div class="details-left">
+		</view>
+		<view class="content-info flex justify-center items-center">
+			<view class="content-details flex justify-start items-start">
+				<view class="details-left">
 					<image :src="detail_pictures" mode=""></image>
-				</div>
-				<div class="details-right">
-					<div class="right-title">{{title}}</div>
-					<div class="right-details">{{intro}}</div>
-					<div class="right-tags flex justify-start items-center">
-						<div class="tags-item" v-for="(item, index) in tagsItems" :key="index">{{item}}</div>
-					</div>
+				</view>
+				<view class="details-right">
+					<view class="right-title">{{title}}</view>
+					<view class="right-details">{{intro}}</view>
+					<view class="right-tags flex justify-start items-center">
+						<view class="tags-item" v-for="(item, index) in tagsItems" :key="index">{{item}}</view>
+					</view>
 					
-					<div class="buy  flex justify-between items-center">
-						<div class="right-price">￥{{price.toFixed(2)}}</div>
-						<div class="buy-button" @click="buyNow()">立即购买</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+					<view class="buy  flex justify-between items-center">
+						<view class="right-price">￥{{price.toFixed(2)}}</view>
+						<view class="buy-button" @click="buyNow()">立即购买</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

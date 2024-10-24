@@ -1,84 +1,84 @@
 <template>
-	<div class="container">
-		<div class="content flex justify-start items-center">
-		<!-- 	<div class="pet-info">
+	<view class="container">
+		<view class="content flex justify-start items-center">
+		<!-- 	<view class="pet-info">
 				<pet-card></pet-card>
-			</div>
-			<div class="report-result module">
+			</view>
+			<view class="report-result module">
 				
-			</div> -->
-			<div class="eval-details module">
-				<div class="details-title">测评详情</div>
-				<div class="details-content"  style="background-image: url('../../static/images/report/mbti-result.png');">
-					<div class="content-mbti">{{reportTitle}}</div>
-					<div class="report-list-item-right flex justify-start items-start">
-						<div class="report-list-item-right-property flex justify-start items-center" v-for="(item,index) in dimensionsItems" :key="index">
-							<div class="report-list-item-right-property-title">{{item.title}}</div>
-							<div
+			</view> -->
+			<view class="eval-details module">
+				<view class="details-title">测评详情</view>
+				<view class="details-content"  style="background-image: url('../../static/images/report/mbti-result.png');">
+					<view class="content-mbti">{{reportTitle}}</view>
+					<view class="report-list-item-right flex justify-start items-start">
+						<view class="report-list-item-right-property flex justify-start items-center" v-for="(item,index) in dimensionsItems" :key="index">
+							<view class="report-list-item-right-property-title">{{item.title}}</view>
+							<view
 								class="report-list-item-right-property-content flex justify-between items-center">
-								<div class="report-list-item-right-property-content-left" :class="item.score < 0 ? `color-text-${index}` : `color-gray`">{{item.value}}</div>
-								<div class="report-list-item-right-property-content-middle flex items-center" :class="item.score < 0 ? 'justify-start' : 'justify-end'">
-									<div class="report-list-item-right-property-content-middle-step" :class="`color-${index}`" :style="{'width':item.score+'%;'}"></div>
-								</div>
-								<div class="report-list-item-right-property-content-right" :class="item.score > 0 ? `color-text-${index}` : `color-gray`">{{item.reverse_value}}</div>
-							</div>
-						</div>
-					</div>
-				</div>
+								<view class="report-list-item-right-property-content-left" :class="item.score < 0 ? `color-text-${index}` : `color-gray`">{{item.value}}</view>
+								<view class="report-list-item-right-property-content-middle flex items-center" :class="item.score < 0 ? 'justify-start' : 'justify-end'">
+									<view class="report-list-item-right-property-content-middle-step" :class="`color-${index}`" :style="{'width':item.score+'%;'}"></view>
+								</view>
+								<view class="report-list-item-right-property-content-right" :class="item.score > 0 ? `color-text-${index}` : `color-gray`">{{item.reverse_value}}</view>
+							</view>
+						</view>
+					</view>
+				</view>
 				
-			</div>
-			<div class="result-item module" v-for="(item,index) in dimensionsItems" :key="index">
-				<div class="item-title flex justify-start items-center">
-					<div class="title-left">{{item.title}}</div>
-					<div class="title-right" :class="`color-text-${index}`">{{item.value}}</div>
-				</div>
-				<div class="item-details">
+			</view>
+			<view class="result-item module" v-for="(item,index) in dimensionsItems" :key="index">
+				<view class="item-title flex justify-start items-center">
+					<view class="title-left">{{item.title}}</view>
+					<view class="title-right" :class="`color-text-${index}`">{{item.value}}</view>
+				</view>
+				<view class="item-details">
 					{{item.result_text}}
-				</div>
-				<div class="item-sug">建议</div>
-				<div class="sug-content">
+				</view>
+				<view class="item-sug">建议</view>
+				<view class="sug-content">
 					{{item.suggest_text}}
-				</div>
-			</div>
-			<!-- <div class="result-item module">
-				<div class="item-title flex justify-start items-center">
-					<div class="title-left">外倾性：</div>
-					<div class="title-right">E</div>
-				</div>
-				<div class="item-details">
+				</view>
+			</view>
+			<!-- <view class="result-item module">
+				<view class="item-title flex justify-start items-center">
+					<view class="title-left">外倾性：</view>
+					<view class="title-right">E</view>
+				</view>
+				<view class="item-details">
 					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
-				</div>
-				<div class="item-sug">建议</div>
-				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
-			</div>
-			<div class="result-item module">
-				<div class="item-title flex justify-start items-center">
-					<div class="title-left">外倾性：</div>
-					<div class="title-right">E</div>
-				</div>
-				<div class="item-details">
+				</view>
+				<view class="item-sug">建议</view>
+				<view class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</view>
+			</view>
+			<view class="result-item module">
+				<view class="item-title flex justify-start items-center">
+					<view class="title-left">外倾性：</view>
+					<view class="title-right">E</view>
+				</view>
+				<view class="item-details">
 					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
-				</div>
-				<div class="item-sug">建议</div>
-				<div class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</div>
-			</div> 
-			<div class="module program ">
-				<div class="program-bg flex justify-center items-center image-bg" style="background-image: url('../../static/images/report/nutritional-bg.png');"></div>
-				<div class="program-title">根据 <span style="font-weight: bold;">花花</span> 的测评结果推荐以下商品</div>
-				<div class="program-list flex justify-between items-center">
-					<div class="program-item" v-for="(item,index) in 5" :key="index">
+				</view>
+				<view class="item-sug">建议</view>
+				<view class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</view>
+			</view> 
+			<view class="module program ">
+				<view class="program-bg flex justify-center items-center image-bg" style="background-image: url('../../static/images/report/nutritional-bg.png');"></view>
+				<view class="program-title">根据 <span style="font-weight: bold;">花花</span> 的测评结果推荐以下商品</view>
+				<view class="program-list flex justify-between items-center">
+					<view class="program-item" v-for="(item,index) in 5" :key="index">
 						<product-card></product-card>
-					</div>
-				</div>
-			</div>-->
-		</div>
-		<div class="service-qrcode">
+					</view>
+				</view>
+			</view>-->
+		</view>
+		<view class="service-qrcode">
 			<image src="../../static/logo.png" mode=""></image>
-		</div>
-		<div class="service-word">
+		</view>
+		<view class="service-word">
 			添加专属客服，获取正确的医疗指导
-		</div>
-	</div>
+		</view>
+	</view>
 </template>
 
 <script setup>

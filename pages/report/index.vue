@@ -3,53 +3,53 @@
 		<view class="logo">
 			<image mode="aspectFit" src="/static/images/logo.png" alt="" />
 		</view>
-		<div class="content flex justify-start items-center image-bg"
+		<view class="content flex justify-start items-center image-bg"
 			style="background-image: url('../../static/images/report/banner.png');">
-			<div class="add-service flex justify-between items-center">
-				<div class="add-service-hi">
+			<view class="add-service flex justify-between items-center">
+				<view class="add-service-hi">
 					<image src="/static/images/report/hi.png" mode="aspectFill"></image>
-				</div>
-				<div class="add-service-title">添加专属客服，获取正确的医疗指导</div>
-				<div class="add-service-right">
-					<div class="iconfont icon icon-a-duobianxing1"></div>
-				</div>
-			</div>
-			<div class="report">
+				</view>
+				<view class="add-service-title">添加专属客服，获取正确的医疗指导</view>
+				<view class="add-service-right">
+					<view class="iconfont icon icon-a-duobianxing1"></view>
+				</view>
+			</view>
+			<view class="report">
 				<swiper class="swiper-box"   @change="swipeChange" :current="currentReport">
 					<swiper-item class="flex justify-center items-center"  v-for="(item, index) in cardList" :key="index">
 						<pet-card style="width: 622rpx;" :name="item.name" :breed="item.breed.name" :sex="item.sex" :time="item.birth_at"></pet-card>
 					</swiper-item>
 				</swiper>
 
-			</div>
-		</div>
-		<div class="report-list">
+			</view>
+		</view>
+		<view class="report-list">
 			<uni-swipe-action class="flex justify-start items-center">
-				<div v-for="(item, index) in 3" :key="index" style="margin-bottom: 32rpx;">
+				<view v-for="(item, index) in 3" :key="index" style="margin-bottom: 32rpx;">
 					<uni-swipe-action-item :right-options="options1" @click="bindClick()" @change="change">
-						<div class="report-list-item flex justify-start items-center">
-							<div class="report-list-item-left">
+						<view class="report-list-item flex justify-start items-center">
+							<view class="report-list-item-left">
 								<image src="../../static/images/report/mbti-title.png" mode="aspectFill"></image>
-							</div>
-							<div class="report-list-item-line"></div>
-							<div class="report-list-item-right flex justify-start items-start">
-								<div class="report-list-item-right-property flex justify-start items-center" v-for="(_item,_index) in 4" :key="_index">
-									<div class="report-list-item-right-property-title">外倾性</div>
-									<div
+							</view>
+							<view class="report-list-item-line"></view>
+							<view class="report-list-item-right flex justify-start items-start">
+								<view class="report-list-item-right-property flex justify-start items-center" v-for="(_item,_index) in 4" :key="_index">
+									<view class="report-list-item-right-property-title">外倾性</view>
+									<view
 										class="report-list-item-right-property-content flex justify-between items-center">
-										<div class="report-list-item-right-property-content-left">S</div>
-										<div class="report-list-item-right-property-content-middle">
-											<div class="report-list-item-right-property-content-middle-step"></div>
-										</div>
-										<div class="report-list-item-right-property-content-right">I</div>
-									</div>
-								</div>
-							</div>
-						</div>
+										<view class="report-list-item-right-property-content-left">S</view>
+										<view class="report-list-item-right-property-content-middle">
+											<view class="report-list-item-right-property-content-middle-step"></view>
+										</view>
+										<view class="report-list-item-right-property-content-right">I</view>
+									</view>
+								</view>
+							</view>
+						</view>
 					</uni-swipe-action-item>
-				</div>
+				</view>
 			</uni-swipe-action>
-		</div>
+		</view>
 
 	</view>
 </template>

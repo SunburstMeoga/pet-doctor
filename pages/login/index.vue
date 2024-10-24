@@ -1,13 +1,13 @@
 <template>
-	<div class="flex justify-center items-center" style="width: 100%; height: 100vh;flex-direction: column;">
+	<view class="flex justify-center items-center" style="width: 100%; height: 100vh;flex-direction: column;">
 		<button v-show="!getPhone" @click="toLogin()" class="login flex justify-center items-center" style="margin-bottom: 20rpx;">登录</button>
 		<button v-show="getPhone" open-type="getPhoneNumber" @getphonenumber="onGetPhoneNumber">确认绑定</button>
-		<!-- <div style="width: 100%; height:900rpx;">code: {{testCode}}</div>
+		<!-- <view style="width: 100%; height:900rpx;">code: {{testCode}}</view>
 		
-		<div style="width: 100%; height:900rpx;">iv: {{iv}}</div>
-		<div style="width: 100%; height: 900rpx; word-wrap:break-word;
-word-break:break-all;">encryptedData: {{encryptedData}}</div> -->
-	</div>
+		<view style="width: 100%; height:900rpx;">iv: {{iv}}</view>
+		<view style="width: 100%; height: 900rpx; word-wrap:break-word;
+word-break:break-all;">encryptedData: {{encryptedData}}</view> -->
+	</view>
 </template>
 
 <script setup>

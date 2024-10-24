@@ -1,84 +1,84 @@
 <template>
-	<div class="container flex justify-end items-center">
-		<div class="content flex justify-start items-center">
-			<div class="content-title flex justify-end items-center">
-				<div class="title-right flex justify-center items-center">
-					<div class="icon iconfont icon-close"></div>
-				</div>
-			</div>
+	<view class="container flex justify-end items-center">
+		<view class="content flex justify-start items-center">
+			<view class="content-title flex justify-end items-center">
+				<view class="title-right flex justify-center items-center">
+					<view class="icon iconfont icon-close"></view>
+				</view>
+			</view>
 			<swiper class="swiper-box flex justify-start items-center" @change="change" :current="currentStep">
 				<swiper-item @touchmove.stop>
-					<div class="info-one flex justify-start items-center">
-						<div class="info-one-name">Hi~ 请填写爱宠昵称(仅支持20个字)</div>
-						<div class="info-one-input flex justify-center items-center" style="margin-bottom: 64rpx;">
+					<view class="info-one flex justify-start items-center">
+						<view class="info-one-name">Hi~ 请填写爱宠昵称(仅支持20个字)</view>
+						<view class="info-one-input flex justify-center items-center" style="margin-bottom: 64rpx;">
 							<input type="text" placeholder="爱宠昵称" v-model="petName"/>
-						</div>
-						<div class="info-one-name">Ta的生日</div>
+						</view>
+						<view class="info-one-name">Ta的生日</view>
 						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
-							<div class="info-one-brithday flex justify-between items-center">
-								<div class="info-one-brithday-select flex justify-center items-center">
-									{{brithDayObj.year}}</div>
-								<div class="info-one-brithday-word">年</div>
-								<div class="info-one-brithday-select flex justify-center items-center">
-									{{brithDayObj.month}}</div>
-								<div class="info-one-brithday-word">月</div>
-								<div class="info-one-brithday-select flex justify-center items-center">
-									{{brithDayObj.day}}</div>
-								<div class="info-one-brithday-word">日</div>
-							</div>
+							<view class="info-one-brithday flex justify-between items-center">
+								<view class="info-one-brithday-select flex justify-center items-center">
+									{{brithDayObj.year}}</view>
+								<view class="info-one-brithday-word">年</view>
+								<view class="info-one-brithday-select flex justify-center items-center">
+									{{brithDayObj.month}}</view>
+								<view class="info-one-brithday-word">月</view>
+								<view class="info-one-brithday-select flex justify-center items-center">
+									{{brithDayObj.day}}</view>
+								<view class="info-one-brithday-word">日</view>
+							</view>
 						</picker>
-					</div>
+					</view>
 				</swiper-item>
 				<swiper-item @touchmove.stop>
-					<div class="info-two">
-						<div class="info-one-name">Ta属于什么类型</div>
-						<div class="pet-type flex justify-between items-center">
-							<div @click="handlePetTypeItem(index,item.id)" class="pet-type-item flex justify-end items-end"
+					<view class="info-two">
+						<view class="info-one-name">Ta属于什么类型</view>
+						<view class="pet-type flex justify-between items-center">
+							<view @click="handlePetTypeItem(index,item.id)" class="pet-type-item flex justify-end items-end"
 								v-for="(item,index) in petTypeItems" :key="index">
-								<div class="pet-type-item-left flex justify-center items-center"
+								<view class="pet-type-item-left flex justify-center items-center"
 									:class="index === selectedPetType ? 'pet-type-item-select' : 'pet-type-item-unselect'">
-									<div class="icon iconfont"></div>
-								</div>
-								<div class="pet-type-item-right"
+									<view class="icon iconfont"></view>
+								</view>
+								<view class="pet-type-item-right"
 									:class="index === selectedPetType ? 'pet-type-item-right-select' : 'pet-type-item-right-unselect'">
 									{{item.title}}
-								</div>
-							</div>
-						</div>
-						<div class="info-one-name">具体是什么品种</div>
+								</view>
+							</view>
+						</view>
+						<view class="info-one-name">具体是什么品种</view>
 						<picker @change="petVarietyChange" :value="index" :range="petTypeRange" range-key="name">
-							<div   class="info-one-input flex justify-between items-center" style="margin-bottom: 64rpx;">
-								<div class="" style="margin-left: 32rpx; color: #222;">{{selectPetVariety}}</div>
-								<div class="icon iconfont icon-a-duobianxing1"></div>
-							</div>
+							<view   class="info-one-input flex justify-between items-center" style="margin-bottom: 64rpx;">
+								<view class="" style="margin-left: 32rpx; color: #222;">{{selectPetVariety}}</view>
+								<view class="icon iconfont icon-a-duobianxing1"></view>
+							</view>
 						</picker>
 
-						<div class="info-one-gender">弟弟or妹妹</div>
-						<div class="gender-type flex justify-start items-center">
-							<div @click="handlePetGenderItem(index,item.id)"
+						<view class="info-one-gender">弟弟or妹妹</view>
+						<view class="gender-type flex justify-start items-center">
+							<view @click="handlePetGenderItem(index,item.id)"
 								class="gender-type-item flex justify-center items-center"
 								:style="index === 0 ? 'margin-right: 40rpx;' : ''"
 								:class="index === selectGenderType ? 'gender-select' : 'gender-unselect'"
 								v-for="(item,index) in petGenderItems" :key="index">
-								<div class="gender-type-item-icon icon iconfont" :class="item.icon"></div>
-								<div class="">{{item.title}}</div>
-							</div>
-						</div>
-					</div>
+								<view class="gender-type-item-icon icon iconfont" :class="item.icon"></view>
+								<view class="">{{item.title}}</view>
+							</view>
+						</view>
+					</view>
 				</swiper-item>
 			</swiper>
-			<div v-show="currentStep === 0" class="step-one step flex justify-center items-center">
-				<div class="step-one-button" @click="toNextStep()">下一步</div>
-			</div>
-			<div v-show="currentStep === 1" class="step-one step flex justify-center items-center">
-				<div class="step-one-button-group flex justify-between items-center">
-					<div class="pre" @click="toPreStep()">上一步</div>
-					<div class="save" @click="handleSave()">保存修改</div>
-				</div>
-			</div>
-		</div>
+			<view v-show="currentStep === 0" class="step-one step flex justify-center items-center">
+				<view class="step-one-button" @click="toNextStep()">下一步</view>
+			</view>
+			<view v-show="currentStep === 1" class="step-one step flex justify-center items-center">
+				<view class="step-one-button-group flex justify-between items-center">
+					<view class="pre" @click="toPreStep()">上一步</view>
+					<view class="save" @click="handleSave()">保存修改</view>
+				</view>
+			</view>
+		</view>
 
-	</div>
+	</view>
 </template>
 
 <script setup>

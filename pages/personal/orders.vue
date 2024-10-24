@@ -1,11 +1,11 @@
 <template>
-	<div class="container">
-		<div class="content flex justify-start items-center">
-			<div class="content-item" v-for="(item,index) in ordersLis" :key="index">
+	<view class="container">
+		<view class="content flex justify-start items-center">
+			<view class="content-item" v-for="(item,index) in ordersLis" :key="index">
 				<order-card :orderNumber="item.order_sn" :price="item.amount * 0.01" :status="item.status" :count="item.items[0].quantity"></order-card>
-			</div>
-		</div>
-	</div>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

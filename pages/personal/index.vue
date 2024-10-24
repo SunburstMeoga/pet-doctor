@@ -1,60 +1,60 @@
 <template>
-	<div class="container">
+	<view class="container">
 		<view class="logo">
 			<image mode="aspectFit" src="/static/images/logo.png" alt="" />
 		</view>
-		<div class="infor flex justify-center items-center image-bg" style="background-image: url('../../static/images/personal/banner.png');">
-			<div class="infor-details flex justify-between items-center">
-				<div class="infor-details-left flex justify-start items-start">
-					<div class="infor-details-left-avator"></div>
-					<div class="infor-details-left-base flex justify-center items-start">
-						<div class="infor-details-left-base-name">Petting</div>
-						<div class="infor-details-left-base-intro">喵博士 X 汪博士</div>
-					</div>
-				</div>
-				<div class="infor-details-right flex justify-end items-center">
-					<div class="infor-details-right-items flex justify-start items-center" style="margin-right: 32rpx;">
-						<div class="infor-details-right-items-icon icon iconfont icon-dizhiguanli"></div>
-						<div class="infor-details-right-items-word">收货地址</div>
-					</div>
-					<div class="infor-details-right-items flex justify-start items-center">
-						<div class="infor-details-right-items-icon icon iconfont icon-icon-test"></div>
-						<div class="infor-details-right-items-word">个人资料</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="vip">
-			<div class="vip-content image-bg flex justify-center items-end" style="background-image: url('../../static/images/personal/vip-banner.png');">
-				<div class="vip-content-operating flex justify-between items-center">
-					<div class="vip-content-operating-items flex justify-center items-center">
-						<div class="vip-content-operating-items-icon icon iconfont icon-daifukuan"></div>
-						<div class="vip-content-operating-items-word">代付款</div>
-					</div>
-					<div class="vip-content-operating-items flex justify-center items-center">
-						<div class="vip-content-operating-items-icon icon iconfont icon-daifahuo"></div>
-						<div class="vip-content-operating-items-word">待发货</div>
-					</div>
-					<div class="vip-content-operating-items flex justify-center items-center">
-						<div class="vip-content-operating-items-icon icon iconfont icon-daishouhuo"></div>
-						<div class="vip-content-operating-items-word">待收货</div>
-					</div>
-					<div class="vip-content-operating-items flex justify-center items-center" style="width: 172rpx;">
-						<div class="vip-content-operating-items-icon icon iconfont icon-shouye"></div>
-						<div class="vip-content-operating-items-word">全部</div>
-					</div>
-				</div>
+		<view class="infor flex justify-center items-center image-bg" style="background-image: url('../../static/images/personal/banner.png');">
+			<view class="infor-details flex justify-between items-center">
+				<view class="infor-details-left flex justify-start items-start">
+					<view class="infor-details-left-avator"></view>
+					<view class="infor-details-left-base flex justify-center items-start">
+						<view class="infor-details-left-base-name">Petting</view>
+						<view class="infor-details-left-base-intro">喵博士 X 汪博士</view>
+					</view>
+				</view>
+				<view class="infor-details-right flex justify-end items-center">
+					<view class="infor-details-right-items flex justify-start items-center" style="margin-right: 32rpx;">
+						<view class="infor-details-right-items-icon icon iconfont icon-dizhiguanli"></view>
+						<view class="infor-details-right-items-word">收货地址</view>
+					</view>
+					<view class="infor-details-right-items flex justify-start items-center">
+						<view class="infor-details-right-items-icon icon iconfont icon-icon-test"></view>
+						<view class="infor-details-right-items-word">个人资料</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="vip">
+			<view class="vip-content image-bg flex justify-center items-end" style="background-image: url('../../static/images/personal/vip-banner.png');">
+				<view class="vip-content-operating flex justify-between items-center">
+					<view class="vip-content-operating-items flex justify-center items-center">
+						<view class="vip-content-operating-items-icon icon iconfont icon-daifukuan"></view>
+						<view class="vip-content-operating-items-word">代付款</view>
+					</view>
+					<view class="vip-content-operating-items flex justify-center items-center">
+						<view class="vip-content-operating-items-icon icon iconfont icon-daifahuo"></view>
+						<view class="vip-content-operating-items-word">待发货</view>
+					</view>
+					<view class="vip-content-operating-items flex justify-center items-center">
+						<view class="vip-content-operating-items-icon icon iconfont icon-daishouhuo"></view>
+						<view class="vip-content-operating-items-word">待收货</view>
+					</view>
+					<view class="vip-content-operating-items flex justify-center items-center" style="width: 172rpx;">
+						<view class="vip-content-operating-items-icon icon iconfont icon-shouye"></view>
+						<view class="vip-content-operating-items-word">全部</view>
+					</view>
+				</view>
 				
-			</div>
-		</div>
-		<div class="service image-bg" style="background-image: url('../../static/images/personal/service.png');">
+			</view>
+		</view>
+		<view class="service image-bg" style="background-image: url('../../static/images/personal/service.png');">
 			
-		</div>
-		<div class="other-info flex items-center">
-			<div class="other-info-items" style="border-bottom: 1rpx solid #E6E6E6">爱宠身份证</div>
-			<div class="other-info-items">喵汪博士隐私申明</div>
-		</div>
-	</div>
+		</view>
+		<view class="other-info flex items-center">
+			<view class="other-info-items" style="border-bottom: 1rpx solid #E6E6E6">爱宠身份证</view>
+			<view class="other-info-items">喵汪博士隐私申明</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

@@ -1,19 +1,19 @@
 <template>
-	<div class="container">
-		<div class="content flex justify-start  items-center">
-			<div class="content-tab flex jus items-center">
-				<div class="tab-item" v-for="(item,index) in activityItems" :key="index">
+	<view class="container">
+		<view class="content flex justify-start  items-center">
+			<view class="content-tab flex jus items-center">
+				<view class="tab-item" v-for="(item,index) in activityItems" :key="index">
 					{{item.title}}
-				</div>
-			</div>
-			<div class="content-list flex justify-start items-center">
-				<div class="list-item" v-for="(item,index) in productList" :key="index">
+				</view>
+			</view>
+			<view class="content-list flex justify-start items-center">
+				<view class="list-item" v-for="(item,index) in productList" :key="index">
 					<order-card @handleBuyNow="buyNow(item)" :title="item.title" :intro="item.intro" :tagsItems="item.tags" :price="item.price * 0.01"></order-card>
-				</div>
-			</div>
-		</div>
+				</view>
+			</view>
+		</view>
 		
-	</div>
+	</view>
 </template>
 
 <script setup>

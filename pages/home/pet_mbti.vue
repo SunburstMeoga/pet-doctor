@@ -1,11 +1,11 @@
 <template>
 	<view class="flex justify-center items-center content">
-		<div class="content-research">
-			<div class="content-research-items flex justify-start items-center" v-for="(item,index) in researchItems" :key="index">
-					<div class="content-research-items-dot"></div>
-					<div class="content-research-items-title">{{item.title}}</div>
-			</div>
-		</div>
+		<view class="content-research">
+			<view class="content-research-items flex justify-start items-center" v-for="(item,index) in researchItems" :key="index">
+					<view class="content-research-items-dot"></view>
+					<view class="content-research-items-title">{{item.title}}</view>
+			</view>
+		</view>
 	</view>
 </template>
 

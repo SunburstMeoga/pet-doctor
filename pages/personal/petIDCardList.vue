@@ -1,46 +1,46 @@
 <template>
-	<div class="container flex justify-end items-center">
-		<div class="content flex justify-start items-center">
-			<div class="content-title flex justify-between items-center">
-				<div class="content-title-left flex justify-start items-center">
-					<div class="content-title-left-return flex justify-center items-center">
-						<div class="content-title-left-return-icon icon iconfont icon-return"></div>
-					</div>
-					<div class="content-title-left-word">
+	<view class="container flex justify-end items-center">
+		<view class="content flex justify-start items-center">
+			<view class="content-title flex justify-between items-center">
+				<view class="content-title-left flex justify-start items-center">
+					<view class="content-title-left-return flex justify-center items-center">
+						<view class="content-title-left-return-icon icon iconfont icon-return"></view>
+					</view>
+					<view class="content-title-left-word">
 						爱宠身份证
-					</div>
-				</div>
-				<div class="content-title-right flex justify-end items-center" v-show="cardList.length !== 0">
-					<div style="font-size: 20rpx;">左滑可删除身份证</div>
-					<!-- <div class="content-title-right-operating flex justify-start items-center">
-						<div class="content-title-right-operating-icon icon iconfont icon-setting"></div>
-						<div class="content-title-right-operating-word">管理</div>
-					</div>
-					<div class="content-title-right-operating flex justify-start items-center" style="margin-left: 46rpx;">
-						<div class="content-title-right-operating-icon icon iconfont icon-add"></div>
-						<div class="content-title-right-operating-word">新增</div>
-					</div> -->
-				</div>
-			</div>
-			<div class="content-list" v-if="cardList.length !== 0">
+					</view>
+				</view>
+				<view class="content-title-right flex justify-end items-center" v-show="cardList.length !== 0">
+					<view style="font-size: 20rpx;">左滑可删除身份证</view>
+					<!-- <view class="content-title-right-operating flex justify-start items-center">
+						<view class="content-title-right-operating-icon icon iconfont icon-setting"></view>
+						<view class="content-title-right-operating-word">管理</view>
+					</view>
+					<view class="content-title-right-operating flex justify-start items-center" style="margin-left: 46rpx;">
+						<view class="content-title-right-operating-icon icon iconfont icon-add"></view>
+						<view class="content-title-right-operating-word">新增</view>
+					</view> -->
+				</view>
+			</view>
+			<view class="content-list" v-if="cardList.length !== 0">
 				<uni-swipe-action class="flex justify-start items-center">
-					<div v-for="(item, index) in cardList" :key="index" class="content-list-item" @click="handleCard(item)">
+					<view v-for="(item, index) in cardList" :key="index" class="content-list-item" @click="handleCard(item)">
 						<uni-swipe-action-item :right-options="options1" @click="bindClick()" @change="change">
 							<pet-card :name="item.name" :breed="item.breed.name" :sex="item.sex" :time="item.birth_at"></pet-card>
 						</uni-swipe-action-item>
-					</div>
+					</view>
 				</uni-swipe-action>
 				
-			</div>
-			<div v-if="cardList.length === 0" class="content-empty flex justify-center items-center">
-				<div class="content-empty-word">暂无内容</div>
-				<div class="content-empty-button flex justify-center items-center">
-					<div class="content-empty-button-icon icon iconfont icon-add"></div>
-					<div class="content-empty-button-word">新增</div>
-				</div>
-			</div>
-		</div>
-	</div>
+			</view>
+			<view v-if="cardList.length === 0" class="content-empty flex justify-center items-center">
+				<view class="content-empty-word">暂无内容</view>
+				<view class="content-empty-button flex justify-center items-center">
+					<view class="content-empty-button-icon icon iconfont icon-add"></view>
+					<view class="content-empty-button-word">新增</view>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

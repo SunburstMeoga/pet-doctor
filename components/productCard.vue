@@ -1,17 +1,17 @@
 <template>
-	<div class="content">
-		<div class="content-img">
+	<view class="content">
+		<view class="content-img">
 			<image src="../static/logo.png" mode=""></image>
-		</div>
-		<div class="content-info">
-			<div class="info-title">猫猫喜欢的玩具</div>
-			<div class="info-type">狗狗 | 上新 | 满100减10</div>
-			<div class="info-price flex justify-start items-start">
-				<div class="price-top">￥</div>
-				<div class="price-num">50</div>
-			</div>
-		</div>
-	</div>
+		</view>
+		<view class="content-info">
+			<view class="info-title">猫猫喜欢的玩具</view>
+			<view class="info-type">狗狗 | 上新 | 满100减10</view>
+			<view class="info-price flex justify-start items-start">
+				<view class="price-top">￥</view>
+				<view class="price-num">50</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>

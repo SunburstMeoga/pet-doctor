@@ -1,51 +1,51 @@
 <template>
-	<div class="container flex justify-start items-center">
-		<!-- <div class="content"> -->
+	<view class="container flex justify-start items-center">
+		<!-- <view class="content"> -->
 			<swiper class="swiper-box flex justify-start items-center" @change="change" :current="currentQuestion" >
 				<swiper-item v-for="(item, index) in questionItems" :key="index" @touchmove.stop>
-					<div class="content">
-						<div class="content-theme flex justify-start items-center">
-							<div class="content-theme-number flex justify-center items-center">
-								<div class="content-theme-number-current">0{{index + 1}} </div>
+					<view class="content">
+						<view class="content-theme flex justify-start items-center">
+							<view class="content-theme-number flex justify-center items-center">
+								<view class="content-theme-number-current">0{{index + 1}} </view>
 							
-								<div class="content-theme-number-total"> / {{questionItems.length <= 9 ? '0' + questionItems.length : questionItems.length }}</div>
-							</div>
-							<!-- <div class="content-theme-type">【基本信息】</div> -->
-						</div>
-						<div class="content-question">
-							<div class="content-question-title">{{item.title}}</div>
-							<div class="content-question-options">
-								<div @click="handleOptions(_item,item,index)" 
+								<view class="content-theme-number-total"> / {{questionItems.length <= 9 ? '0' + questionItems.length : questionItems.length }}</view>
+							</view>
+							<!-- <view class="content-theme-type">【基本信息】</view> -->
+						</view>
+						<view class="content-question">
+							<view class="content-question-title">{{item.title}}</view>
+							<view class="content-question-options">
+								<view @click="handleOptions(_item,item,index)" 
 								class="content-question-options-item" 
 								:class="_item.id === item.selectid ? 'content-question-options-item-active' : 'content-question-options-item-unactive'" 
 								v-for="(_item,_index) in item.answers" :key="_index">
-									<!-- <div class="content-question-options-item-title">{{item.title}}</div> -->
-									<div class="content-question-options-item-content">{{_item.text}}</div>
-								</div>
-							</div>
-						</div>
-					</div>
+									<!-- <view class="content-question-options-item-title">{{item.title}}</view> -->
+									<view class="content-question-options-item-content">{{_item.text}}</view>
+								</view>
+							</view>
+						</view>
+					</view>
 				</swiper-item>
 			</swiper>
-		<!-- </div> -->
+		<!-- </view> -->
 		
-		<div  v-if="!selectedOption && currentQuestion === 0" class="go-back flex justify-center items-center">
-			<div class="go-back-button">
+		<view  v-if="!selectedOption && currentQuestion === 0" class="go-back flex justify-center items-center">
+			<view class="go-back-button">
 				返回
-			</div>
-		</div>
-		<div  v-if="currentQuestion !== 0 && currentQuestion !== questionItems.length" class="go-back flex justify-center items-center">
-			<div class="go-back-button" @click="toPreQuestion()">
+			</view>
+		</view>
+		<view  v-if="currentQuestion !== 0 && currentQuestion !== questionItems.length" class="go-back flex justify-center items-center">
+			<view class="go-back-button" @click="toPreQuestion()">
 				返回上一题
-			</div>
-		</div>
-		<div v-if="isFinishAnswer" class="go-back last-question  flex justify-around items-center">
-			<!-- <div class="go-back-check" @click="toPreQuestion()">上一题</div> -->
-			<div class="go-back-result">
+			</view>
+		</view>
+		<view v-if="isFinishAnswer" class="go-back last-question  flex justify-around items-center">
+			<!-- <view class="go-back-check" @click="toPreQuestion()">上一题</view> -->
+			<view class="go-back-result">
 				查看结果
-			</div>
-		</div>
-	</div>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

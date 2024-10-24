@@ -1,22 +1,22 @@
 <template>
-	<div class="swiper-item image-bg"
+	<view class="swiper-item image-bg"
 		style="background-image: url('../../static/images/report/card-male.png');">
-		<div class="card-info">
-			<div class="edit flex justify-center items-center" v-if="showEdit">
-				<div class="icon iconfont icon-bianji"></div>
-			</div>
-			<div class="card-info-name flex justify-start items-center">{{name}}</div>
-			<div class="card-info-property flex justify-start items-center">
-				<div class="diamond"></div>
-				<div class="card-info-property-variety">{{breed}} | {{sex === 1 ? '弟弟' : '妹妹'}}</div>
-				<div class="card-info-property-gender icon iconfont" :class="sex === 1 ? 'icon-xiongxing card-info-property-xiongxing' : 'icon-cixing card-info-property-cixing'"></div>
-			</div>
-			<div class="card-info-date flex justify-start items-center">
-				<div class="diamond"></div>
-				<div class="card-info-date-number">{{time}}</div>
-			</div>
-		</div>
-	</div>
+		<view class="card-info">
+			<view class="edit flex justify-center items-center" v-if="showEdit">
+				<view class="icon iconfont icon-bianji"></view>
+			</view>
+			<view class="card-info-name flex justify-start items-center">{{name}}</view>
+			<view class="card-info-property flex justify-start items-center">
+				<view class="diamond"></view>
+				<view class="card-info-property-variety">{{breed}} | {{sex === 1 ? '弟弟' : '妹妹'}}</view>
+				<view class="card-info-property-gender icon iconfont" :class="sex === 1 ? 'icon-xiongxing card-info-property-xiongxing' : 'icon-cixing card-info-property-cixing'"></view>
+			</view>
+			<view class="card-info-date flex justify-start items-center">
+				<view class="diamond"></view>
+				<view class="card-info-date-number">{{time}}</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script setup>

@@ -1,16 +1,16 @@
 <template>
 	<view class="container">
-		<div class="container-bg"></div>
-		<div class="container-bottom flex justify-start items-center">
-			<div class="title">完成问卷仅需3-5分钟</div>
-			<div class="protocol flex items-center">
-				<div class="protocol-left flex justify-center items-center" @click="handleAgree()" :class="isAgree ? 'protocol-left-select' : 'protocol-left-unselect'">
-					<div class="icon iconfont icon-right"></div>
-				</div>
-				<div class="protocol-right underline">同意<span class="underline inline-block">喵博士 X 汪博士协议</span></div>
-			</div>
-			<div @click="handleStarAnswer()" class="star">开始答题</div>
-		</div>
+		<view class="container-bg"></view>
+		<view class="container-bottom flex justify-start items-center">
+			<view class="title">完成问卷仅需3-5分钟</view>
+			<view class="protocol flex items-center">
+				<view class="protocol-left flex justify-center items-center" @click="handleAgree()" :class="isAgree ? 'protocol-left-select' : 'protocol-left-unselect'">
+					<view class="icon iconfont icon-right"></view>
+				</view>
+				<view class="protocol-right underline">同意<span class="underline inline-block">喵博士 X 汪博士协议</span></view>
+			</view>
+			<view @click="handleStarAnswer()" class="star">开始答题</view>
+		</view>
 	</view>
 </template>
 

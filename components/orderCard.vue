@@ -1,25 +1,25 @@
 <template>
-	<div class="content flex justify-center items-center">
-		<div class="content-info ">
-			<div class="info-title flex justify-between items-center">
-				<div class="title-left flex justify-start items-center">
-					<div class="order-word">订单编号</div>
-					<div class="order-content">787870079768689008</div>
-				</div>
-				<div class="title-right">{{status === 3 ? '交易成功' : '交易失败'}}</div>
-			</div>
-			<div class="info-details flex justify-between items-center">
-				<div class="details-left">
+	<view class="content flex justify-center items-center">
+		<view class="content-info ">
+			<view class="info-title flex justify-between items-center">
+				<view class="title-left flex justify-start items-center">
+					<view class="order-word">订单编号</view>
+					<view class="order-content">787870079768689008</view>
+				</view>
+				<view class="title-right">{{status === 3 ? '交易成功' : '交易失败'}}</view>
+			</view>
+			<view class="info-details flex justify-between items-center">
+				<view class="details-left">
 					<image src="https://img1.baidu.com/it/u=3957729854,846758244&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" mode=""></image>
-				</div>
-				<div class="details-right flex justify-between items-end">
-					<div class="right-price">￥{{price.toFixed(2)}}</div>
-					<div class="right-count">共 {{count}} 件</div>
-				</div>
-			</div>
-			<div class="info-type">自提</div>
-		</div>
-	</div>
+				</view>
+				<view class="details-right flex justify-between items-end">
+					<view class="right-price">￥{{price.toFixed(2)}}</view>
+					<view class="right-count">共 {{count}} 件</view>
+				</view>
+			</view>
+			<view class="info-type">自提</view>
+		</view>
+	</view>
 </template>
 
 <script setup>
