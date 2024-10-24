@@ -1,6 +1,5 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
-const common_assets = require("../../common/assets.js");
 const services_api = require("../../services/api.js");
 if (!Math) {
   productCard();
@@ -12,6 +11,24 @@ const _sfc_main = {
     let reportId = common_vendor.ref("");
     let dimensionsItems = common_vendor.ref([]);
     let reportTitle = common_vendor.ref("");
+    let handleShare = () => {
+      console.log("点击了分享");
+      common_vendor.index.share({
+        provider: "weixin",
+        scene: "WXSceneTimeline",
+        type: 1,
+        // href: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/7Tz2CqszkkrCwJVQzvWSRay4vaqRoIbMoJzyw1Aq.png",
+        title: "喵博士 X 汪博士",
+        summary: "我正在使用喵博士 X 汪博士进行爱宠MBTI测试，赶紧跟我一起来体验！",
+        imageUrl: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/7Tz2CqszkkrCwJVQzvWSRay4vaqRoIbMoJzyw1Aq.png",
+        success: function(res) {
+          console.log("success:" + JSON.stringify(res));
+        },
+        fail: function(err) {
+          console.log("fail:" + JSON.stringify(err));
+        }
+      });
+    };
     let getReportDeatils = async (reportId2) => {
       common_vendor.index.showLoading({
         title: "正在加载..."
@@ -99,7 +116,7 @@ const _sfc_main = {
             d: index
           };
         }),
-        e: common_assets._imports_0$1
+        e: common_vendor.o(($event) => common_vendor.unref(handleShare)())
       };
     };
   }

@@ -18,14 +18,20 @@ const _sfc_main = {
     status: {
       type: Number,
       default: 0
+    },
+    product_picture: {
+      type: String,
+      default: ""
     }
   },
   setup(__props) {
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(__props.status === 3 ? "交易成功" : "交易失败"),
-        b: common_vendor.t(__props.price.toFixed(2)),
-        c: common_vendor.t(__props.count)
+        a: common_vendor.t(__props.orderNumber),
+        b: common_vendor.t(__props.status === 3 ? "交易成功" : "交易失败"),
+        c: __props.product_picture,
+        d: common_vendor.t(__props.price.toFixed(2)),
+        e: common_vendor.t(__props.count)
       };
     };
   }

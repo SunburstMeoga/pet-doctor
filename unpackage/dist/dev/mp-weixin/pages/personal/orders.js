@@ -34,6 +34,7 @@ const _sfc_main = {
             b: common_vendor.p({
               orderNumber: item.order_sn,
               price: item.amount * 0.01,
+              product_picture: item.items[0].product_picture,
               status: item.status,
               count: item.items[0].quantity
             }),

@@ -40,6 +40,7 @@
 }
 .content .content-info .info-title .title-left .order-content.data-v-b147ca8b {
   color: #8c8c8c;
+  margin-left: 10rpx;
 }
 .content .content-info .info-title .title-right.data-v-b147ca8b {
   color: #595959;

@@ -73,10 +73,15 @@
 			</view>
 		</view>
 		<view class="service-qrcode">
-			<image src="../../static/logo.png" mode=""></image>
+			<image src="http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/7Tz2CqszkkrCwJVQzvWSRay4vaqRoIbMoJzyw1Aq.png" mode=""></image>
 		</view>
 		<view class="service-word">
 			添加专属客服，获取正确的医疗指导
+		</view>
+		<view class="share flex justify-center items-center">
+			<view class="share-button flex justify-center items-center" @click="handleShare()">
+				转发到朋友圈
+			</view>
 		</view>
 	</view>
 </template>
@@ -90,6 +95,24 @@
 	let reportId = ref('')
 	let dimensionsItems = ref([])
 	let reportTitle = ref('')
+	let handleShare = () =>{
+		console.log('点击了分享')
+		uni.share({
+			provider: "weixin",
+			scene: "WXSceneTimeline",
+			type: 1,
+			// href: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/7Tz2CqszkkrCwJVQzvWSRay4vaqRoIbMoJzyw1Aq.png",
+			title: "喵博士 X 汪博士",
+			summary: "我正在使用喵博士 X 汪博士进行爱宠MBTI测试，赶紧跟我一起来体验！",
+			imageUrl: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/7Tz2CqszkkrCwJVQzvWSRay4vaqRoIbMoJzyw1Aq.png",
+			success: function (res) {
+				console.log("success:" + JSON.stringify(res));
+			},
+			fail: function (err) {
+				console.log("fail:" + JSON.stringify(err));
+			}
+		});
+	}
 	let getReportDeatils = async (reportId) => {
 		uni.showLoading({
 			title: '正在加载...'
@@ -144,10 +167,25 @@
 </script>
 
 <style lang="scss" scoped>
+	.share {
+		position: fixed;
+		left: 0;
+		bottom: 60rpx;
+		width: 100%;
+		height: 92rpx;
+		
+	}
+	.share-button {
+		width: 486rpx;
+		height: 92rpx;
+		background-color: #222;
+		color: #faad14;
+		border-radius: 24rpx;
+	}
 	.container {
 		min-height: 100vh;
 		background-color: #F5F5F5;
-		padding-bottom: 40rpx;
+		padding-bottom: 140rpx;
 		.content{
 			width: 1005;
 			min-height: 100vh;

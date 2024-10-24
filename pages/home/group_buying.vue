@@ -6,9 +6,9 @@
 					{{item.title}}
 				</view>
 			</view>
-			<view class="content-list flex justify-start items-center">
-				<view class="list-item" v-for="(item,index) in productList" :key="index">
-					<order-card @handleBuyNow="buyNow(item)" :title="item.title" :intro="item.intro" :tagsItems="item.tags" :price="item.price * 0.01"></order-card>
+			<view class="content-list flex justify-start items-center" >
+				<view class="list-item"  v-for="(item,index) in productList" :key="index">
+					<group-buy-card @handleBuyNow="buyNow(item)" :detail_pictures="item.pictures[0]" :title="item.title" :intro="item.intro" :tagsItems="item.tags" :price="item.price * 0.01"></group-buy-card>
 				</view>
 			</view>
 		</view>
@@ -54,8 +54,9 @@
 	}
 	let getProductList =  async () => {
 		let result = await allProduct()
-		console.log('商品列表', result)
 		productList.value = result.data.data
+		console.log('商品列表接口', result)
+		console.log('商品列表', productList.value)
 	}
 	onMounted(() => {
 		getProductList()

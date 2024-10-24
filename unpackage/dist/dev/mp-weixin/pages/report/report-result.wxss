@@ -23,10 +23,24 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.share.data-v-fdd21b61 {
+  position: fixed;
+  left: 0;
+  bottom: 60rpx;
+  width: 100%;
+  height: 92rpx;
+}
+.share-button.data-v-fdd21b61 {
+  width: 486rpx;
+  height: 92rpx;
+  background-color: #222;
+  color: #faad14;
+  border-radius: 24rpx;
+}
 .container.data-v-fdd21b61 {
   min-height: 100vh;
   background-color: #F5F5F5;
-  padding-bottom: 40rpx;
+  padding-bottom: 140rpx;
 }
 .container .content.data-v-fdd21b61 {
   width: 1005;

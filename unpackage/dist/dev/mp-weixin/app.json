@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/privacy_policy",
     "pages/report/index",
     "pages/login/index",
     "pages/personal/orders",

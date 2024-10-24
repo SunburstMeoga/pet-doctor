@@ -4,13 +4,13 @@
 			<view class="info-title flex justify-between items-center">
 				<view class="title-left flex justify-start items-center">
 					<view class="order-word">订单编号</view>
-					<view class="order-content">787870079768689008</view>
+					<view class="order-content">{{orderNumber}}</view>
 				</view>
 				<view class="title-right">{{status === 3 ? '交易成功' : '交易失败'}}</view>
 			</view>
 			<view class="info-details flex justify-between items-center">
 				<view class="details-left">
-					<image src="https://img1.baidu.com/it/u=3957729854,846758244&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" mode=""></image>
+					<image :src="product_picture" mode="aspectFit"></image>
 				</view>
 				<view class="details-right flex justify-between items-end">
 					<view class="right-price">￥{{price.toFixed(2)}}</view>
@@ -40,6 +40,10 @@
 		status: {
 			type: Number,
 			default: 0
+		},
+		product_picture: {
+			type: String,
+			default: ''
 		}
 	})
 </script>
@@ -60,6 +64,7 @@
 					}
 					.order-content {
 						color: #8c8c8c;
+						margin-left: 10rpx;
 					}
 				}
 				.title-right {

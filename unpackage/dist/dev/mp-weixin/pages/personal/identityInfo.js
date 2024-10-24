@@ -6,11 +6,11 @@ const _sfc_main = {
   setup(__props) {
     let petTypeItems = common_vendor.ref([{
       title: "我是猫猫",
-      id: 2,
+      id: 1,
       icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/VR8h0LxNHRCVmWS3RokWTXzwE4UfsaFLIvO3n2dv.png"
     }, {
       title: "我是狗狗",
-      id: 1,
+      id: 2,
       icon: "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/bIxJcmxO2l8d0fDhA7x7HOsILJYcs1twjsR4e4Ja.png"
     }]);
     let petGenderItems = common_vendor.ref([{
@@ -162,22 +162,23 @@ const _sfc_main = {
         day: formattedDay
       };
       brithDay.value = `${year}-${month}-${day}`;
-      getPetBreeds(2);
+      getPetBreeds(1);
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.unref(petName),
-        b: common_vendor.o(($event) => common_vendor.isRef(petName) ? petName.value = $event.detail.value : petName = $event.detail.value),
-        c: common_vendor.t(common_vendor.unref(brithDayObj).year),
-        d: common_vendor.t(common_vendor.unref(brithDayObj).month),
-        e: common_vendor.t(common_vendor.unref(brithDayObj).day),
-        f: _ctx.date,
-        g: common_vendor.unref(startDate),
-        h: common_vendor.unref(endDate),
-        i: common_vendor.o((...args) => common_vendor.unref(bindDateChange) && common_vendor.unref(bindDateChange)(...args)),
-        j: common_vendor.o(() => {
+        a: common_vendor.o(($event) => common_vendor.unref(toPreStep)()),
+        b: common_vendor.unref(petName),
+        c: common_vendor.o(($event) => common_vendor.isRef(petName) ? petName.value = $event.detail.value : petName = $event.detail.value),
+        d: common_vendor.t(common_vendor.unref(brithDayObj).year),
+        e: common_vendor.t(common_vendor.unref(brithDayObj).month),
+        f: common_vendor.t(common_vendor.unref(brithDayObj).day),
+        g: _ctx.date,
+        h: common_vendor.unref(startDate),
+        i: common_vendor.unref(endDate),
+        j: common_vendor.o((...args) => common_vendor.unref(bindDateChange) && common_vendor.unref(bindDateChange)(...args)),
+        k: common_vendor.o(() => {
         }),
-        k: common_vendor.f(common_vendor.unref(petTypeItems), (item, index, i0) => {
+        l: common_vendor.f(common_vendor.unref(petTypeItems), (item, index, i0) => {
           return {
             a: item.icon,
             b: common_vendor.n(index === common_vendor.unref(selectedPetType) ? "pet-type-item-select" : "pet-type-item-unselect"),
@@ -187,11 +188,11 @@ const _sfc_main = {
             f: index
           };
         }),
-        l: common_vendor.t(common_vendor.unref(selectPetVariety)),
-        m: common_vendor.o((...args) => common_vendor.unref(petVarietyChange) && common_vendor.unref(petVarietyChange)(...args)),
-        n: _ctx.index,
-        o: common_vendor.unref(petTypeRange),
-        p: common_vendor.f(common_vendor.unref(petGenderItems), (item, index, i0) => {
+        m: common_vendor.t(common_vendor.unref(selectPetVariety)),
+        n: common_vendor.o((...args) => common_vendor.unref(petVarietyChange) && common_vendor.unref(petVarietyChange)(...args)),
+        o: _ctx.index,
+        p: common_vendor.unref(petTypeRange),
+        q: common_vendor.f(common_vendor.unref(petGenderItems), (item, index, i0) => {
           return {
             a: item.icon,
             b: common_vendor.t(item.title),
@@ -201,15 +202,15 @@ const _sfc_main = {
             f: index
           };
         }),
-        q: common_vendor.o(() => {
+        r: common_vendor.o(() => {
         }),
-        r: common_vendor.o((...args) => _ctx.change && _ctx.change(...args)),
-        s: common_vendor.unref(currentStep),
-        t: common_vendor.o(($event) => common_vendor.unref(toNextStep)()),
-        v: common_vendor.unref(currentStep) === 0,
-        w: common_vendor.o(($event) => common_vendor.unref(toPreStep)()),
-        x: common_vendor.o(($event) => common_vendor.unref(handleSave)()),
-        y: common_vendor.unref(currentStep) === 1
+        s: common_vendor.o((...args) => _ctx.change && _ctx.change(...args)),
+        t: common_vendor.unref(currentStep),
+        v: common_vendor.o(($event) => common_vendor.unref(toNextStep)()),
+        w: common_vendor.unref(currentStep) === 0,
+        x: common_vendor.o(($event) => common_vendor.unref(toPreStep)()),
+        y: common_vendor.o(($event) => common_vendor.unref(handleSave)()),
+        z: common_vendor.unref(currentStep) === 1
       };
     };
   }

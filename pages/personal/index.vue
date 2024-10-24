@@ -57,8 +57,8 @@
 
 		</view>
 		<view class="other-info flex items-center">
-			<view class="other-info-items" style="border-bottom: 1rpx solid #E6E6E6" @click="toPetList">爱宠身份证</view>
-			<view class="other-info-items">喵汪博士隐私申明</view>
+			<!-- <view class="other-info-items" style="border-bottom: 1rpx solid #E6E6E6" @click="toPetList">爱宠身份证</view> -->
+			<view @click="toPolicy()" class="other-info-items">喵汪博士隐私申明</view>
 		</view>
 	</view>
 </template>
@@ -71,11 +71,21 @@
 		login
 	} from '@/services/api.js'
 	onMounted(() => {
+		console.log('token', uni.getStorageSync('token'))
+		
 		if(uni.getStorageSync('token')) {
 			isLogged.value = true
+			console.log(isLogged.value)
+		} else {
+			isLogged.value = false
 		}
 	})
 	let isLogged = ref(false)
+	let toPolicy = () => {
+		uni.navigateTo({
+			url: '/pages/home/privacy_policy'
+		})
+	}
 	let handleOrder = (status) => {
 		if(!uni.getStorageSync('token')) {
 			uni.showToast({
@@ -130,6 +140,7 @@
 								`Bearer ${result.data.data.api_token}`)
 							console.log(result.data.data.api_token)
 							console.log(uni.getStorageSync('token'))
+							isLogged.value = true
 							uni.hideLoading()
 						} catch (err) {
 							console.log(err)

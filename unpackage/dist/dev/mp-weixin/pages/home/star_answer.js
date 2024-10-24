@@ -10,6 +10,11 @@ const _sfc_main = {
       isAgree.value = !isAgree.value;
       console.log(isAgree.value);
     };
+    let toPolicy = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/home/privacy_policy"
+      });
+    };
     let handleStarAnswer = () => {
       if (!isAgree.value) {
         common_vendor.index.showToast({
@@ -44,7 +49,8 @@ const _sfc_main = {
       return {
         a: common_vendor.o(($event) => common_vendor.unref(handleAgree)()),
         b: common_vendor.n(common_vendor.unref(isAgree) ? "protocol-left-select" : "protocol-left-unselect"),
-        c: common_vendor.o(($event) => common_vendor.unref(handleStarAnswer)())
+        c: common_vendor.o(($event) => common_vendor.unref(toPolicy)()),
+        d: common_vendor.o(($event) => common_vendor.unref(handleStarAnswer)())
       };
     };
   }

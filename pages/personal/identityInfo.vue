@@ -3,7 +3,7 @@
 		<view class="content flex justify-start items-center">
 			<view class="content-title flex justify-end items-center">
 				<view class="title-right flex justify-center items-center">
-					<view class="icon iconfont icon-close"></view>
+					<view class="icon iconfont icon-close" @click="toPreStep()"></view>
 				</view>
 			</view>
 			<swiper class="swiper-box flex justify-start items-center" @change="change" :current="currentStep">
@@ -96,11 +96,11 @@
 	
 	let petTypeItems = ref([{
 		title: '我是猫猫',
-		id: 2,
+		id: 1,
 		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/VR8h0LxNHRCVmWS3RokWTXzwE4UfsaFLIvO3n2dv.png'
 	}, {
 		title: '我是狗狗',
-		id: 1,
+		id: 2,
 		icon: 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/bIxJcmxO2l8d0fDhA7x7HOsILJYcs1twjsR4e4Ja.png'
 	}])
 	let petGenderItems = ref([{
@@ -257,7 +257,7 @@
 			day: formattedDay
 		}
 		brithDay.value = `${year}-${month}-${day}`
-		getPetBreeds(2)
+		getPetBreeds(1)
 	})
 </script>
 

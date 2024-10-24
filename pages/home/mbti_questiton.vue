@@ -1,7 +1,7 @@
 <template>
 	<view class="container flex justify-start items-center">
 		<!-- <view class="content"> -->
-			<swiper class="swiper-box flex justify-start items-center" @change="change" :current="currentQuestion" >
+			<swiper class="swiper-box flex justify-start items-center" @change="change" :current="currentQuestion" duration="100">
 				<swiper-item v-for="(item, index) in questionItems" :key="index" @touchmove.stop>
 					<view class="content">
 						<view class="content-theme flex justify-start items-center">

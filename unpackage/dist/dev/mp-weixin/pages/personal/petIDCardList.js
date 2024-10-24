@@ -108,8 +108,10 @@ const _sfc_main = {
       } : {}, {
         e: common_vendor.unref(cardList).length === 0
       }, common_vendor.unref(cardList).length === 0 ? {} : {}, {
-        f: common_vendor.o(($event) => common_vendor.unref(toAddCard)())
-      });
+        f: common_vendor.unref(cardList).length !== 0
+      }, common_vendor.unref(cardList).length !== 0 ? {
+        g: common_vendor.o(($event) => common_vendor.unref(toAddCard)())
+      } : {});
     };
   }
 };

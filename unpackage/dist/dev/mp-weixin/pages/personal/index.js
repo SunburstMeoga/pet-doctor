@@ -6,11 +6,20 @@ const _sfc_main = {
   __name: "index",
   setup(__props) {
     common_vendor.onMounted(() => {
+      console.log("token", common_vendor.index.getStorageSync("token"));
       if (common_vendor.index.getStorageSync("token")) {
         isLogged.value = true;
+        console.log(isLogged.value);
+      } else {
+        isLogged.value = false;
       }
     });
     let isLogged = common_vendor.ref(false);
+    let toPolicy = () => {
+      common_vendor.index.navigateTo({
+        url: "/pages/home/privacy_policy"
+      });
+    };
     let handleOrder = (status) => {
       if (!common_vendor.index.getStorageSync("token")) {
         common_vendor.index.showToast({
@@ -21,11 +30,6 @@ const _sfc_main = {
       }
       common_vendor.index.navigateTo({
         url: `/pages/personal/orders?status=${status}`
-      });
-    };
-    let toPetList = () => {
-      common_vendor.index.navigateTo({
-        url: "/pages/personal/petIDCardList"
       });
     };
     let toLogin = async () => {
@@ -68,6 +72,7 @@ const _sfc_main = {
                 );
                 console.log(result.data.data.api_token);
                 console.log(common_vendor.index.getStorageSync("token"));
+                isLogged.value = true;
                 common_vendor.index.hideLoading();
               } catch (err) {
                 console.log(err);
@@ -97,7 +102,7 @@ const _sfc_main = {
         e: common_vendor.o(($event) => common_vendor.unref(handleOrder)("1")),
         f: common_vendor.o(($event) => common_vendor.unref(handleOrder)("2")),
         g: common_vendor.o(($event) => common_vendor.unref(handleOrder)(null)),
-        h: common_vendor.o((...args) => common_vendor.unref(toPetList) && common_vendor.unref(toPetList)(...args))
+        h: common_vendor.o(($event) => common_vendor.unref(toPolicy)())
       });
     };
   }

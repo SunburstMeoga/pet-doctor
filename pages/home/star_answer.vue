@@ -7,7 +7,7 @@
 				<view class="protocol-left flex justify-center items-center" @click="handleAgree()" :class="isAgree ? 'protocol-left-select' : 'protocol-left-unselect'">
 					<view class="icon iconfont icon-right"></view>
 				</view>
-				<view class="protocol-right underline">同意<span class="underline inline-block">喵博士 X 汪博士协议</span></view>
+				<view @click="toPolicy()" class="protocol-right underline">同意<span class="underline inline-block">喵博士 X 汪博士协议</span></view>
 			</view>
 			<view @click="handleStarAnswer()" class="star">开始答题</view>
 		</view>
@@ -23,6 +23,11 @@
 	let handleAgree = () => {
 		isAgree.value = !isAgree.value
 		console.log(isAgree.value)
+	}
+	let toPolicy = () => {
+		uni.navigateTo({
+			url: '/pages/home/privacy_policy'
+		})
 	}
 	let handleStarAnswer = () => {
 		if(!isAgree.value) {

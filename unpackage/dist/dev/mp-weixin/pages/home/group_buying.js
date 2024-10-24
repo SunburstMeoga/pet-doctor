@@ -1,10 +1,10 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
 const services_api = require("../../services/api.js");
-if (!Array) {
-  const _component_order_card = common_vendor.resolveComponent("order-card");
-  _component_order_card();
+if (!Math) {
+  GroupBuyCard();
 }
+const GroupBuyCard = () => "../../components/GroupBuyCard.js";
 const _sfc_main = {
   __name: "group_buying",
   setup(__props) {
@@ -39,8 +39,9 @@ const _sfc_main = {
     };
     let getProductList = async () => {
       let result = await services_api.allProduct();
-      console.log("商品列表", result);
       productList.value = result.data.data;
+      console.log("商品列表接口", result);
+      console.log("商品列表", productList.value);
     };
     common_vendor.onMounted(() => {
       getProductList();
@@ -58,6 +59,7 @@ const _sfc_main = {
             a: common_vendor.o(($event) => common_vendor.unref(buyNow)(item), index),
             b: "10e48a25-0-" + i0,
             c: common_vendor.p({
+              detail_pictures: item.pictures[0],
               title: item.title,
               intro: item.intro,
               tagsItems: item.tags,

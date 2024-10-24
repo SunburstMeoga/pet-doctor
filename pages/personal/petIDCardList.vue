@@ -41,7 +41,7 @@
 					<view class="content-empty-button-word">新增</view>
 				</view>
 			</view>
-			<view @click="toAddCard()" class="empty flex justify-center items-center">
+			<view @click="toAddCard()" class="empty flex justify-center items-center" v-if="cardList.length !== 0">
 				新增宠物身份证
 			</view>
 

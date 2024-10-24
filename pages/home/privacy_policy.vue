@@ -1,0 +1,202 @@
+<template>
+	<view class="" style="width: 686rpx; margin: 0 auto; margin-top: 20rpx; padding-bottom: 100rpx;">
+		<view>
+		        <p><span style="-aw-import:spaces">&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0; </span><span
+		                style="font-family:宋体">尊敬的客户，欢迎注册成为平台（喵博士</span><span>X</span><span
+		                style="font-family:宋体">汪博士，以下简称“本平台”）用户，在注册前请仔细阅读如下服务条款：本平台由深圳市文贾运营管理有限责任公司</span><span>(</span><span
+		                style="font-family:宋体">以下简称“本公司”</span><span>)</span><span
+		                style="font-family:宋体">运营管理，并根据本协议的规定向用户提供服务。本协议双方为用户与本公司，适用于用户注册并使用本平台服务的全部活动。在注册本平台之前，请务必认真阅读并充分理解本协议全部内容。用户同意所有注册协议条款并完成注册程序，才能成为本站的正式用户。上述注册程序完成时即视为用户已经充分理解和同意本协议全部内容，并签署了本协议，本协议已在用户与本公司之间产生合同法律效力，用户使用本平台服务的全部活动将受到本协议的约束并承担相应的责任和义务。喵博士</span><span>X</span><span
+		                style="font-family:宋体">汪博士以及小程序的所有权和运营权归深圳市文贾运营管理有限责任公司所有。 </span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">一、协议组成说明</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span
+		                style="font-family:宋体">、本协议的内容包括本协议以下全部条款以及本平台已经公示发布的及将来可能公示发布的各项规则，该等规则均为本协议不可分割的一部分，与本协议以下所列条款具有同等法律效力。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span
+		                style="font-family:宋体">、根据国家法律法规变化及网站运营需要，深圳市文贾运营管理有限责任公司有权对本协议条款不时地进行修改，修改后的协议一经被张贴在本站上即生效，并代替原来的协议。用户可随时登录查阅最新协议；用户有义务不时关注并阅读最新版的协议及网站公告。如用户不同意更新后的协议，可以且应立即停止接受网站依据本协议提供的服务；如用户继续使用本网站提供的服务的，即视为同意更新后的协议。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>3</span><span style="font-family:宋体">、 本协议不涉及用户与本平台的其他用户之间因网上交易而产生的法律关系及法律纠纷。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">二、用户注册须知</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span style="font-family:宋体">、注册成为本平台用户必须满足如下相应主体资格条件之一：</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span style="font-family:宋体">）用户必须是中国境内的居民，年龄在
+		            </span><span>18 </span><span style="font-family:宋体">周岁以上，且具有完全的民事权利能力及民事行为能力；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span
+		                style="font-family:宋体">）用户必须是在中国境内注册成立并经营的具备民事行为能力且能独立承担民事义务的法人；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>3</span><span
+		                style="font-family:宋体">）用户必须是在中国境内依法成立的其他组织。如不具备上述资格，应立即停止在本平台的注册程序、停止使用本平台服务，若违反前述规定注册使用本平台服务，本平台有权随时终止用户的注册进程及本平台服务，并保留追究用户法律责任的权利。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span
+		                style="font-family:宋体">、用户应自行诚信向本站提供注册资料，用户承诺其提供的注册资料真实、准确、完整、合法有效。如使用他人信息和文件注册使用本平台服务或向本平台提供的信息和资料不符合上述规定，由此引起的一切责任和后果均由用户自担，本公司及本平台不因此承担任何法律责任，如因此给本公司或本平台造成损失，用户应当承担赔偿责任。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">三、用户使用规则</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span
+		                style="font-family:宋体">、用户不得利用本平台或本平台服务从事任何不符合中国法律法规或侵犯他人权益的活动。不得自行发布、转载、传送含有下列内容之一的信息，本平台在发现用户从事该等活动或发布信息时，有权基于本平台的独立判断直接删除用户在本平台上作出的相关信息，有权不经通知而立即停止用户对本平台的全部或部分功能的使用（包括但不限于中止、终止、限制用户使用本平台服务）而无需通知用户，亦无需承担任何责任。如因此给本公司或本平台造成损失的，应当赔偿损失。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span style="font-family:宋体">） 违反宪法确定的基本原则的；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span style="font-family:宋体">）
+		                危害国家安全，泄露国家机密，颠覆国家政权，破坏国家统一的；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>3</span><span style="font-family:宋体">） 损害国家荣誉和利益的；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>4</span><span style="font-family:宋体">） 煽动民族仇恨、民族歧视，破坏民族团结的；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>5</span><span style="font-family:宋体">） 破坏国家宗教政策，宣扬邪教和封建迷信的；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>6</span><span style="font-family:宋体">） 散布谣言，扰乱社会秩序，破坏社会稳定的；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>7</span><span style="font-family:宋体">）
+		                散布淫秽、色情、赌博、暴力、恐怖或者教唆犯罪的；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>8</span><span style="font-family:宋体">） 侮辱或者诽谤他人，侵害他人合法权益的；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>9</span><span style="font-family:宋体">） 含有法律、行政法规禁止的其他内容的。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span
+		                style="font-family:宋体">、在使用本平台时，用户不得违反下述规定，如违反任意一条，本平台有权基于独立判断直接删除用户在本平台上作出的相关信息，有权要求用户改正或直接采取必要的措施禁止（包括但不限于中止、终止、限制用户使用本平台服务）而无需通知用户，亦无需承担任何责任。如因此给本公司及本平台造成损失的，用户应当赔偿本公司及本平台的损失。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span style="font-family:宋体">） 不得为任何非法目的而使用网络服务系统；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span style="font-family:宋体">）
+		                遵守所有与网络服务有关的网络协议、规定和程序；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>3</span><span style="font-family:宋体">）
+		                不得利用本平台进行任何可能对互联网的正常运转造成不利影响的行为；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>4</span><span style="font-family:宋体">）
+		                不得利用本平台进行任何不利于本平台或侵犯本公司利益的行为或言论。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">四、账户安全及管理</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span
+		                style="font-family:宋体">、用户在注册时向本平台提交的手机号码、用户名、密码是用户在本平台的唯一识别信息。用户注册成功后，应当妥善保管用户名和密码，并对自己的用户名、密码安全性负责，不得将注册的手机号码、用户名、密码转让、赠与或授权给第三方使用。用户确认使用用户名和密码登陆本平台后在本平台的一切行为均为用户本人操作，并承担相应的法律后果，本公司及本平台不承担任何责任。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span
+		                style="font-family:宋体">、协助义务：用户如发现有第三人冒用或盗用用户账户及密码，或其他任何未经合法授权的情形，应立即以有效方式通知本平台，要求本平台暂停相关服务，否则由此产生的一切责任由用户自担。同时，用户理解并同意本平台对其提出的请求采取行动需要合理期限，在此之前，本平台对第三人使用该服务所导致的损失不承担任何责任。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>3</span><span
+		                style="font-family:宋体">、本平台有权基于单方独立判断，在其认为可能发生危害交易安全等情形时，不经通知而先行暂停、中断或终止向用户提供本协议项下的全部或部分服务（包括收费服务），并将注册资料移除或删除，且无需对用户或任何第三方承担任何责任。前述情形包括但不限于：</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span style="font-family:宋体">）
+		                本平台认为用户提供的相关资料不具有真实性、有效性或完整性；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span style="font-family:宋体">）
+		                本平台发现异常交易或有疑义或有违法之虞时；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>3</span><span style="font-family:宋体">）
+		                本平台认为用户的账户涉嫌洗钱、套现、传销、被冒用或其他本平台认为有风险之情形；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>4</span><span style="font-family:宋体">）
+		                本平台认为用户已经违反本协议中规定的各类规则及精神；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>5</span><span style="font-family:宋体">）
+		                用户账户已连续三年内未实际使用且账户中余额为零；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>6</span><span style="font-family:宋体">）
+		                本平台基于交易安全等原因，根据其单独判断需先行暂停、中断或终止向用户提供本协议项下的全部或部分用户服务（包括收费服务），并将注册资料移除或删除的其他情形。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>4</span><span
+		                style="font-family:宋体">、用户同意，在必要时，本平台无需进行事先通知即有权终止提供用户账户服务，并可能立即暂停、关闭或删除用户账户及该用户账户中所有相关资料及档案。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>5</span><span
+		                style="font-family:宋体">、账户注销：当用户决定不再使用账户时，应并向平台申请注销该账户，审核同意后可正式注销账户。用户死亡或被宣告死亡的，其在本协议项下的各项权利义务由其继承人承担。若用户丧失全部或部分民事权利能力或民事行为能力，本平台或其授权的主体有权根据有效法律文书（包括但不限于生效的法院判决等）或其法定监护人的指示处置与用户账户相关的款项。强制注销用户账户的规则按此执行。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>6</span><span
+		                style="font-family:宋体">、用户同意，账户的暂停、中断或终止不代表用户责任的终止，用户仍应对使用本平台服务期间的行为承担可能的违约或损害赔偿责任，同时本平台仍可保有用户的相关信息。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>7</span><span style="font-family:宋体">、知识产权：</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span
+		                style="font-family:宋体">）本平台的所有内容，包括但不限于文本、数据、图片、音频、视频、源代码和其他所有信息，均由本公司及本平台享有知识产权。未经本平台事先书面同意，不得复制、模仿、改编、传播、公布、展示或以任何其他方式侵犯本平台的知识产权。未经本公司书面同意</span><span>,</span><span
+		                style="font-family:宋体">用户不得将本平台包含的资料等任何内容发布到任何其他平台或者服务器。任何未经授权对本平台内容的使用均属于违法行为，本公司有权追究法律责任。注册用户未经本平台的明确书面同意不许下载（除了页面缓存）或修改平台或其任何部分。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span
+		                style="font-family:宋体">）用户不得对平台或其内容进行转售或商业利用；不得收集和利用产品目录、说明和价格；不得对平台或其内容进行任何衍生利用；不得为其他商业利益而下载或拷贝账户信息或使用任何数据采集、收集和摘录工具。未经本平台的书面许可，严禁对本平台的内容进行系统获取以直接或间接创建或编辑文集、汇编、数据库或人名地址录（无论是否通过</span><span>Robots</span><span
+		                style="font-family:宋体">、</span><span>Spiders</span><span
+		                style="font-family:宋体">、自动仪器或手工操作）。另外，严禁为任何未经本协议明确允许的目的而使用本平台上的内容和材料。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">五、用户隐私保护及授权</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span
+		                style="font-family:宋体">、用户同意本平台在业务运营中收集和储存用户信息，包括但不限于用户自行提供的资料和信息，以及本平台自行收集、取得的用户在本平台的交易记录和使用信息等。本平台收集和储存用户信息的主要目的在于提高服务的效率和质量。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span style="font-family:宋体">、本平台不对外公开或第三方提供单个用户的注册资料及用户在使用网络服务时存储在本平台的非公开内容，但下列情况除外：</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>1</span><span style="font-family:宋体">） 事先获得用户的明确授权；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>2</span><span style="font-family:宋体">） 根据有关的法律法规要求；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>3</span><span style="font-family:宋体">） 按照相关政府主管部门的要求；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">（</span><span>4</span><span style="font-family:宋体">） 为维护社会公众的利益。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>3</span><span
+		                style="font-family:宋体">、本平台可能会与第三方合作向用户提供相关的网络服务，在此情况下，如该第三方同意承担与本站同等的保护用户隐私的责任，则本站有权将用户的注册资料等提供给该第三方。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>4</span><span
+		                style="font-family:宋体">、本平台按照用户在本平台上的行为自动追踪关于用户的某些资料。在不透露注册用户的隐私资料的前提下，本平台有权对整个用户数据库进行分析并对用户数据库进行商业上的利用。</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>5</span><span style="font-family:宋体">、用户同意，本公司及本平台可在本平台的某些网页上使用数据收集装置。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">六、订单及配送</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span
+		                style="font-family:宋体">、平台上的广告、价目表和声明并不必然构成要约。如果用户在平台上订购商品，订单成为一种购买商品的申请或要约。当用户确认订单详情，付款成功之后，平台会根据订单配货、发货。订单发货后才正式成立。在订单成立之前，用户可联系客服取消订单；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span
+		                style="font-family:宋体">、商品价格和可获性已在网站上指明（特殊情况除外），这类信息将随时更改且不发通知。送货费将另外结算，费用根据用户选择的送货方式、地点等不同而有差异。在确认收到了订单提交后，如果发生了以下意外情况，由于不确定因素导致的提价、税额变化而引起价格变化，平台会通过网站海报、其他信息通知，由用户决定是否撤回订单；</span>
+		        </p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>3</span><span
+		                style="font-family:宋体">、当发现平台上显现的商品及订单的明显错误、缺货、超区配送或其他特殊情况导致无法接受订单的情况下，平台有权通知用户的订单无法成立；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>4</span><span style="font-family:宋体">、深圳市文贾运营管理有限责任公司保留对商品订购的数量的限制权。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>5</span><span style="font-family:宋体">、因不可抗力原因导致定购商品无法送达乙方地点，平台不承担来回运费及相关费用；</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span style="font-family:宋体">七、附则</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>1</span><span style="font-family:宋体">、本协议的订立、执行和解释及争议的解决均应适用中华人民共和国法律。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>2</span><span style="font-family:宋体">、如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本协议的其余条款仍应有效并且有约束力。</span></p>
+		        <p><span style="-aw-import:ignore">&#xa0;</span></p>
+		        <p><span>3</span><span style="font-family:宋体">、本协议解释权及修订权归深圳市文贾运营管理有限责任公司所有</span></p>
+		    </view>
+	</view>
+</template>
+
+<script>
+</script>
+
+<style>
+</style>

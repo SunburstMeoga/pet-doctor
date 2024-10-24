@@ -2,7 +2,7 @@
 	<view class="container">
 		<view class="content flex justify-start items-center" v-if="ordersLis.length !== 0">
 			<view class="content-item" v-for="(item,index) in ordersLis" :key="index">
-				<order-card :orderNumber="item.order_sn" :price="item.amount * 0.01" :status="item.status" :count="item.items[0].quantity"></order-card>
+				<order-card :orderNumber="item.order_sn" :price="item.amount * 0.01" :product_picture="item.items[0].product_picture" :status="item.status" :count="item.items[0].quantity"></order-card>
 			</view>
 		</view>
 		<view class="empty flex justify-center items-center" v-if="ordersLis.length === 0">

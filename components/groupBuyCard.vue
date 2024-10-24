@@ -49,7 +49,7 @@
 		},
 		detail_pictures: {
 			type: String,
-			default: 'https://img1.baidu.com/it/u=3957729854,846758244&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500'
+			default: ''
 		}
 	})
 	const emit = defineEmits(['handleBuyNow']);
@@ -87,6 +87,8 @@
 				}
 				.details-right {
 					margin-left: 24rpx;
+					width: 398rpx;
+					// border: 1px solid red;
 					.right-title{
 						color: #222;
 						font-size: 32rpx;
