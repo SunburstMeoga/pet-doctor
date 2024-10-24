@@ -22,6 +22,19 @@ request.interceptors.response.use((response) => {
   } else {
     if (response.status === 401) {
       console.log("未登录");
+      common_vendor.index.showModal({
+        title: "未登录",
+        content: "您尚未登录，请前往登录",
+        showCancel: false,
+        success: function(res) {
+          if (res.confirm) {
+            console.log("用户点击确定");
+            common_vendor.index.switchTab({
+              url: "/pages/personal/index"
+            });
+          }
+        }
+      });
     } else if (response.status === 422)
       ;
     return Promise.reject(response);

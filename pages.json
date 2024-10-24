@@ -8,19 +8,21 @@
 			}
 		},
 		{
-			"path": "pages/login/index",
-			"style": {
-				"navigationBarTitleText": "登录"
-				// "navigationStyle": "custom"
-			}
-		},
-		{
 			"path": "pages/report/index",
 			"style": {
 				"navigationBarTitleText": "报告",
 				"navigationStyle": "custom"
 			}
 		},
+		
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录"
+				// "navigationStyle": "custom"
+			}
+		},
+		
 		{
 			"path": "pages/personal/orders",
 			"style": {
@@ -113,12 +115,12 @@
 				"iconPath": "static/images/icon/report.png",
 				"selectedIconPath": "static/images/icon/report-active.png"
 			},
-			{
-				"pagePath": "pages/cart/index",
-				"text": "购物车",
-				"iconPath": "static/images/icon/cart.png",
-				"selectedIconPath": "static/images/icon/cart.png"
-			},
+			// {
+			// 	"pagePath": "pages/cart/index",
+			// 	"text": "购物车",
+			// 	"iconPath": "static/images/icon/cart.png",
+			// 	"selectedIconPath": "static/images/icon/cart.png"
+			// },
 			{
 				"pagePath": "pages/personal/index",
 				"iconPath": "static/images/icon/personal.png",

@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/login/index",
     "pages/report/index",
+    "pages/login/index",
     "pages/personal/orders",
     "pages/home/group_buying",
     "pages/home/star_answer",
@@ -37,12 +37,6 @@
         "text": "报告",
         "iconPath": "static/images/icon/report.png",
         "selectedIconPath": "static/images/icon/report-active.png"
-      },
-      {
-        "pagePath": "pages/cart/index",
-        "text": "购物车",
-        "iconPath": "static/images/icon/cart.png",
-        "selectedIconPath": "static/images/icon/cart.png"
       },
       {
         "pagePath": "pages/personal/index",
