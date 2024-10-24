@@ -92,6 +92,12 @@ const deletePet = async (cardId) => {
     method: "delete"
   });
 };
+const userInfo = async () => {
+  return services_request.request({
+    url: "/user/info",
+    method: "get"
+  });
+};
 exports.allProduct = allProduct;
 exports.assessmentDetails = assessmentDetails;
 exports.createOrder = createOrder;
@@ -105,4 +111,5 @@ exports.petCards = petCards;
 exports.reportDetails = reportDetails;
 exports.reports = reports;
 exports.storePetCard = storePetCard;
+exports.userInfo = userInfo;
 exports.userPhone = userPhone;

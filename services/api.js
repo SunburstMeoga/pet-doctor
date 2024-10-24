@@ -106,7 +106,13 @@ export const deletePet = async (cardId) => {
 		method: 'delete',
 	})
 }
-
+//获取个人信息
+export const userInfo = async () => {
+	return axios({
+		url: '/user/info',
+		method: 'get'
+	})
+}
 
 
 

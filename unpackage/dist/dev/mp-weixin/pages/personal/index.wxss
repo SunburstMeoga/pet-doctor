@@ -56,6 +56,7 @@
   height: 128rpx;
   border-radius: 50%;
   border: 1rpx solid #FCE16A;
+  overflow: hidden;
 }
 .container .infor-details-left-base.data-v-3327436b {
   color: #222;

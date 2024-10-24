@@ -7,9 +7,11 @@
 			style="background-image: url('http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/TomWHO3jqHYSMV4f0KosXrrxe1tKiVEIy7ODUQ8B.png');">
 			<view class="infor-details flex justify-between items-center">
 				<view class="infor-details-left flex justify-start items-start">
-					<view class="infor-details-left-avator"></view>
+					<view class="infor-details-left-avator">
+						<image :src="userInfoObj.avatar" mode="aspectFit"></image>
+					</view>
 					<view class="infor-details-left-base flex justify-center items-start">
-						<view class="infor-details-left-base-name">Petting</view>
+						<view class="infor-details-left-base-name">{{userInfoObj.nickname}}</view>
 						<view class="infor-details-left-base-intro">喵博士 X 汪博士</view>
 					</view>
 				</view>
@@ -22,9 +24,9 @@
 						<view class="infor-details-right-items-icon icon iconfont icon-icon-test"></view>
 						<view class="infor-details-right-items-word">个人资料</view>
 					</view> -->
-					<button v-if="!isLogged" class="login flex justify-center items-center" @click="toLogin()">
+					<!-- <button v-if="!isLogged" class="login flex justify-center items-center" @click="toLogin()">
 						登录账号
-					</button>
+					</button> -->
 				</view>
 			</view>
 		</view>
@@ -68,11 +70,11 @@
 		ref,onMounted
 	} from 'vue'
 	import {
-		login
+		login,userInfo
 	} from '@/services/api.js'
 	onMounted(() => {
 		console.log('token', uni.getStorageSync('token'))
-		
+		getUserInfo()
 		if(uni.getStorageSync('token')) {
 			isLogged.value = true
 			console.log(isLogged.value)
@@ -81,10 +83,17 @@
 		}
 	})
 	let isLogged = ref(false)
+	let userInfoObj = ref({})
 	let toPolicy = () => {
 		uni.navigateTo({
 			url: '/pages/home/privacy_policy'
 		})
+	}
+	let getUserInfo = async () => {
+		let res = await userInfo()
+		let {avatar, nickname} = res.data.data
+		userInfoObj.value = {avatar, nickname}
+		console.log('个人资料', res)
 	}
 	let handleOrder = (status) => {
 		if(!uni.getStorageSync('token')) {
@@ -201,6 +210,7 @@
 						height: 128rpx;
 						border-radius: 50%;
 						border: 1rpx solid #FCE16A;
+						overflow: hidden;
 					}
 
 					&-base {

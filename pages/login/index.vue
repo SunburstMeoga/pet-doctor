@@ -25,12 +25,12 @@ word-break:break-all;">encryptedData: {{encryptedData}}</view> -->
 	let getPhone = ref(false)
 	let iv = ref('')
 	onMounted(() => {
-		// if(uni.getStorageSync('token') && uni.getStorageSync('token') !== undefined && uni.getStorageSync('token') !== 'undefined') {
-		// 	console.log(uni.getStorageSync('token'))
-		// 	uni.switchTab({
-		// 		url: '/pages/home/index'
-		// 	})
-		// }
+		if(uni.getStorageSync('token') && uni.getStorageSync('token') !== undefined && uni.getStorageSync('token') !== 'undefined') {
+			console.log(uni.getStorageSync('token'))
+			uni.switchTab({
+				url: '/pages/home/index'
+			})
+		}
 
 	})
 	let getPetCards = async () => {

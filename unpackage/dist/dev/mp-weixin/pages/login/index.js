@@ -9,6 +9,12 @@ const _sfc_main = {
     let getPhone = common_vendor.ref(false);
     common_vendor.ref("");
     common_vendor.onMounted(() => {
+      if (common_vendor.index.getStorageSync("token") && common_vendor.index.getStorageSync("token") !== void 0 && common_vendor.index.getStorageSync("token") !== "undefined") {
+        console.log(common_vendor.index.getStorageSync("token"));
+        common_vendor.index.switchTab({
+          url: "/pages/home/index"
+        });
+      }
     });
     let onGetPhoneNumber = async (e) => {
       common_vendor.index.showLoading({

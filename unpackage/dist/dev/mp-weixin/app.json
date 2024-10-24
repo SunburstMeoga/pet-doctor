@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/home/index",
     "pages/home/privacy_policy",
     "pages/report/index",
-    "pages/login/index",
     "pages/personal/orders",
     "pages/home/group_buying",
     "pages/home/star_answer",
