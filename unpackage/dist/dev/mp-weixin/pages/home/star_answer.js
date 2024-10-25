@@ -6,6 +6,7 @@ const _sfc_main = {
     let isAgree = common_vendor.ref(false);
     let assessmentId = common_vendor.ref("");
     let cardId = common_vendor.ref("");
+    let mbtiImg = common_vendor.ref("");
     let handleAgree = () => {
       isAgree.value = !isAgree.value;
       console.log(isAgree.value);
@@ -42,15 +43,17 @@ const _sfc_main = {
       if (options.cardId || options.assessmentId) {
         cardId.value = options.cardId;
         assessmentId.value = options.assessmentId;
-        console.log(cardId.value);
+        mbtiImg.value = assessmentId.value === "1" ? "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/e632NoVfwmitWYPRRIvXJItacKfSQtdrNNQC5JpN.png" : "http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/e632NoVfwmitWYPRRIvXJItacKfSQtdrNNQC5JpN.png";
+        console.log(cardId.value, mbtiImg.value);
       }
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.o(($event) => common_vendor.unref(handleAgree)()),
-        b: common_vendor.n(common_vendor.unref(isAgree) ? "protocol-left-select" : "protocol-left-unselect"),
-        c: common_vendor.o(($event) => common_vendor.unref(toPolicy)()),
-        d: common_vendor.o(($event) => common_vendor.unref(handleStarAnswer)())
+        a: common_vendor.unref(mbtiImg),
+        b: common_vendor.o(($event) => common_vendor.unref(handleAgree)()),
+        c: common_vendor.n(common_vendor.unref(isAgree) ? "protocol-left-select" : "protocol-left-unselect"),
+        d: common_vendor.o(($event) => common_vendor.unref(toPolicy)()),
+        e: common_vendor.o(($event) => common_vendor.unref(handleStarAnswer)())
       };
     };
   }

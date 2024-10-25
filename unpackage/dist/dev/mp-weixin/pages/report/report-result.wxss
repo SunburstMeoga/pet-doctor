@@ -62,9 +62,12 @@
 }
 .container .content .report-result.data-v-fdd21b61 {
   margin-top: -20rpx;
+  width: 686rpx;
   height: 805rpx;
-  background-color: #fff;
   margin-bottom: 52rpx;
+  overflow: hidden;
+  padding: 0;
+  background-color: transparent !important;
 }
 .container .content .eval-details .details-title.data-v-fdd21b61 {
   font-size: 36rpx;

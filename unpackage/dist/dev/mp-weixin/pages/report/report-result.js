@@ -2,8 +2,9 @@
 const common_vendor = require("../../common/vendor.js");
 const services_api = require("../../services/api.js");
 if (!Math) {
-  productCard();
+  (petCard + productCard)();
 }
+const petCard = () => "../../components/petCard.js";
 const productCard = () => "../../components/productCard.js";
 const _sfc_main = {
   __name: "report-result",
@@ -11,6 +12,8 @@ const _sfc_main = {
     let reportId = common_vendor.ref("");
     let dimensionsItems = common_vendor.ref([]);
     let reportTitle = common_vendor.ref("");
+    let cardId = common_vendor.ref("");
+    let mbtiImg = common_vendor.ref("");
     let handleShare = () => {
       console.log("点击了分享");
       common_vendor.index.share({
@@ -38,6 +41,7 @@ const _sfc_main = {
       console.log("报告详情", result);
       dimensionsItems.value = result.data.data.dimensions;
       reportTitle.value = result.data.data.assessment.title;
+      mbtiImg.value = result.data.data.image;
       productList.value = result.data.data.products;
       console.log(productList.value[0].pictures[0]);
     };
@@ -75,12 +79,14 @@ const _sfc_main = {
     common_vendor.onLoad((options) => {
       console.log(options);
       reportId.value = options.reportId;
+      cardId.value = options.cardId;
       console.log(reportId.value);
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.t(common_vendor.unref(reportTitle)),
-        b: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
+        a: common_vendor.unref(mbtiImg),
+        b: common_vendor.t(common_vendor.unref(reportTitle)),
+        c: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
           return {
             a: common_vendor.t(item.title),
             b: common_vendor.t(item.value),
@@ -93,7 +99,7 @@ const _sfc_main = {
             i: index
           };
         }),
-        c: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
+        d: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
           return {
             a: common_vendor.t(item.title),
             b: common_vendor.t(item.value),
@@ -103,10 +109,10 @@ const _sfc_main = {
             f: index
           };
         }),
-        d: common_vendor.f(common_vendor.unref(productList), (item, index, i0) => {
+        e: common_vendor.f(common_vendor.unref(productList), (item, index, i0) => {
           return {
             a: common_vendor.o(($event) => common_vendor.unref(buyNow)(item), index),
-            b: "fdd21b61-0-" + i0,
+            b: "fdd21b61-1-" + i0,
             c: common_vendor.p({
               title: item.title,
               intro: item.intro,
@@ -116,7 +122,7 @@ const _sfc_main = {
             d: index
           };
         }),
-        e: common_vendor.o(($event) => common_vendor.unref(handleShare)())
+        f: common_vendor.o(($event) => common_vendor.unref(handleShare)())
       };
     };
   }

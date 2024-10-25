@@ -1,6 +1,8 @@
 <template>
-	<view class="container">
-		<view class="container-bg"></view>
+	<view class="container flex justify-end items-center">
+		<view class="container-bg">
+			<image :src="mbtiImg" mode="aspectFill"></image>
+		</view>
 		<view class="container-bottom flex justify-start items-center">
 			<view class="title">完成问卷仅需3-5分钟</view>
 			<view class="protocol flex items-center">
@@ -20,6 +22,7 @@
 	let isAgree = ref(false)
 	let assessmentId = ref('')
 	let cardId = ref('')
+	let mbtiImg = ref('')
 	let handleAgree = () => {
 		isAgree.value = !isAgree.value
 		console.log(isAgree.value)
@@ -57,7 +60,8 @@
 		if(options.cardId || options.assessmentId) {
 			cardId.value = options.cardId
 			assessmentId.value = options.assessmentId
-			console.log(cardId.value)
+			mbtiImg.value = assessmentId.value === '1' ? 'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/e632NoVfwmitWYPRRIvXJItacKfSQtdrNNQC5JpN.png' :'http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/e632NoVfwmitWYPRRIvXJItacKfSQtdrNNQC5JpN.png'
+			console.log(cardId.value,mbtiImg.value)
 		}
 		
 		
@@ -67,17 +71,18 @@
 <style lang="scss" scoped>
 	       .container {
 			   background-color: #E8EFF5;
+			   flex-direction: column;
+			   height: 100vh;
 			   .container-bg {
 				   width: 100%;
-				   height: 100vh;
-				   // border: 1px solid red;
+				   flex:1;
 			   }
 			   .container-bottom {
-				   position: fixed;
+				   // position: fixed;
 				   width: 100%;
 				   height: 256rpx;
-				   bottom: 0;
-				   left: 0;
+				   // bottom: 0;
+				   // left: 0;
 				   padding-bottom: 88rpx;
 				   background-color: #fff;
 				   flex-direction: column;

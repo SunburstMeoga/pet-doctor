@@ -1,12 +1,12 @@
 <template>
 	<view class="container">
 		<view class="content flex justify-start items-center">
-		<!-- 	<view class="pet-info">
+			<view class="pet-info">
 				<pet-card></pet-card>
 			</view>
-			<view class="report-result module">
-				
-			</view> -->
+			<view class="module report-result" >
+				<image :src="mbtiImg" mode="aspectFit" style="border-radius: 24rpx;"></image>
+			</view>
 			<view class="eval-details module">
 				<view class="details-title">测评详情</view>
 				<view class="details-content"  style="background-image: url('../../static/images/report/mbti-result.png');">
@@ -40,28 +40,7 @@
 					{{item.suggest}}
 				</view>
 			</view>
-			<!-- <view class="result-item module">
-				<view class="item-title flex justify-start items-center">
-					<view class="title-left">外倾性：</view>
-					<view class="title-right">E</view>
-				</view>
-				<view class="item-details">
-					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
-				</view>
-				<view class="item-sug">建议</view>
-				<view class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</view>
-			</view>
-			<view class="result-item module">
-				<view class="item-title flex justify-start items-center">
-					<view class="title-left">外倾性：</view>
-					<view class="title-right">E</view>
-				</view>
-				<view class="item-details">
-					四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，
-				</view>
-				<view class="item-sug">建议</view>
-				<view class="sug-content">四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容，四肢问题详情内容</view>
-			</view> -->
+			
 			<view class="module program">
 				<view class="program-bg flex justify-center items-center image-bg" style="background-image: url('http://pet-miniapp-test.oss-cn-shenzhen.aliyuncs.com/media/20241024/WK1GvrB7jcsnJf8NbCH7jAUhWREp4CmnXl5ARW7P.png');"></view>
 				<view class="program-title">根据 <span style="font-weight: bold;">花花</span> 的测评结果推荐以下商品</view>
@@ -95,6 +74,8 @@
 	let reportId = ref('')
 	let dimensionsItems = ref([])
 	let reportTitle = ref('')
+	let cardId = ref('')
+	let mbtiImg = ref('')
 	let handleShare = () =>{
 		console.log('点击了分享')
 		uni.share({
@@ -122,6 +103,7 @@
 		console.log("报告详情",result)
 		dimensionsItems.value = result.data.data.dimensions
 		reportTitle.value = result.data.data.assessment.title
+		mbtiImg.value = result.data.data.image
 		productList.value = result.data.data.products
 		console.log(productList.value[0].pictures[0])
 	}
@@ -162,6 +144,7 @@
 	onLoad((options) => {
 		console.log(options); // { id: '123', name: '张三' }
 		reportId.value = options.reportId
+		cardId.value = options.cardId
 		console.log(reportId.value)
 	})
 </script>
@@ -205,11 +188,15 @@
 			}
 			.report-result {
 				margin-top: -20rpx;
-				// width: 686rpx;
+				width: 686rpx;
 				height: 805rpx;
 				// border: 1px solid red;
-				background-color: #fff;
+				// background-color: #fff;
 				margin-bottom: 52rpx;
+				overflow: hidden;
+				padding: 0;
+				background-color: transparent !important;
+				
 			}
 			.eval-details {
 				// width: 686rpx;
