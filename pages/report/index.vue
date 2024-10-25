@@ -107,15 +107,20 @@
 			title:"正在加载...",
 		})
 		let petCardsList = await petCards()
+		if(petCardsList.data.data[0].id) {
+			let resReport = await reports({pet_card_id: petCardsList.data.data[0].id})
+			reportList.value = resReport.data.data
+			console.log('报告',resReport)
+			uni.hideLoading()
+		}
 		
-		let resReport = await reports({pet_card_id: petCardsList.data.data[0].id})
 		uni.hideLoading()
-		reportList.value = resReport.data.data
+		
 		cardList.value = petCardsList.data.data
 		console.log('宠物id',petCardsList.data.data[0].id)
 		console.log(petCardsList.data.data.length,petCardsList)
 		console.log(cardList.value)
-		console.log('报告',resReport)
+		
 	})
 </script>
 

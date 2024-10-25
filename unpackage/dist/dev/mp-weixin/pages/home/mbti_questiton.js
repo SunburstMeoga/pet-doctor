@@ -38,7 +38,7 @@ const _sfc_main = {
         console.log("报告结果", result);
         if (result.data.data.id) {
           common_vendor.index.navigateTo({
-            url: `/pages/report/report-result?reportId=${result.data.data.id}`
+            url: `/pages/report/report-result?reportId=${result.data.data.id}&cardId=${cardId.value}`
           });
         }
       }

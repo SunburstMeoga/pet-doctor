@@ -98,6 +98,12 @@ const userInfo = async () => {
     method: "get"
   });
 };
+const petInfo = async (petId) => {
+  return services_request.request({
+    url: "/card/" + petId,
+    method: "get"
+  });
+};
 exports.allProduct = allProduct;
 exports.assessmentDetails = assessmentDetails;
 exports.createOrder = createOrder;
@@ -108,6 +114,7 @@ exports.orders = orders;
 exports.pay = pay;
 exports.petBreeds = petBreeds;
 exports.petCards = petCards;
+exports.petInfo = petInfo;
 exports.reportDetails = reportDetails;
 exports.reports = reports;
 exports.storePetCard = storePetCard;

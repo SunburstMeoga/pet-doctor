@@ -114,6 +114,14 @@ export const userInfo = async () => {
 	})
 }
 
+//查看宠物信息
+export const petInfo = async (petId) => {
+	return axios({
+		url: '/card/' + petId,
+		method: 'get'
+	})
+}
+
 
 
 

@@ -51,14 +51,17 @@ const _sfc_main = {
         title: "正在加载..."
       });
       let petCardsList = await services_api.petCards();
-      let resReport = await services_api.reports({ pet_card_id: petCardsList.data.data[0].id });
+      if (petCardsList.data.data[0].id) {
+        let resReport = await services_api.reports({ pet_card_id: petCardsList.data.data[0].id });
+        reportList.value = resReport.data.data;
+        console.log("报告", resReport);
+        common_vendor.index.hideLoading();
+      }
       common_vendor.index.hideLoading();
-      reportList.value = resReport.data.data;
       cardList.value = petCardsList.data.data;
       console.log("宠物id", petCardsList.data.data[0].id);
       console.log(petCardsList.data.data.length, petCardsList);
       console.log(cardList.value);
-      console.log("报告", resReport);
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

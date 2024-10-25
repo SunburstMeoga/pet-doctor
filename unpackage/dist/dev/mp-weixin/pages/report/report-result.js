@@ -32,6 +32,14 @@ const _sfc_main = {
         }
       });
     };
+    let getPetInfoDetails = async (petId) => {
+      common_vendor.index.showLoading({
+        title: "正在加载..."
+      });
+      let res = await services_api.petInfo(petId);
+      console.log("宠物信息", res);
+      common_vendor.index.hideLoading();
+    };
     let getReportDeatils = async (reportId2) => {
       common_vendor.index.showLoading({
         title: "正在加载..."
@@ -75,12 +83,13 @@ const _sfc_main = {
     };
     common_vendor.onMounted(() => {
       getReportDeatils(reportId.value);
+      getPetInfoDetails(cardId.value);
     });
     common_vendor.onLoad((options) => {
       console.log(options);
       reportId.value = options.reportId;
       cardId.value = options.cardId;
-      console.log(reportId.value);
+      console.log("options.cardId", options.cardId);
     });
     return (_ctx, _cache) => {
       return {

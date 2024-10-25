@@ -70,7 +70,7 @@
 	import productCard from '../../components/productCard.vue';
 	import { onLoad } from '@dcloudio/uni-app'
 	import {ref,onMounted} from 'vue'
-	import { allProduct,createOrder,pay,reportDetails} from '@/services/api.js'
+	import { allProduct,createOrder,pay,reportDetails,petInfo} from '@/services/api.js'
 	let reportId = ref('')
 	let dimensionsItems = ref([])
 	let reportTitle = ref('')
@@ -93,6 +93,14 @@
 				console.log("fail:" + JSON.stringify(err));
 			}
 		});
+	}
+	let getPetInfoDetails = async(petId) => {
+		uni.showLoading({
+			title: '正在加载...'
+		})
+		let res = await petInfo(petId)
+		console.log('宠物信息', res)
+		uni.hideLoading()
 	}
 	let getReportDeatils = async (reportId) => {
 		uni.showLoading({
@@ -140,12 +148,13 @@
 	}
 	onMounted(() => {
 		getReportDeatils(reportId.value)
+		getPetInfoDetails(cardId.value)
 	})
 	onLoad((options) => {
 		console.log(options); // { id: '123', name: '张三' }
 		reportId.value = options.reportId
 		cardId.value = options.cardId
-		console.log(reportId.value)
+		console.log('options.cardId', options.cardId)
 	})
 </script>
 
