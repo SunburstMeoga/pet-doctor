@@ -55,7 +55,7 @@
 .card-info-name.data-v-241ef60e {
   color: black;
   margin-bottom: 30rpx;
-  font-size: 16rpx;
+  font-size: 32rpx;
   height: 18rpx;
   font-weight: bolder;
 }

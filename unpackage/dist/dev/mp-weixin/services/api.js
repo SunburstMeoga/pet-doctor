@@ -100,7 +100,7 @@ const userInfo = async () => {
 };
 const petInfo = async (petId) => {
   return services_request.request({
-    url: "/card/" + petId,
+    url: "/pet/card/" + petId,
     method: "get"
   });
 };

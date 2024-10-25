@@ -133,7 +133,7 @@
 		uni.hideLoading()
 		console.log(petCardsList.data.data.length, petCardsList)
 		cardList.value = petCardsList.data.data
-		console.log(cardList.value)
+		console.log('宠物身份证',  cardList.value)
 	})
 </script>
 

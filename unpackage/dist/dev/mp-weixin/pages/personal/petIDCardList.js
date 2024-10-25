@@ -79,7 +79,7 @@ const _sfc_main = {
       common_vendor.index.hideLoading();
       console.log(petCardsList.data.data.length, petCardsList);
       cardList.value = petCardsList.data.data;
-      console.log(cardList.value);
+      console.log("宠物身份证", cardList.value);
     });
     return (_ctx, _cache) => {
       return common_vendor.e({

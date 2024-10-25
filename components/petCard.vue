@@ -81,7 +81,7 @@
 		&-name {
 			color: black;
 			margin-bottom: 30rpx;
-			font-size: 16rpx;
+			font-size: 32rpx;
 			// border: 1px solid orchid;
 			height: 18rpx;
 			font-weight: bolder;

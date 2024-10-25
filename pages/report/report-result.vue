@@ -2,7 +2,7 @@
 	<view class="container">
 		<view class="content flex justify-start items-center">
 			<view class="pet-info">
-				<pet-card></pet-card>
+				<pet-card :name="petInfoObj.name" :breed="petInfoObj.breed.name" :sex="petInfoObj.sex" :time="petInfoObj.birth_at"></pet-card>
 			</view>
 			<view class="module report-result" >
 				<image :src="mbtiImg" mode="aspectFit" style="border-radius: 24rpx;"></image>
@@ -76,6 +76,7 @@
 	let reportTitle = ref('')
 	let cardId = ref('')
 	let mbtiImg = ref('')
+	let petInfoObj = ref({})
 	let handleShare = () =>{
 		console.log('点击了分享')
 		uni.share({
@@ -100,6 +101,8 @@
 		})
 		let res = await petInfo(petId)
 		console.log('宠物信息', res)
+		petInfoObj.value = res.data.data
+		console.log('获取到的宠物信息', petInfoObj.value)
 		uni.hideLoading()
 	}
 	let getReportDeatils = async (reportId) => {

@@ -14,6 +14,7 @@ const _sfc_main = {
     let reportTitle = common_vendor.ref("");
     let cardId = common_vendor.ref("");
     let mbtiImg = common_vendor.ref("");
+    let petInfoObj = common_vendor.ref({});
     let handleShare = () => {
       console.log("点击了分享");
       common_vendor.index.share({
@@ -38,6 +39,8 @@ const _sfc_main = {
       });
       let res = await services_api.petInfo(petId);
       console.log("宠物信息", res);
+      petInfoObj.value = res.data.data;
+      console.log("获取到的宠物信息", petInfoObj.value);
       common_vendor.index.hideLoading();
     };
     let getReportDeatils = async (reportId2) => {
@@ -93,9 +96,15 @@ const _sfc_main = {
     });
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.unref(mbtiImg),
-        b: common_vendor.t(common_vendor.unref(reportTitle)),
-        c: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
+        a: common_vendor.p({
+          name: common_vendor.unref(petInfoObj).name,
+          breed: common_vendor.unref(petInfoObj).breed.name,
+          sex: common_vendor.unref(petInfoObj).sex,
+          time: common_vendor.unref(petInfoObj).birth_at
+        }),
+        b: common_vendor.unref(mbtiImg),
+        c: common_vendor.t(common_vendor.unref(reportTitle)),
+        d: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
           return {
             a: common_vendor.t(item.title),
             b: common_vendor.t(item.value),
@@ -108,7 +117,7 @@ const _sfc_main = {
             i: index
           };
         }),
-        d: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
+        e: common_vendor.f(common_vendor.unref(dimensionsItems), (item, index, i0) => {
           return {
             a: common_vendor.t(item.title),
             b: common_vendor.t(item.value),
@@ -118,7 +127,7 @@ const _sfc_main = {
             f: index
           };
         }),
-        e: common_vendor.f(common_vendor.unref(productList), (item, index, i0) => {
+        f: common_vendor.f(common_vendor.unref(productList), (item, index, i0) => {
           return {
             a: common_vendor.o(($event) => common_vendor.unref(buyNow)(item), index),
             b: "fdd21b61-1-" + i0,
@@ -131,7 +140,7 @@ const _sfc_main = {
             d: index
           };
         }),
-        f: common_vendor.o(($event) => common_vendor.unref(handleShare)())
+        g: common_vendor.o(($event) => common_vendor.unref(handleShare)())
       };
     };
   }
